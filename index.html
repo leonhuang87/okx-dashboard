@@ -1211,9 +1211,18 @@ function renderBtEquityChart(curve, capital) {
 
   // Build PnL data (Y = equity - initial capital)
   var data = [];
+  var now = new Date();
+  var year = now.getFullYear();
   for (var i = 0; i < curve.length; i++) {
     var c = curve[i];
-    var ts = Math.floor(new Date(c.time.replace(' ', 'T')).getTime() / 1000);
+    // Parse "MM-DD HH:MM" format (no year)
+    var parts = c.time.match(/(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
+    var ts;
+    if (parts) {
+      ts = Math.floor(new Date(year, parseInt(parts[1])-1, parseInt(parts[2]), parseInt(parts[3]), parseInt(parts[4])).getTime() / 1000);
+    } else {
+      ts = Math.floor(new Date(c.time.replace(' ', 'T')).getTime() / 1000);
+    }
     if (isNaN(ts)) continue;
     data.push({ time: ts, value: Math.round((c.equity - capital) * 100) / 100 });
   }
