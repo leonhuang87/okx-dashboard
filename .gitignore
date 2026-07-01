@@ -16,7 +16,6 @@ models/
 *.log
 *.bak
 style-*.html
-*.vbs
 *.ps1
 
 # Backtest scripts (not core)
@@ -40,6 +39,7 @@ market_db.py
 # OS
 Thumbs.db
 Desktop.ini
+NUL
 
 # IDE
 .vscode/

@@ -11,6 +11,7 @@
   --bg-primary: #0a0e17;
   --bg-secondary: #111827;
   --bg-card: #1a2235;
+  --bg-hover: #243049;
   --bg-input: #0d1320;
   --border: #2a3548;
   --border-hover: #3a4a60;
@@ -107,6 +108,7 @@ body {
 
 .grid { display: grid; gap: 16px; }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-2-1 { grid-template-columns: 2fr 1fr; }
@@ -309,12 +311,65 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 10px;
-  max-height: 250px;
+  max-height: 400px;
+  min-height: 200px;
   overflow-y: auto;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   line-height: 1.6;
 }
+.log-area::-webkit-scrollbar { width: 6px; }
+.log-area::-webkit-scrollbar-track { background: transparent; }
+.log-area::-webkit-scrollbar-thumb { background: #2a3548; border-radius: 3px; }
+.log-area::-webkit-scrollbar-thumb:hover { background: #3b4a60; }
+
+/* Log Modal */
+.log-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+.log-modal-overlay.active { display: flex; }
+.log-modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 90vw;
+  max-width: 900px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.log-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.log-modal-header h3 { margin: 0; font-size: 16px; color: #e2e8f0; }
+.log-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.log-modal-body::-webkit-scrollbar { width: 6px; }
+.log-modal-body::-webkit-scrollbar-track { background: transparent; }
+.log-modal-body::-webkit-scrollbar-thumb { background: #2a3548; border-radius: 3px; }
+.log-modal-filters {
+  display: flex;
+  gap: 6px;
+  padding: 0 20px 12px;
+}
+.log-modal-filters .btn-sm { font-size: 11px; padding: 3px 10px; }
 
 .log-area .log-open { color: var(--accent-green); }
 .log-area .log-close { color: var(--accent-yellow); }
@@ -338,6 +393,30 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
   border-color: var(--accent-blue);
   color: #fff;
 }
+
+/* Pair search dropdown */
+.pair-search { position: relative; display: inline-block; }
+.pair-search input {
+  width: 160px; padding: 4px 8px; font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg-input); border: 1px solid var(--border);
+  color: var(--text-primary); border-radius: 4px;
+}
+.pair-search input:focus { border-color: var(--accent-blue); outline: none; }
+.pair-dropdown {
+  display: none; position: absolute; z-index: 100; left: 0; top: 100%;
+  width: 220px; max-height: 250px; overflow-y: auto;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); margin-top: 4px;
+}
+.pair-dropdown.show { display: block; }
+.pair-item {
+  padding: 8px 12px; cursor: pointer; font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pair-item:hover { background: var(--bg-hover); }
+.pair-item .quote { font-size: 11px; color: var(--text-muted); }
 
 .prediction-box {
   display: grid;
@@ -409,12 +488,13 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
 }
 
 @media (max-width: 1200px) {
+  .grid-5 { grid-template-columns: repeat(3, 1fr); }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .grid-4, .grid-3, .grid-2, .grid-2-1, .grid-1-2 {
+  .grid-5, .grid-4, .grid-3, .grid-2, .grid-2-1, .grid-1-2 {
     grid-template-columns: 1fr;
   }
 }
@@ -433,9 +513,10 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab(0)">账户详情</button>
   <button class="tab-btn" onclick="switchTab(1)">系统配置</button>
-  <button class="tab-btn" onclick="switchTab(2)">策略开发</button>
+  <button class="tab-btn" onclick="switchTab(2)">策略状态</button>
   <button class="tab-btn" onclick="switchTab(3)">数据管理</button>
   <button class="tab-btn" onclick="switchTab(4)">手动交易</button>
+  <button class="tab-btn" onclick="switchTab(5)">策略回测</button>
 </div>
 
 <!-- Tab 0: 账户详情 -->
@@ -475,12 +556,6 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
       <div class="section-title">▶ Model 01 策略控制</div>
       <div style="margin-bottom:10px;font-size:12px;color:var(--text-secondary)">
         55特征 | conf&gt;0.58 | TP=3×ATR | SL=2×ATR
-      </div>
-      <div class="form-row">
-        <label>初始资金:</label>
-        <input type="number" id="stratCapital" value="5000" style="width:100px">
-        <label>杠杆:</label>
-        <input type="number" id="stratLeverage" value="1" min="1" max="125" style="width:70px">
       </div>
       <div class="form-row" style="margin-top:8px">
         <button class="btn btn-green btn-sm" id="btnStratStart" onclick="strategyStart()">▶ 启动</button>
@@ -549,13 +624,32 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
 
   <!-- 系统日志 -->
   <div class="card">
-    <div class="section-title">系统日志</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div class="section-title" style="margin:0">系统日志</div>
+      <button class="btn btn-sm" onclick="openLogModal()" style="font-size:11px">查看全部日志</button>
+    </div>
     <div class="log-filters">
       <button class="btn btn-sm active" onclick="setLogFilter('all',this)">全部</button>
       <button class="btn btn-sm" onclick="setLogFilter('strategy',this)">策略</button>
       <button class="btn btn-sm" onclick="setLogFilter('system',this)">系统</button>
     </div>
     <div class="log-area" id="logArea">加载中...</div>
+  </div>
+</div>
+
+<!-- Log Modal -->
+<div class="log-modal-overlay" id="logModal" onclick="if(event.target===this)closeLogModal()">
+  <div class="log-modal">
+    <div class="log-modal-header">
+      <h3>全部日志</h3>
+      <button class="btn btn-sm" onclick="closeLogModal()" style="font-size:12px">✕ 关闭</button>
+    </div>
+    <div class="log-modal-filters">
+      <button class="btn btn-sm active" onclick="setModalLogFilter('all',this)">全部</button>
+      <button class="btn btn-sm" onclick="setModalLogFilter('strategy',this)">策略</button>
+      <button class="btn btn-sm" onclick="setModalLogFilter('system',this)">系统</button>
+    </div>
+    <div class="log-modal-body" id="logModalBody">加载中...</div>
   </div>
 </div>
 
@@ -633,7 +727,7 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
 
 <!-- Tab 2: 策略开发 -->
 <div class="tab-content" id="tab-2">
-  <div class="grid grid-3" style="margin-bottom:16px">
+  <div class="grid grid-5" style="margin-bottom:16px">
     <div class="card">
       <div class="card-title">策略净值</div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
@@ -649,16 +743,35 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
       <div class="card-sub">胜率: <span id="ledgerWinrate">--</span></div>
     </div>
     <div class="card">
+      <div class="card-title">杠杆</div>
+      <div style="display:flex;align-items:center;gap:4px;justify-content:center">
+        <input type="number" id="ledgerLeverage" value="1" min="1" max="125" style="width:60px;font-size:20px;text-align:center;font-weight:700" onchange="saveLeverage()">
+        <span style="font-size:13px;color:var(--text-muted)">x</span>
+      </div>
+      <div class="card-sub">倍</div>
+    </div>
+    <div class="card">
+      <div class="card-title">可用仓位</div>
+      <div style="display:flex;align-items:center;gap:4px;justify-content:center">
+        <input type="number" id="ledgerCapital" value="5000" min="0" step="100" style="width:100px;font-size:20px;text-align:center;font-weight:700" onchange="saveCapital()">
+      </div>
+      <div class="card-sub">USDT</div>
+    </div>
+    <div class="card">
       <div class="card-title">策略持仓</div>
       <div class="card-value" id="ledgerPosCount">0</div>
       <div class="card-sub">未平仓交易</div>
     </div>
   </div>
+  <div class="card" style="margin-bottom:16px">
+    <div class="section-title">收益曲线</div>
+    <div id="equityChartContainer" style="height:200px"></div>
+  </div>
   <div class="card">
     <div class="section-title">历史成交记录</div>
     <table>
       <thead><tr>
-        <th>时间</th><th>方向</th><th>入场价</th><th>出场价</th><th>数量</th><th>盈亏</th><th>手续费</th>
+        <th>时间</th><th>操作</th><th>价格</th><th>数量</th><th>盈亏</th><th>手续费</th>
       </tr></thead>
       <tbody id="ledgerTrades"></tbody>
     </table>
@@ -687,10 +800,19 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
         </select>
       </div>
       <div class="form-row">
-        <label>条数:</label>
-        <input type="number" id="dlLimit" value="200" style="width:80px">
+        <label>开始日期:</label>
+        <input type="datetime-local" id="dlStart" style="width:180px">
       </div>
-      <button class="btn btn-primary btn-sm" onclick="previewData()" style="margin-top:8px">预览数据</button>
+      <button class="btn btn-primary btn-sm" onclick="downloadData()" style="margin-top:8px" id="dlBtn">循环下载到数据库</button>
+      <div id="dlProgress" style="display:none;margin-top:10px">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-bottom:4px">
+          <span id="dlProgressText">下载中...</span>
+          <span id="dlProgressCount">0 条</span>
+        </div>
+        <div style="height:6px;background:var(--bg-input);border-radius:3px;overflow:hidden">
+          <div id="dlProgressBar" style="height:100%;width:0%;background:linear-gradient(90deg,#3b82f6,#10b981);border-radius:3px;transition:width 0.3s"></div>
+        </div>
+      </div>
     </div>
     <div class="card">
       <div class="section-title">数据库管理</div>
@@ -701,17 +823,7 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
       <button class="btn btn-sm" onclick="loadDbStats()" style="margin-top:8px">↻ 刷新</button>
     </div>
   </div>
-  <div class="card">
-    <div class="section-title">数据预览</div>
-    <div style="overflow-x:auto">
-      <table>
-        <thead><tr>
-          <th>时间</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th>
-        </tr></thead>
-        <tbody id="previewTable"></tbody>
-      </table>
-    </div>
-  </div>
+    <div id="dataPreview"></div>
 </div>
 
 <!-- Tab 4: 手动交易 -->
@@ -725,7 +837,11 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
             <button class="toggle-btn active" onclick="setTradeInst('spot',this)">现货</button>
             <button class="toggle-btn" onclick="setTradeInst('swap',this)">合约</button>
           </div>
-          <span id="tradePair" style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:600;margin-left:12px">ETH-USDT</span>
+          <div class="pair-search">
+            <input type="text" id="pairSearchInput" value="ETH-USDT" placeholder="搜索交易对..."
+              onfocus="showPairDropdown()" oninput="filterPairs()" onblur="setTimeout(hidePairDropdown,200)">
+            <div class="pair-dropdown" id="pairDropdown"></div>
+          </div>
           <span id="tradeTicker" style="font-size:12px;color:var(--text-secondary);margin-left:8px">--</span>
         </div>
         <div id="tradeTickerInfo" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px">
@@ -807,10 +923,344 @@ tr:hover td { background: rgba(59, 130, 246, 0.04); }
   </div>
 </div>
 
+<!-- Tab 5: 策略回测 -->
+<div class="tab-content" id="tab-5">
+  <div class="card" style="margin-bottom:16px">
+    <div class="section-title">回测参数</div>
+    <div class="grid grid-4" style="gap:12px">
+      <div class="form-row">
+        <label>开始时间</label>
+        <input id="btStart" type="datetime-local" value="">
+      </div>
+      <div class="form-row">
+        <label>结束时间</label>
+        <input id="btEnd" type="datetime-local" value="">
+      </div>
+      <div class="form-row">
+        <label>置信度阈值</label>
+        <input id="btThreshold" type="number" value="0.58" min="0.5" max="0.99" step="0.01">
+      </div>
+      <div class="form-row">
+        <label>止盈(ATR倍数)</label>
+        <input id="btTP" type="number" value="3.0" min="0.5" max="10" step="0.5">
+      </div>
+      <div class="form-row">
+        <label>止损(ATR倍数)</label>
+        <input id="btSL" type="number" value="2.0" min="0.5" max="10" step="0.5">
+      </div>
+    </div>
+    <div class="grid grid-4" style="gap:12px;margin-top:8px">
+      <div class="form-row">
+        <label>初始资金(USDT)</label>
+        <input id="btCapital" type="number" value="5000" min="100">
+      </div>
+      <div class="form-row">
+        <label>单笔风险(%)</label>
+        <input id="btRisk" type="number" value="1" min="0.1" max="10" step="0.1">
+      </div>
+      <div class="form-row">
+        <label>杠杆倍数</label>
+        <input id="btLeverage" type="number" value="10" min="1" max="125">
+      </div>
+      <div class="form-row">
+        <label>手续费(万分之)</label>
+        <input id="btComm" type="number" value="3.6" min="0" max="50" step="0.1">
+      </div>
+    </div>
+    <div style="margin-top:12px">
+      <button id="btRunBtn" class="btn" onclick="runBacktest()" style="padding:8px 32px;font-size:14px">开始回测</button>
+    </div>
+  </div>
+  <div id="btResult"></div>
+</div>
+
 <script>
+// === Data Download ===
+// Set default start date (7 days ago)
+(function() {
+  var now = new Date();
+  var start = new Date(now.getTime() - 7*24*3600*1000);
+  function toLocal(dt) {
+    var y = dt.getFullYear();
+    var m = ('0'+(dt.getMonth()+1)).slice(-2);
+    var d = ('0'+dt.getDate()).slice(-2);
+    var h = ('0'+dt.getHours()).slice(-2);
+    var mi = ('0'+dt.getMinutes()).slice(-2);
+    return y+'-'+m+'-'+d+'T'+h+':'+mi;
+  }
+  var s1 = document.getElementById('dlStart');
+  if (s1 && !s1.value) s1.value = toLocal(start);
+  // Also set backtest dates
+  var b1 = document.getElementById('btStart');
+  var b2 = document.getElementById('btEnd');
+  var bstart = new Date(now.getTime() - 48*3600*1000);
+  if (b1 && !b1.value) b1.value = toLocal(bstart);
+  if (b2 && !b2.value) b2.value = toLocal(now);
+})();
+
+function downloadData() {
+  var inst = document.getElementById('dlInst').value || 'ETH-USDT';
+  var bar = document.getElementById('dlBar').value || '5m';
+  var startVal = document.getElementById('dlStart').value;
+  var preview = document.getElementById('dataPreview');
+  var btn = document.getElementById('dlBtn');
+
+  if (!startVal) {
+    preview.innerHTML = '<div class="log-error">请选择开始日期</div>';
+    return;
+  }
+
+  var startISO = new Date(startVal).toISOString();
+  preview.innerHTML = '<div class="log-system">开始循环下载，请稍候...</div>';
+  btn.disabled = true;
+  btn.textContent = '下载中...';
+  var prog = document.getElementById('dlProgress');
+  prog.style.display = 'block';
+  document.getElementById('dlProgressBar').style.width = '0%';
+
+  // 用fetch + ReadableStream读SSE（兼容性比EventSource好，支持POST）
+  fetch(BASE + '/api/db/download', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({inst: inst, bar: bar, start: startISO})
+  }).then(function(response) {
+    var reader = response.body.getReader();
+    var decoder = new TextDecoder();
+    var buffer = '';
+
+    function read() {
+      reader.read().then(function(result) {
+        if (result.done) {
+          btn.disabled = false;
+          btn.textContent = '循环下载到数据库';
+          loadDbStats();
+          return;
+        }
+        buffer += decoder.decode(result.value, {stream: true});
+        var lines = buffer.split('\n');
+        buffer = lines.pop(); // 保留不完整的行
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (line.indexOf('data: ') === 0) {
+            try {
+              var d = JSON.parse(line.substring(6));
+              if (d.error) {
+                preview.innerHTML = '<div class="log-error">错误: ' + d.error + '</div>';
+                document.getElementById('dlProgress').style.display = 'none';
+                btn.disabled = false;
+                btn.textContent = '循环下载到数据库';
+                return;
+              }
+              if (d.done) {
+                preview.innerHTML = '<div class="log-open">下载完成! 共 ' + d.total + ' 条, ' + d.rounds + ' 轮' + (d.msg ? ' (' + d.msg + ')' : '') + '</div>';
+                document.getElementById('dlProgressBar').style.width = '100%';
+                document.getElementById('dlProgressText').textContent = '完成';
+                document.getElementById('dlProgressCount').textContent = d.total + ' 条';
+                btn.disabled = false;
+                btn.textContent = '循环下载到数据库';
+                loadDbStats();
+                return;
+              }
+              var pct = Math.min(95, d.rounds * 5);
+              document.getElementById('dlProgressBar').style.width = pct + '%';
+              document.getElementById('dlProgressText').textContent = '第 ' + d.rounds + ' 轮 | 最早: ' + d.oldest;
+              document.getElementById('dlProgressCount').textContent = d.total + ' 条';
+              preview.innerHTML = '<div class="log-system">第 ' + d.rounds + ' 轮 | 已下载 ' + d.total + ' 条 | 最早: ' + d.oldest + '</div>';
+            } catch(e) {}
+          }
+        }
+        read();
+      });
+    }
+    read();
+  }).catch(function(e) {
+    preview.innerHTML = '<div class="log-error">下载失败: ' + e.message + '</div>';
+    btn.disabled = false;
+    btn.textContent = '循环下载到数据库';
+    document.getElementById('dlProgress').style.display = 'none';
+  });
+}
+
+// === Backtest ===
+function runBacktest() {
+  var btn = document.getElementById('btRunBtn');
+  btn.disabled = true;
+  btn.textContent = '运行中...';
+  document.getElementById('btResult').innerHTML = '<div class="log-system">回测中，请稍候...</div>';
+
+  var startVal = document.getElementById('btStart').value;
+  var endVal = document.getElementById('btEnd').value;
+
+  var params = {
+    start_time: startVal ? new Date(startVal).toISOString() : null,
+    end_time: endVal ? new Date(endVal).toISOString() : null,
+    conf_threshold: parseFloat(document.getElementById('btThreshold').value) || 0.58,
+    tp_atr_mult: parseFloat(document.getElementById('btTP').value) || 3.0,
+    sl_atr_mult: parseFloat(document.getElementById('btSL').value) || 2.0,
+    capital: parseFloat(document.getElementById('btCapital').value) || 5000,
+    risk_pct: parseFloat(document.getElementById('btRisk').value) / 100 || 0.01,
+    leverage: parseFloat(document.getElementById('btLeverage').value) || 10,
+    comm: parseFloat(document.getElementById('btComm').value) / 10000 || 0.00036
+  };
+
+  fetch(BASE + '/api/backtest/run', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(params)
+  }).then(function(r) { return r.json(); }).then(function(d) {
+    btn.disabled = false;
+    btn.textContent = '开始回测';
+    if (d.error) {
+      document.getElementById('btResult').innerHTML = '<div class="log-error">' + d.error + '</div>';
+      return;
+    }
+    renderBacktestResult(d);
+  }).catch(function(e) {
+    btn.disabled = false;
+    btn.textContent = '开始回测';
+    document.getElementById('btResult').innerHTML = '<div class="log-error">请求失败: ' + e.message + '</div>';
+  });
+}
+
+function renderBacktestResult(d) {
+  var s = d.summary;
+  var html = '';
+
+  // Summary cards
+  html += '<div class="grid grid-4" style="margin-bottom:16px">';
+  html += btCard('总交易', s.total_closes + '笔', '');
+  html += btCard('胜率', s.win_rate + '%', s.win_rate >= 50 ? 'text-green' : 'text-red');
+  html += btCard('总盈亏', (s.total_pnl >= 0 ? '+' : '') + s.total_pnl.toFixed(2) + 'U', s.total_pnl >= 0 ? 'text-green' : 'text-red');
+  html += btCard('收益率', s.return_pct + '%', s.return_pct >= 0 ? 'text-green' : 'text-red');
+  html += '</div>';
+
+  html += '<div class="grid grid-4" style="margin-bottom:16px">';
+  html += btCard('最大回撤', s.max_drawdown + '%', 'text-yellow');
+  html += btCard('盈亏比', s.profit_factor + '', '');
+  html += btCard('做多胜率', s.long_win_rate + '% (' + s.long_trades + '笔)', '');
+  html += btCard('做空胜率', s.short_win_rate + '% (' + s.short_trades + '笔)', '');
+  html += '</div>';
+
+  // Equity curve chart
+  if (d.equity_curve && d.equity_curve.length > 1) {
+    html += '<div class="card" style="margin-bottom:16px">';
+    html += '<div class="section-title">净值曲线</div>';
+    html += '<div id="btEquityChart" style="height:180px"></div>';
+    html += '</div>';
+  }
+
+  // Prob stats
+  if (d.prob_stats) {
+    html += '<div class="card" style="margin-bottom:16px">';
+    html += '<div class="section-title">模型信号统计</div>';
+    html += '<div style="font-size:12px;color:#8892a4">';
+    html += '概率范围: ' + d.prob_stats.min + ' ~ ' + d.prob_stats.max + ' (均值 ' + d.prob_stats.mean + ')';
+    html += ' | 做多信号(>' + d.params.conf_threshold + '): ' + d.prob_stats.signals_gt_58;
+    html += ' | 做空信号(<'+ (1 - d.params.conf_threshold) + '): ' + d.prob_stats.signals_lt_42;
+    html += '</div></div>';
+  }
+
+  // Trade table
+  if (d.trades && d.trades.length > 0) {
+    html += '<div class="card">';
+    html += '<div class="section-title">交易明细 (' + d.trades.length + '笔)</div>';
+    html += '<div style="max-height:400px;overflow-y:auto">';
+    html += '<table><thead><tr><th>时间</th><th>操作</th><th>方向</th><th>价格</th><th>盈亏</th><th>原因</th><th>权益</th></tr></thead><tbody>';
+    for (var j = 0; j < d.trades.length; j++) {
+      var t = d.trades[j];
+      if (t.action === 'OPEN') {
+        html += '<tr><td>' + t.time + '</td><td class="text-blue">开仓</td>';
+        html += '<td class="' + (t.side === 'LONG' ? 'text-green' : 'text-red') + '">' + (t.side === 'LONG' ? '做多' : '做空') + '</td>';
+        html += '<td>' + t.price + '</td><td>-</td><td>-</td><td>-</td></tr>';
+      } else {
+        html += '<tr><td>' + t.time + '</td><td class="text-yellow">平仓</td>';
+        html += '<td class="' + (t.side === 'LONG' ? 'text-green' : 'text-red') + '">' + (t.side === 'LONG' ? '做多' : '做空') + '</td>';
+        html += '<td>' + t.exit + '</td>';
+        html += '<td class="' + (t.pnl >= 0 ? 'text-green' : 'text-red') + '">' + (t.pnl >= 0 ? '+' : '') + t.pnl + '</td>';
+        html += '<td>' + (t.reason || '') + '</td>';
+        html += '<td>' + (t.equity || '') + '</td></tr>';
+      }
+    }
+    html += '</tbody></table></div></div>';
+  }
+
+  // Open position
+  if (d.open_position) {
+    var op = d.open_position;
+    html += '<div class="card" style="margin-top:16px">';
+    html += '<div class="section-title">未平仓持仓</div>';
+    html += '<div style="font-size:12px">';
+    html += (op.side === 'LONG' ? '做多' : '做空') + ' ' + op.size + ' ETH @ ' + op.entry;
+    html += ' | TP=' + op.tp + ' SL=' + op.sl;
+    html += ' | 当前=' + op.last_price + ' 浮盈=';
+    html += '<span class="' + (op.unrealized >= 0 ? 'text-green' : 'text-red') + '">' + (op.unrealized >= 0 ? '+' : '') + op.unrealized + 'U</span>';
+    html += '</div></div>';
+  }
+
+  document.getElementById('btResult').innerHTML = html;
+
+  // Render equity chart after DOM is ready
+  if (d.equity_curve && d.equity_curve.length > 1) {
+    setTimeout(function() { renderBtEquityChart(d.equity_curve, d.params.capital); }, 50);
+  }
+}
+
+function renderBtEquityChart(curve, capital) {
+  var container = document.getElementById('btEquityChart');
+  if (!container) return;
+
+  // Build PnL data (Y = equity - initial capital)
+  var data = [];
+  for (var i = 0; i < curve.length; i++) {
+    var c = curve[i];
+    var ts = Math.floor(new Date(c.time.replace(' ', 'T')).getTime() / 1000);
+    if (isNaN(ts)) continue;
+    data.push({ time: ts, value: Math.round((c.equity - capital) * 100) / 100 });
+  }
+  if (data.length < 2) return;
+
+  // Deduplicate
+  data.sort(function(a,b){ return a.time - b.time; });
+  var unique = [data[0]];
+  for (var i = 1; i < data.length; i++) {
+    if (data[i].time !== unique[unique.length-1].time) unique.push(data[i]);
+    else unique[unique.length-1] = data[i];
+  }
+
+  var chart = LightweightCharts.createChart(container, {
+    width: container.clientWidth,
+    height: 180,
+    layout: { background: { color: '#0d1320' }, textColor: '#8892a4' },
+    grid: { vertLines: { color: '#1a2235' }, horzLines: { color: '#1a2235' } },
+    timeScale: { borderColor: '#2a3548', timeVisible: true, secondsVisible: false },
+    crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    leftPriceScale: { visible: true, borderColor: '#2a3548' },
+    rightPriceScale: { visible: false },
+  });
+  var line = chart.addBaselineSeries({
+    baseValue: { type: 'price', price: 0 },
+    topFillColor1: 'rgba(16,185,129,0.28)', topFillColor2: 'rgba(16,185,129,0.05)',
+    topLineColor: '#10b981',
+    bottomFillColor1: 'rgba(239,68,68,0.05)', bottomFillColor2: 'rgba(239,68,68,0.28)',
+    bottomLineColor: '#ef4444',
+    lineWidth: 2, priceLineVisible: false, lastValueVisible: true, crosshairMarkerVisible: true,
+  });
+  line.setData(unique);
+  chart.timeScale().fitContent();
+  var ro = new ResizeObserver(function() { chart.applyOptions({ width: container.clientWidth }); });
+  ro.observe(container);
+}
+
+function btCard(label, value, cls) {
+  return '<div class="card" style="padding:12px;text-align:center">' +
+    '<div style="font-size:11px;color:#8892a4;margin-bottom:4px">' + label + '</div>' +
+    '<div style="font-size:18px;font-weight:700" class="' + (cls || '') + '">' + value + '</div></div>';
+}
+
 var BASE = 'http://localhost:5000';
 var tradeInstType = 'spot';
 var tradeSide = 'buy';
+var tradeBasePair = 'ETH-USDT';  // Dynamic base pair (without -SWAP suffix)
 var chart = null;
 var candleSeries = null;
 var volumeSeries = null;
@@ -835,11 +1285,11 @@ function switchTab(idx) {
 // Trade instrument type toggle
 function setTradeInst(type, el) {
   tradeInstType = type;
+  pairsLoaded = false;  // reload pairs for new type
   var btns = el.parentNode.querySelectorAll('.toggle-btn');
   for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
   el.classList.add('active');
   document.getElementById('leverageRow').style.display = type === 'swap' ? 'flex' : 'none';
-  document.getElementById('tradePair').textContent = type === 'spot' ? 'ETH-USDT' : 'ETH-USDT-SWAP';
   loadTicker();
 }
 
@@ -947,14 +1397,26 @@ function loadFills() {
     if (!d) return;
     var fills = Array.isArray(d) ? d : [];
 
+    // Helper: get direction text for fill
+    function fillSideText(f) {
+      if (f.instType === 'SPOT') return f.side === 'buy' ? '买入' : '卖出';
+      var pnl = parseFloat(f.fillPnl) || 0;
+      if (pnl !== 0) return f.side === 'buy' ? '平空' : '平多';
+      return f.side === 'buy' ? '开多' : '开空';
+    }
+    function fillSideCls(f) {
+      if (f.instType === 'SPOT') return f.side === 'buy' ? 'text-green' : 'text-red';
+      var pnl = parseFloat(f.fillPnl) || 0;
+      if (pnl !== 0) return pnl > 0 ? 'text-green' : 'text-red';
+      return f.side === 'buy' ? 'text-green' : 'text-red';
+    }
+
     // Account tab fills
     var html = '';
     for (var i = 0; i < Math.min(fills.length, 20); i++) {
       var f = fills[i];
-      var sideCls = f.side === 'buy' ? 'text-green' : 'text-red';
-      var sideText = f.side === 'buy' ? '买入' : '卖出';
       var typeTag = (f.instType === 'SPOT') ? '<span style="color:var(--accent-purple);font-size:10px">现</span>' : '<span style="color:var(--accent-yellow);font-size:10px">约</span>';
-      html += '<tr><td>' + fmtTime(f.ts) + '</td><td>' + typeTag + ' ' + (f.instId || '--') + '</td><td class="' + sideCls + '">' + sideText + '</td><td>' + fmtNum(f.fillPx) + '</td><td>' + f.fillSz + '</td><td>' + fmtNum(f.fee, 4) + '</td></tr>';
+      html += '<tr><td>' + fmtTime(f.ts) + '</td><td>' + typeTag + ' ' + (f.instId || '--') + '</td><td class="' + fillSideCls(f) + '">' + fillSideText(f) + '</td><td>' + fmtNum(f.fillPx) + '</td><td>' + f.fillSz + '</td><td>' + fmtNum(f.fee, 4) + '</td></tr>';
     }
     document.getElementById('fillsTable').innerHTML = html || '<tr><td colspan="6" class="text-muted" style="text-align:center;padding:20px">暂无成交</td></tr>';
 
@@ -962,9 +1424,7 @@ function loadFills() {
     var html2 = '';
     for (var i = 0; i < Math.min(fills.length, 20); i++) {
       var f = fills[i];
-      var sideCls = f.side === 'buy' ? 'text-green' : 'text-red';
-      var sideText = f.side === 'buy' ? '买入' : '卖出';
-      html2 += '<tr><td>' + fmtTime(f.ts) + '</td><td>' + (f.instId || '--') + '</td><td class="' + sideCls + '">' + sideText + '</td><td>' + fmtNum(f.fillPx) + '</td><td>' + f.fillSz + '</td></tr>';
+      html2 += '<tr><td>' + fmtTime(f.ts) + '</td><td>' + (f.instId || '--') + '</td><td class="' + fillSideCls(f) + '">' + fillSideText(f) + '</td><td>' + fmtNum(f.fillPx) + '</td><td>' + f.fillSz + '</td></tr>';
     }
     document.getElementById('tradeFillsTable').innerHTML = html2 || '<tr><td colspan="5" class="text-muted" style="text-align:center;padding:20px">暂无成交</td></tr>';
   });
@@ -978,6 +1438,7 @@ function loadSpotHoldings() {
     var html = '';
     for (var i = 0; i < holdings.length; i++) {
       var h = holdings[i];
+      if (parseFloat(h.total) < 0.000001) continue;
       html += '<tr><td>' + h.ccy + '</td><td>' + fmtNum(h.availBal, 6) + '</td><td>' + fmtNum(h.frozenBal, 6) + '</td><td>' + fmtNum(h.total, 6) + '</td></tr>';
     }
     document.getElementById('spotPosTable').innerHTML = html || '<tr><td colspan="4" class="text-muted" style="text-align:center;padding:20px">暂无现货持仓</td></tr>';
@@ -1024,13 +1485,28 @@ function loadStrategyStatus() {
       btnStart.disabled = false;
       btnStop.disabled = true;
     }
+    // Auto-update prediction display from engine's last signal
+    if (d.last_signal) {
+      var sig = d.last_signal;
+      var dirEl = document.getElementById('predDir');
+      var dirMap = {'LONG':'做多','SHORT':'做空','UP':'做多','DOWN':'做空','HOLD':'观望'};
+      dirEl.textContent = dirMap[sig.direction] || sig.direction || '--';
+      if (sig.direction === 'LONG' || sig.direction === 'UP') {
+        dirEl.className = 'pred-value text-green';
+      } else if (sig.direction === 'SHORT' || sig.direction === 'DOWN') {
+        dirEl.className = 'pred-value text-red';
+      } else {
+        dirEl.className = 'pred-value text-yellow';
+      }
+      document.getElementById('predPrice').textContent = sig.price ? fmtNum(sig.price) : '--';
+      document.getElementById('predProb').textContent = sig.probability ? (parseFloat(sig.probability) * 100).toFixed(1) + '%' : '--';
+      document.getElementById('predConf').textContent = sig.probability ? (Math.abs(parseFloat(sig.probability) - 0.5) * 200).toFixed(1) + '%' : '--';
+    }
   });
 
   api('GET', '/api/strategy/auto_start').then(function(d) {
     if (!d) return;
     document.getElementById('autoStart').checked = !!d.auto_start;
-    if (d.capital) document.getElementById('stratCapital').value = d.capital;
-    if (d.leverage) document.getElementById('stratLeverage').value = d.leverage;
   });
 }
 
@@ -1056,9 +1532,7 @@ function refreshPrediction() {
 
 // Strategy start/stop
 function strategyStart() {
-  var capital = parseFloat(document.getElementById('stratCapital').value) || 5000;
-  var leverage = parseInt(document.getElementById('stratLeverage').value) || 1;
-  api('POST', '/api/strategy/start', { capital: capital, leverage: leverage }).then(function(d) {
+  api('POST', '/api/strategy/start').then(function(d) {
     if (d) loadStrategyStatus();
   });
 }
@@ -1071,9 +1545,7 @@ function strategyStop() {
 
 function toggleAutoStart() {
   var auto = document.getElementById('autoStart').checked;
-  var capital = parseFloat(document.getElementById('stratCapital').value) || 5000;
-  var leverage = parseInt(document.getElementById('stratLeverage').value) || 1;
-  api('POST', '/api/strategy/auto_start', { auto_start: auto, capital: capital, leverage: leverage });
+  api('POST', '/api/strategy/auto_start', { auto_start: auto });
 }
 
 // Save API config
@@ -1125,9 +1597,83 @@ function saveStrategyConfig() {
   });
 }
 
+// Render equity curve chart (PnL amount, zero-line baseline)
+var eqChart = null, eqLine = null;
+function renderEquityChart(trades, initCap) {
+  var container = document.getElementById('equityChartContainer');
+  if (!container) return;
+
+  // Build cumulative PnL data from CLOSE trades (Y = profit/loss amount, starts at 0)
+  var data = [];
+  var cumPnl = 0;
+  for (var i = 0; i < trades.length; i++) {
+    var t = trades[i];
+    if (t.action !== 'CLOSE') continue;
+    var pnl = parseFloat(t.pnl) || 0;
+    cumPnl += pnl;
+    var ts = parseInt(t.ts);
+    if (isNaN(ts) || ts < 1e12) ts = ts * 1000;
+    data.push({ time: Math.floor(ts / 1000), value: Math.round(cumPnl * 100) / 100 });
+  }
+  if (data.length < 1) return;
+
+  // Sort by time and deduplicate
+  data.sort(function(a,b){ return a.time - b.time; });
+  var unique = [data[0]];
+  for (var i = 1; i < data.length; i++) {
+    if (data[i].time !== unique[unique.length-1].time) {
+      unique.push(data[i]);
+    } else {
+      unique[unique.length-1] = data[i];
+    }
+  }
+
+  if (!eqChart) {
+    eqChart = LightweightCharts.createChart(container, {
+      width: container.clientWidth,
+      height: 200,
+      layout: { background: { color: '#0d1320' }, textColor: '#8892a4' },
+      grid: { vertLines: { color: '#1a2235' }, horzLines: { color: '#1a2235' } },
+      timeScale: { borderColor: '#2a3548', timeVisible: true, secondsVisible: false },
+      crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+      rightPriceScale: { borderColor: '#2a3548' },
+    });
+    // Baseline series: green above 0, red below 0
+    eqLine = eqChart.addBaselineSeries({
+      baseValue: { type: 'price', price: 0 },
+      topFillColor1: 'rgba(16,185,129,0.28)',
+      topFillColor2: 'rgba(16,185,129,0.05)',
+      topLineColor: '#10b981',
+      bottomFillColor1: 'rgba(239,68,68,0.05)',
+      bottomFillColor2: 'rgba(239,68,68,0.28)',
+      bottomLineColor: '#ef4444',
+      lineWidth: 2,
+      priceLineVisible: false,
+      lastValueVisible: true,
+      crosshairMarkerVisible: true,
+    });
+    // Resize observer
+    var ro = new ResizeObserver(function() {
+      if (eqChart) eqChart.applyOptions({ width: container.clientWidth });
+    });
+    ro.observe(container);
+  }
+  eqLine.setData(unique);
+  eqChart.timeScale().fitContent();
+}
+
 // Load ledger data
 function loadLedger() {
   var initCap = parseFloat(document.getElementById('ledgerInitCap').value) || 5000;
+
+  // Load leverage and capital from engine config
+  api('GET', '/api/strategy/status').then(function(d) {
+    if (!d || !d.config) return;
+    var lev = d.config.leverage || 1;
+    var cap = d.config.capital || initCap;
+    document.getElementById('ledgerLeverage').value = lev;
+    document.getElementById('ledgerCapital').value = cap;
+  });
 
   api('GET', '/api/strategy/nav').then(function(d) {
     if (!d) return;
@@ -1151,22 +1697,46 @@ function loadLedger() {
   api('GET', '/api/strategy/trades').then(function(d) {
     if (!d) return;
     var trades = Array.isArray(d) ? d : [];
+    // Render equity curve
+    renderEquityChart(trades, initCap);
     var html = '';
     for (var i = 0; i < trades.length; i++) {
       var t = trades[i];
       var pnl = parseFloat(t.pnl) || 0;
+      var isOpen = t.action === 'OPEN';
+      var isLong = t.side_dir === 'LONG';
+      var sideText = isLong ? '做多' : '做空';
+      var sideCls = isLong ? 'text-green' : 'text-red';
       var pnlCls = pnl >= 0 ? 'text-green' : 'text-red';
-      var sideCls = t.side === 'buy' ? 'text-green' : 'text-red';
-      var sideText = t.side === 'buy' ? '买入' : '卖出';
-      html += '<tr><td>' + fmtTime(t.ts) + '</td><td class="' + sideCls + '">' + sideText + '</td><td>' + fmtNum(t.entryPx) + '</td><td>' + fmtNum(t.exitPx) + '</td><td>' + t.sz + '</td><td class="' + pnlCls + '">' + fmtNum(pnl) + '</td><td>' + fmtNum(t.fee, 4) + '</td></tr>';
+      if (isOpen) {
+        var opText = isLong ? '开多' : '开空';
+        var opCls = isLong ? 'text-green' : 'text-red';
+        html += '<tr><td>' + fmtTime(t.ts) + '</td><td class="' + opCls + '">' + opText + '</td><td>' + fmtNum(t.entryPx) + '</td><td>' + fmtNum(t.sz) + '</td><td>-</td><td>' + fmtNum(t.fee, 4) + '</td></tr>';
+      } else {
+        var opText = isLong ? '平多' : '平空';
+        var opCls = isLong ? 'text-green' : 'text-red';
+        html += '<tr><td>' + fmtTime(t.ts) + '</td><td class="' + opCls + '">' + opText + '</td><td>' + fmtNum(t.exitPx) + '</td><td>' + fmtNum(t.sz) + '</td><td class="' + pnlCls + '">' + (pnl >= 0 ? '+' : '') + fmtNum(pnl) + '</td><td>' + fmtNum(t.fee, 4) + '</td></tr>';
+      }
     }
-    document.getElementById('ledgerTrades').innerHTML = html || '<tr><td colspan="7" class="text-muted" style="text-align:center;padding:20px">暂无交易记录</td></tr>';
+    document.getElementById('ledgerTrades').innerHTML = html || '<tr><td colspan="6" class="text-muted" style="text-align:center;padding:20px">暂无交易记录</td></tr>';
   });
 }
 
 // Save ledger capital to localStorage
 function saveLedgerCapital() {
   localStorage.setItem('ledgerInitCap', document.getElementById('ledgerInitCap').value);
+}
+
+// Save leverage to engine config
+function saveLeverage() {
+  var lev = parseInt(document.getElementById('ledgerLeverage').value) || 1;
+  api('POST', '/api/strategy/config', { leverage: lev });
+}
+
+// Save capital to engine config
+function saveCapital() {
+  var cap = parseFloat(document.getElementById('ledgerCapital').value) || 5000;
+  api('POST', '/api/strategy/config', { capital: cap });
 }
 
 // Load DB stats
@@ -1206,6 +1776,38 @@ function renderLogs() {
   area.scrollTop = area.scrollHeight;
 }
 
+var modalLogFilter = 'all';
+function openLogModal() {
+  document.getElementById('logModal').classList.add('active');
+  renderModalLogs();
+}
+function closeLogModal() {
+  document.getElementById('logModal').classList.remove('active');
+}
+function setModalLogFilter(f, btn) {
+  modalLogFilter = f;
+  var btns = btn.parentElement.querySelectorAll('.btn-sm');
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+  btn.classList.add('active');
+  renderModalLogs();
+}
+function renderModalLogs() {
+  var filtered = modalLogFilter === 'all' ? allLogs : allLogs.filter(function(l) { return l.type === modalLogFilter; });
+  var html = '';
+  for (var i = 0; i < filtered.length; i++) {
+    var l = filtered[i];
+    var cls = 'log-system';
+    if (l.type === 'strategy') cls = 'log-strategy';
+    if (l.text.indexOf('OPEN') >= 0 || l.text.indexOf('开仓') >= 0) cls = 'log-open';
+    if (l.text.indexOf('CLOSE') >= 0 || l.text.indexOf('平仓') >= 0) cls = 'log-close';
+    if (l.text.indexOf('ERROR') >= 0) cls = 'log-error';
+    html += '<div class="' + cls + '">' + l.text + '</div>';
+  }
+  document.getElementById('logModalBody').innerHTML = html || '<div class="log-system">日志为空</div>';
+  var body = document.getElementById('logModalBody');
+  body.scrollTop = body.scrollHeight;
+}
+
 // Load logs
 function loadLogs() {
   api('GET', '/api/logs').then(function(d) {
@@ -1217,7 +1819,7 @@ function loadLogs() {
 
 // Load ticker with full info
 function loadTicker() {
-  var inst = tradeInstType === 'spot' ? 'ETH-USDT' : 'ETH-USDT-SWAP';
+  var inst = tradeInstType === 'spot' ? tradeBasePair : tradeBasePair + '-SWAP';
   api('GET', '/api/market/ticker?inst=' + inst).then(function(d) {
     if (!d) return;
     var last = parseFloat(d.last) || 0;
@@ -1286,12 +1888,18 @@ function renderChart(data, volData) {
   var sortedVol = volData ? volData.slice().sort(function(a, b) { return a.time - b.time; }) : [];
 
   if (chart && candleSeries) {
-    // Just update data, don't recreate chart
+    // Save visible range before update to preserve zoom
+    var savedRange = chart.timeScale().getVisibleRange();
     candleSeries.setData(sorted);
     if (volumeSeries && sortedVol.length > 0) {
       volumeSeries.setData(sortedVol);
     }
-    chart.timeScale().fitContent();
+    // Restore visible range (preserve user's zoom/scroll state)
+    if (savedRange) {
+      chart.timeScale().setVisibleRange(savedRange);
+    } else {
+      chart.timeScale().fitContent();
+    }
     return;
   }
 
@@ -1303,8 +1911,20 @@ function renderChart(data, volData) {
     height: 350,
     layout: { background: { color: '#0d1320' }, textColor: '#8892a4' },
     grid: { vertLines: { color: '#1a2235' }, horzLines: { color: '#1a2235' } },
-    timeScale: { borderColor: '#2a3548' },
-    crosshair: { mode: LightweightCharts.CrosshairMode.Normal }
+    timeScale: { borderColor: '#2a3548', timeVisible: true, secondsVisible: false, tickMarkFormatter: function(time) { var d = new Date(time * 1000); var hh = ('0'+d.getHours()).slice(-2); var mm = ('0'+d.getMinutes()).slice(-2); return hh+':'+mm; } },
+    crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    leftPriceScale: { visible: true, borderColor: '#2a3548' },
+    rightPriceScale: { visible: false },
+    localization: {
+      timeFormatter: function(time) {
+        var d = new Date(time * 1000);
+        var MM = ('0'+(d.getMonth()+1)).slice(-2);
+        var dd = ('0'+d.getDate()).slice(-2);
+        var hh = ('0'+d.getHours()).slice(-2);
+        var mm = ('0'+d.getMinutes()).slice(-2);
+        return MM+'/'+dd+' '+hh+':'+mm;
+      }
+    }
   });
 
   candleSeries = chart.addCandlestickSeries({
@@ -1313,7 +1933,8 @@ function renderChart(data, volData) {
     borderDownColor: '#ef4444',
     borderUpColor: '#10b981',
     wickDownColor: '#ef4444',
-    wickUpColor: '#10b981'
+    wickUpColor: '#10b981',
+    priceScaleId: 'left'
   });
 
   candleSeries.setData(sorted);
@@ -1340,13 +1961,79 @@ function renderChart(data, volData) {
 function updateChartMarkers() {
   if (!chart || !candleSeries) return;
 
-  // Get real TP/SL from strategy engine
-  api('GET', '/api/strategy/status').then(function(d) {
-    // Remove old price lines INSIDE callback to prevent race condition
+  // Fetch position + trade history in parallel
+  Promise.all([
+    api('GET', '/api/strategy/status'),
+    api('GET', '/api/strategy/trades')
+  ]).then(function(results) {
+    var d = results[0];
+    var trades = results[1] || [];
+
+    // Remove old price lines
     for (var i = 0; i < chartLines.length; i++) {
       try { candleSeries.removePriceLine(chartLines[i]); } catch(e) {}
     }
     chartLines = [];
+
+    // --- Arrow markers for trade history ---
+    // API format: {ts, side:buy/sell, entryPx, exitPx, pnl, sz}
+    // entryPx=0 means OPEN (buy entry), entryPx>0 means CLOSE (sell exit)
+    var markers = [];
+    for (var j = 0; j < trades.length; j++) {
+      var t = trades[j];
+      var tTime = Math.floor(parseInt(t.ts) / 1000);
+      if (isNaN(tTime)) continue;
+      var isEntry = (parseFloat(t.entryPx) || 0) === 0;
+      if (isEntry) {
+        // OPEN marker — side:buy=做多(below bar), sell=做空(above bar)
+        var isBuy = t.side === 'buy';
+        markers.push({
+          time: tTime,
+          position: isBuy ? 'belowBar' : 'aboveBar',
+          color: isBuy ? '#10b981' : '#ef4444',
+          shape: isBuy ? 'arrowUp' : 'arrowDown',
+          text: isBuy ? '开多' : '开空'
+        });
+      } else {
+        // CLOSE marker
+        var pnl = parseFloat(t.pnl) || 0;
+        var isProfit = pnl >= 0;
+        markers.push({
+          time: tTime,
+          position: t.side === 'sell' ? 'aboveBar' : 'belowBar',
+          color: isProfit ? '#10b981' : '#ef4444',
+          shape: 'circle',
+          text: (isProfit ? '+' : '') + pnl.toFixed(2) + 'U'
+        });
+      }
+    }
+    // Current position marker
+    if (d && d.position) {
+      var pos = d.position;
+      var entry = parseFloat(pos.entry_price) || 0;
+      if (entry > 0 && pos.open_time) {
+        var posTime = Math.floor(new Date(pos.open_time).getTime() / 1000);
+        var isLong = pos.side === 'LONG';
+        var exists = false;
+        for (var k = 0; k < markers.length; k++) {
+          if (Math.abs(markers[k].time - posTime) < 60 && markers[k].text.indexOf('开') === 0) { exists = true; break; }
+        }
+        if (!exists) {
+          markers.push({
+            time: posTime,
+            position: isLong ? 'belowBar' : 'aboveBar',
+            color: isLong ? '#10b981' : '#ef4444',
+            shape: isLong ? 'arrowUp' : 'arrowDown',
+            text: (isLong ? '开多 ' : '开空 ') + pos.size_eth + ' @' + entry
+          });
+        }
+      }
+    }
+    // Sort markers by time and apply
+    markers.sort(function(a, b) { return a.time - b.time; });
+    candleSeries.setMarkers(markers);
+
+    // --- Price lines for current position ---
     if (!d || !d.position) return;
     var pos = d.position;
     var entry = parseFloat(pos.entry_price) || 0;
@@ -1355,39 +2042,24 @@ function updateChartMarkers() {
     if (entry <= 0) return;
 
     var isLong = pos.side === 'LONG';
-    var label = isLong ? 'LONG' : 'SHORT';
-    var posLabel = label + ' ' + pos.size_eth + ' ETH';
-
-    // Entry line
     var entryLine = candleSeries.createPriceLine({
-      price: entry,
-      color: '#3b82f6',
-      lineWidth: 1,
+      price: entry, color: '#3b82f6', lineWidth: 1,
       lineStyle: LightweightCharts.LineStyle.Dashed,
-      axisLabelVisible: true,
-      title: '开仓'
+      axisLabelVisible: true, title: isLong ? '开多' : '开空'
     });
     chartLines.push(entryLine);
 
-    // TP line
     var tpLine = candleSeries.createPriceLine({
-      price: tp,
-      color: '#10b981',
-      lineWidth: 1,
+      price: tp, color: '#10b981', lineWidth: 1,
       lineStyle: LightweightCharts.LineStyle.Dotted,
-      axisLabelVisible: true,
-      title: 'TP'
+      axisLabelVisible: true, title: '止盈'
     });
     chartLines.push(tpLine);
 
-    // SL line
     var slLine = candleSeries.createPriceLine({
-      price: sl,
-      color: '#ef4444',
-      lineWidth: 1,
+      price: sl, color: '#ef4444', lineWidth: 1,
       lineStyle: LightweightCharts.LineStyle.Dotted,
-      axisLabelVisible: true,
-      title: 'SL'
+      axisLabelVisible: true, title: '止损'
     });
     chartLines.push(slLine);
   });
@@ -1409,7 +2081,8 @@ function placeOrder() {
     side: side,
     ordType: ordType,
     size: parseFloat(size),
-    instType: tradeInstType
+    instType: tradeInstType,
+    instId: tradeInstType === 'spot' ? tradeBasePair : tradeBasePair + '-SWAP'
   };
   if (ordType === 'limit' && price) body.price = parseFloat(price);
 
@@ -1422,6 +2095,48 @@ function placeOrder() {
       loadFills();
     }
   });
+}
+
+// Pair search
+var allPairs = [];
+var pairsLoaded = false;
+function loadPairs() {
+  if (pairsLoaded) return;
+  var type = tradeInstType === 'spot' ? 'SPOT' : 'SWAP';
+  api('GET', '/api/market/instruments?instType=' + type).then(function(d) {
+    allPairs = d || [];
+    pairsLoaded = true;
+  });
+}
+function showPairDropdown() {
+  loadPairs();
+  renderPairList(allPairs);
+  document.getElementById('pairDropdown').classList.add('show');
+}
+function hidePairDropdown() {
+  document.getElementById('pairDropdown').classList.remove('show');
+}
+function filterPairs() {
+  var q = document.getElementById('pairSearchInput').value.toUpperCase().trim();
+  var filtered = allPairs.filter(function(p) {
+    return !q || p.instId.indexOf(q) >= 0 || p.baseCcy.indexOf(q) >= 0;
+  });
+  renderPairList(filtered);
+}
+function renderPairList(pairs) {
+  var dd = document.getElementById('pairDropdown');
+  var html = '';
+  for (var i = 0; i < Math.min(pairs.length, 30); i++) {
+    var p = pairs[i];
+    html += '<div class="pair-item" onmousedown="selectPair(\'' + p.instId + '\')"><span>' + p.instId + '</span><span class="quote">' + p.quoteCcy + '</span></div>';
+  }
+  dd.innerHTML = html || '<div style="padding:12px;color:var(--text-muted);text-align:center">无匹配结果</div>';
+}
+function selectPair(instId) {
+  tradeBasePair = instId;
+  pairsLoaded = false;  // reload for next type switch
+  document.getElementById('pairSearchInput').value = instId;
+  loadTicker();
 }
 
 // Close position

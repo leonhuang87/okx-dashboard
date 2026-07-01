@@ -172,9 +172,66 @@ class StrategyEngine:
             # Check every 60 seconds (TP/SL needs frequent checks)
             time.sleep(60)
 
+    def _reconcile_position(self):
+        """Check if engine position matches OKX actual. Auto-sync on mismatch."""
+        try:
+            env = get_env()
+            cmd = [OKX_CMD, 'swap', 'positions', '--json', '--demo']
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=20, env=env)
+            stdout = r.stdout.strip()
+            if not stdout:
+                okx_pos = None
+            else:
+                positions = json.loads(stdout)
+                if not isinstance(positions, list):
+                    positions = [positions]
+                okx_pos = None
+                for p in positions:
+                    pos_amt = float(p.get('pos', 0) or 0)
+                    if abs(pos_amt) >= 0.001:
+                        okx_pos = p
+                        break
+
+            engine_pos = self.position
+
+            # Case 1: Engine thinks we have a position, OKX says no → closed externally
+            if engine_pos and not okx_pos:
+                log.info('Reconcile: OKX position closed externally, clearing engine state')
+                self.position = None
+                return
+
+            # Case 2: OKX has a position, engine doesn't → new external position
+            if not engine_pos and okx_pos:
+                log.info('Reconcile: Found external OKX position, syncing')
+                self._sync_position()
+                return
+
+            # Case 3: Both have positions, check if direction matches
+            if engine_pos and okx_pos:
+                okx_side = 'LONG' if float(okx_pos.get('pos', 0)) > 0 else 'SHORT'
+                okx_size = abs(float(okx_pos.get('pos', 0)))
+                okx_entry = float(okx_pos.get('avgPx', 0) or 0)
+                eng_side = engine_pos['side']
+                eng_size = engine_pos.get('size_eth', 0)
+
+                # Direction flipped or significant size change
+                if okx_side != eng_side:
+                    log.info(f'Reconcile: Direction mismatch engine={eng_side} okx={okx_side}, re-syncing')
+                    self._sync_position()
+                elif abs(okx_size - eng_size) / max(eng_size, 0.01) > 0.1:
+                    log.info(f'Reconcile: Size mismatch engine={eng_size} okx={okx_size}, updating')
+                    engine_pos['size_eth'] = okx_size
+                    engine_pos['size_usd'] = okx_size * okx_entry
+                    engine_pos['entry_price'] = okx_entry
+        except Exception as e:
+            log.error(f'Reconcile error: {e}')
+
     def _tick(self):
         if not self.model:
             return
+
+        # Reconcile position with OKX every tick
+        self._reconcile_position()
 
         # 1. Load recent candles
         conn = sqlite3.connect(DB_PATH)
@@ -385,6 +442,7 @@ class StrategyEngine:
             'time': datetime.now().isoformat(),
             'action': 'CLOSE',
             'side': pos['side'],
+            'size': pos.get('size_eth', 0),
             'entry': pos['entry_price'],
             'exit': exit_price,
             'pnl_pct': round(pnl_pct, 6),

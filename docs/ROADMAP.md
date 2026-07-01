@@ -82,6 +82,26 @@
 - [x] ~~持仓闪烁~~ → 合并为单一 loadPositions 函数
 - [x] ~~K线标记重叠~~ → 只在 loadPositions 中调用 updateChartMarkers
 - [x] ~~成交记录只有合约~~ → 合并 spot fills + swap fills
+- [x] ~~K线刷新重置缩放~~ → 保存/恢复 visibleRange
+- [x] ~~预测不自动显示~~ → 从引擎 last_signal 自动更新
+- [x] ~~收益曲线缺失~~ → TradingView baselineSeries, 0 轴上下双色
+- [x] ~~价格标签在右侧~~ → K 线 Y 轴移到左侧
+- [x] ~~标签用英文~~ → 开多/开空、止盈、止损
+- [x] ~~成交方向不区分~~ → 现货买入/卖出, 合约开多/开空/平多/平空
+- [x] ~~现货持仓显示 0 余额~~ → 前端过滤 total < 0.000001
+- [x] ~~只能交易 ETH~~ → 交易对搜索功能 (500+ 币种)
+- [x] ~~回测净值是柱状图~~ → TradingView 折线图 (baselineSeries)
+- [x] ~~下载无进度~~ → SSE 流式进度条
+- [x] ~~日志为空~~ → 反向读取, 过滤 HTTP 请求日志
+
+### 策略引擎
+
+- [x] ~~引擎持仓与 OKX 不同步~~ → _reconcile_position() 每 tick 校验
+- [x] ~~杠杆/资金重启丢失~~ → POST /api/strategy/config 同时写入配置文件
+
+### 启动
+
+- [x] ~~每次敲命令行启动~~ → 启动服务器.vbs 静默启动器
 
 ## 环境信息
 
