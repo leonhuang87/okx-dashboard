@@ -136,3 +136,55 @@ ssh-keyscan -t ed25519 gitee.com >> "$env:USERPROFILE\.ssh\known_hosts"
 $env:GIT_SSH_COMMAND = 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=NUL'
 git push -u origin main
 ```
+
+## 🟡 中等: K 线图刷新重置缩放
+
+**问题**: TradingView lightweight-charts 每次 `setData()` 后调 `fitContent()` 会重置用户缩放状态。
+
+**解决**: 更新数据前保存 `getVisibleRange()`，更新后用 `setVisibleRange()` 恢复:
+```javascript
+var savedRange = chart.timeScale().getVisibleRange();
+candleSeries.setData(newData);
+if (savedRange) chart.timeScale().setVisibleRange(savedRange);
+else chart.timeScale().fitContent();
+```
+
+## 🟡 中等: VBS 中文编码
+
+**问题**: VBScript 文件用 UTF-8 无 BOM 保存时，中文字符导致 `cscript` 报 "无效字符"。
+
+**解决**: VBS 文件必须用 **纯 ASCII + CRLF** 换行，不能用 BOM。中文内容用英文替代，或用 `MsgBox` 显示英文。
+
+## 🟡 中等: 策略配置不持久化
+
+**问题**: 通过 UI 修改杠杆/资金后，引擎内存更新了，但 `strategy_config.json` 没更新。服务器重启后配置丢失。
+
+**解决**: `POST /api/strategy/config` 同时写入配置文件:
+```python
+cfg['leverage'] = float(data['leverage'])
+with open(CONFIG_PATH, 'w') as f:
+    json.dump(cfg, f)
+```
+
+## 🟡 中等: 策略引擎与 OKX 持仓不同步
+
+**问题**: 手动交易或外部操作改变 OKX 仓位后，引擎不知道，导致引擎记录和实际持仓矛盾。
+
+**解决**: 在 `_tick()` 中加 `_reconcile_position()`，每次 tick 对比引擎持仓和 OKX 实际持仓:
+- 方向不同 → 重新同步
+- 数量差异 > 10% → 更新数量
+- OKX 无仓位 → 清除引擎状态
+- OKX 有仓位但引擎无 → 同步
+
+## 🟡 中等: 日志被 HTTP 请求淹没
+
+**问题**: Flask 的 HTTP 请求日志占了 95% 的日志文件，策略日志被淹没。读最后 500 行过滤后几乎为空。
+
+**解决**: 从文件末尾反向读取，收集 100 条非 HTTP 日志:
+```python
+for line in reversed(all_lines):
+    if len(collected) >= 100: break
+    if 'GET ' in line or 'POST ' in line: continue
+    collected.append(line)
+collected.reverse()
+```

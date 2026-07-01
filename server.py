@@ -3,10 +3,13 @@
 OKX Trading System Backend API
 Serves real data from SQLite DB + OKX API + LightGBM Model
 """
-import os, json, sqlite3, subprocess, time
+import os, json, sqlite3, subprocess, time, sys
 from datetime import datetime, timedelta
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory, Response, stream_with_context
 from flask_cors import CORS
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from backtest_engine import run_backtest
 
 app = Flask(__name__, static_folder='D:/软件制作/币交易开发')
 CORS(app)
@@ -120,6 +123,30 @@ def market_ticker():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/api/market/instruments')
+def market_instruments():
+    """List available trading pairs from OKX"""
+    inst_type = request.args.get('instType', 'SPOT')
+    q = request.args.get('q', '').upper().strip()
+    try:
+        env = get_okx_env()
+        r = subprocess.run([OKX_CMD, 'market', 'instruments', '--instType', inst_type, '--json', '--demo'],
+                          capture_output=True, text=True, timeout=15, env=env)
+        if r.returncode != 0 or not r.stdout.strip():
+            return jsonify([])
+        data = json.loads(r.stdout)
+        result = []
+        for inst in data:
+            inst_id = inst.get('instId', '')
+            base = inst.get('baseCcy', '')
+            quote = inst.get('quoteCcy', '')
+            if q and q not in inst_id and q not in base:
+                continue
+            result.append({'instId': inst_id, 'baseCcy': base, 'quoteCcy': quote})
+        return jsonify(result[:50])
+    except Exception as e:
+        return jsonify([])
+
 # ===== Database API =====
 @app.route('/api/db/stats')
 def db_stats():
@@ -171,24 +198,115 @@ def config_apikey():
 
 @app.route('/api/db/preview')
 def db_preview():
-    """Preview latest candles"""
+    """Preview candles by date range or limit"""
     inst = request.args.get('inst', 'ETH-USDT')
     bar = request.args.get('bar', '5m')
-    limit = min(int(request.args.get('limit', 20)), 100)
+    start_time = request.args.get('start', '')
+    end_time = request.args.get('end', '')
     
     conn = sqlite3.connect(DB_PATH)
-    rows = conn.execute(
-        'SELECT ts,open,high,low,close,vol FROM candles WHERE inst=? AND bar=? ORDER BY ts DESC LIMIT ?',
-        (inst, bar, limit)
-    ).fetchall()
+    if start_time and end_time:
+        try:
+            start_ts = int(datetime.fromisoformat(start_time).timestamp() * 1000)
+            end_ts = int(datetime.fromisoformat(end_time).timestamp() * 1000)
+            rows = conn.execute(
+                'SELECT ts,open,high,low,close,vol FROM candles WHERE inst=? AND bar=? AND ts>=? AND ts<=? ORDER BY ts ASC',
+                (inst, bar, start_ts, end_ts)
+            ).fetchall()
+        except Exception:
+            rows = []
+    else:
+        limit = min(int(request.args.get('limit', 20)), 100)
+        rows = conn.execute(
+            'SELECT ts,open,high,low,close,vol FROM candles WHERE inst=? AND bar=? ORDER BY ts DESC LIMIT ?',
+            (inst, bar, limit)
+        ).fetchall()
     conn.close()
     
     return jsonify([{
         'ts': r[0], 'time': datetime.fromtimestamp(r[0]/1000).strftime('%Y-%m-%d %H:%M'),
         'open': r[1], 'high': r[2], 'low': r[3], 'close': r[4], 'vol': r[5]
-    } for r in reversed(rows)])
+    } for r in rows])
 
 # ===== Model API =====
+
+@app.route('/api/db/download', methods=['POST'])
+def db_download():
+    """Loop-download candles from OKX back to start date, SSE progress"""
+    data = request.get_json() or {}
+    inst = data.get('inst', 'ETH-USDT')
+    bar = data.get('bar', '5m')
+    start_iso = data.get('start', '')
+
+    if not start_iso:
+        return jsonify({'error': '请选择开始日期'}), 400
+
+    try:
+        start_ts = int(datetime.fromisoformat(start_iso).timestamp() * 1000)
+    except Exception:
+        return jsonify({'error': '日期格式错误'}), 400
+
+    def generate():
+        env = get_okx_env()
+        conn = sqlite3.connect(DB_PATH)
+        total = 0
+        rounds = 0
+        after_ts = None  # None = latest
+
+        while True:
+            cmd = [OKX_CMD, 'market', 'candles', inst, '--bar', bar, '--limit', '300', '--json']
+            if after_ts is not None:
+                cmd += ['--after', str(after_ts)]
+
+            try:
+                r = subprocess.run(cmd, capture_output=True, text=True, timeout=15, env=env)
+            except Exception:
+                yield f'data: {json.dumps({"error": "OKX CLI 超时"})}\n\n'
+                break
+
+            if r.returncode != 0 or not r.stdout.strip():
+                yield f'data: {json.dumps({"error": "OKX CLI 失败: " + r.stderr[:200]})}\n\n'
+                break
+
+            candles = json.loads(r.stdout)
+            if not isinstance(candles, list) or len(candles) == 0:
+                yield f'data: {json.dumps({"done": True, "total": total, "rounds": rounds, "msg": "无更多数据"})}\n\n'
+                break
+
+            # OKX返回按时间降序，取最老的一条作为下一轮翻页点
+            oldest_ts = int(candles[-1][0])
+            batch = 0
+            for c in candles:
+                ts = int(c[0])
+                if ts < start_ts:
+                    continue  # 跳过早于开始日期的
+                o, h, l, cl, vol = float(c[1]), float(c[2]), float(c[3]), float(c[4]), float(c[5])
+                conn.execute(
+                    'INSERT OR REPLACE INTO candles (inst, bar, ts, open, high, low, close, vol) VALUES (?,?,?,?,?,?,?,?)',
+                    (inst, bar, ts, o, h, l, cl, vol)
+                )
+                batch += 1
+            conn.commit()
+            total += batch
+            rounds += 1
+
+            dt_str = datetime.fromtimestamp(oldest_ts / 1000).strftime('%m-%d %H:%M')
+            yield f'data: {json.dumps({"total": total, "rounds": rounds, "oldest": dt_str})}\n\n'
+
+            # 已经下载到开始日期之前，结束
+            if oldest_ts <= start_ts:
+                break
+
+            after_ts = oldest_ts
+            time.sleep(0.3)  # 避免频率限制
+
+        conn.close()
+        yield f'data: {json.dumps({"done": True, "total": total, "rounds": rounds})}\n\n'
+
+    return Response(stream_with_context(generate()),
+                    mimetype='text/event-stream',
+                    headers={'Cache-Control': 'no-cache', 'X-Accel-Buffering': 'no'})
+
 @app.route('/api/model/info')
 def model_info():
     """Get Model 01 info"""
@@ -314,6 +432,17 @@ def backtest_results():
         'monthly': monthly,
     })
 
+@app.route('/api/backtest/run', methods=['POST'])
+def backtest_run():
+    """Run backtest with parameters"""
+    try:
+        params = request.get_json() or {}
+        result = run_backtest(params)
+        return jsonify(result)
+    except Exception as e:
+        import traceback
+        return jsonify({'error': str(e), 'trace': traceback.format_exc()}), 500
+
 # ===== System Status =====
 @app.route('/api/account/positions')
 def account_positions():
@@ -393,20 +522,30 @@ def get_logs():
     if os.path.exists(strategy_log_path):
         try:
             with open(strategy_log_path, 'r', encoding='utf-8', errors='ignore') as f:
-                lines = f.readlines()
-            for line in lines[-200:]:
+                all_lines = f.readlines()
+            # Collect non-HTTP lines from the end, up to 100 entries
+            collected = []
+            for line in reversed(all_lines):
+                if len(collected) >= 100:
+                    break
                 line = ansi_re.sub('', line.strip())
                 if not line: continue
-                # Categorize
+                # Skip HTTP access logs and Flask noise
                 if '127.0.0.1' in line or 'Press CTRL' in line or 'WARNING:' in line:
-                    continue  # skip HTTP access logs and Flask warnings
+                    continue
                 if '* Running on' in line or '* Serving' in line or '* Debug' in line:
-                    continue  # skip Flask startup messages
-                if 'OPEN' in line or 'CLOSE' in line or 'Config' in line:
-                    ltype = 'strategy'
-                elif 'INFO' in line:
+                    continue
+                if 'GET ' in line or 'POST ' in line:
+                    continue
+                collected.append(line)
+            collected.reverse()
+            for line in collected:
+                # Categorize
+                if 'OPEN' in line or 'CLOSE' in line or 'Config' in line or 'Synced' in line or 'Reconcile' in line:
                     ltype = 'strategy'
                 elif 'ERROR' in line:
+                    ltype = 'strategy'
+                elif 'INFO' in line:
                     ltype = 'strategy'
                 else:
                     ltype = 'system'
@@ -442,6 +581,18 @@ def strategy_stop():
 def strategy_config():
     data = request.get_json(silent=True) or {}
     engine.update_config(data)
+    # Persist capital/leverage to config file so they survive restart
+    try:
+        with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
+            cfg = json.load(f)
+    except:
+        cfg = {}
+    if 'capital' in data:
+        cfg['capital'] = float(data['capital'])
+    if 'leverage' in data:
+        cfg['leverage'] = float(data['leverage'])
+    with open(CONFIG_PATH, 'w', encoding='utf-8') as f:
+        json.dump(cfg, f)
     return jsonify({'ok': True, 'config': engine.config})
 
 @app.route('/api/strategy/auto_start', methods=['GET', 'POST'])
@@ -493,10 +644,11 @@ def trade_order():
         ord_type = data.get('ordType', 'market')
         size = data.get('size', 0.01)
         inst_type = data.get('instType', 'swap')
+        inst = data.get('instId', '')
         env = get_okx_env()
 
         if inst_type == 'spot':
-            inst = 'ETH-USDT'
+            if not inst: inst = 'ETH-USDT'
             # OKX spot: buy sz=USDT, sell sz=ETH
             if side == 'buy':
                 # Buy: sz is in USDT, convert from ETH amount
@@ -517,7 +669,7 @@ def trade_order():
                    '--side', side, '--ordType', ord_type, '--sz', str(size),
                    '--json', '--demo']
         else:
-            inst = 'ETH-USDT-SWAP'
+            if not inst: inst = 'ETH-USDT-SWAP'
             cmd = [OKX_CMD, 'swap', 'place', '--instId', inst,
                    '--side', side, '--ordType', ord_type, '--sz', str(size),
                    '--tdMode', 'cross', '--json', '--demo']
@@ -631,16 +783,66 @@ def strategy_trades():
     try:
         s = engine.status()
         trades = s.get('trades', [])
+
+        # Fetch fees from OKX fills API
+        fee_map = {}  # order_id -> total fee
+        try:
+            env = get_okx_env()
+            r = subprocess.run([OKX_CMD, 'swap', 'fills', '--json', '--demo'],
+                              capture_output=True, text=True, timeout=15, env=env)
+            if r.returncode == 0 and r.stdout.strip():
+                fills_data = json.loads(r.stdout)
+                if isinstance(fills_data, list):
+                    for f in fills_data:
+                        oid = f.get('ordId', '')
+                        fee = abs(float(f.get('fee', 0)))
+                        if oid:
+                            fee_map[oid] = fee_map.get(oid, 0) + fee
+        except Exception:
+            pass
+
+        # Pair OPEN/CLOSE trades to propagate size and order_id
+        sizes = [str(t.get('size', '')) for t in trades]
+        order_ids = [t.get('order_id', '') for t in trades]
+        last_sz = ''
+        last_oid = ''
+        for i, t in enumerate(trades):
+            if t.get('action') == 'OPEN' and sizes[i]:
+                last_sz = sizes[i]
+                last_oid = order_ids[i]
+            elif t.get('action') == 'CLOSE' and not sizes[i]:
+                sizes[i] = last_sz
+                if not order_ids[i]:
+                    order_ids[i] = last_oid
+        next_sz = ''
+        next_oid = ''
+        for i in range(len(trades)-1, -1, -1):
+            t = trades[i]
+            if t.get('action') == 'OPEN' and sizes[i]:
+                next_sz = sizes[i]
+                next_oid = order_ids[i]
+            elif t.get('action') == 'CLOSE' and not sizes[i]:
+                sizes[i] = next_sz
+                if not order_ids[i]:
+                    order_ids[i] = next_oid
+
         result = []
-        for t in reversed(trades):
+        for i, t in enumerate(reversed(trades)):
+            is_open = t.get('action') == 'OPEN'
+            idx = len(trades) - 1 - i
+            oid = order_ids[idx]
+            fee = round(fee_map.get(oid, 0), 4) if oid else 0
             result.append({
                 'ts': str(int(datetime.fromisoformat(t['time']).timestamp() * 1000)) if 'time' in t else '0',
-                'side': 'sell' if t.get('action') == 'CLOSE' else 'buy',
-                'entryPx': str(t.get('entry', 0)),
+                'action': 'OPEN' if is_open else 'CLOSE',
+                'side': 'buy' if is_open else 'sell',
+                'side_dir': t.get('side', ''),
+                'entryPx': str(t.get('price', 0) if is_open else t.get('entry', 0)),
                 'exitPx': str(t.get('exit', 0)),
-                'sz': str(t.get('size_eth', '')),
+                'sz': sizes[idx],
                 'pnl': str(t.get('pnl_usd', 0)),
-                'fee': '0',
+                'reason': t.get('reason', ''),
+                'fee': str(fee),
             })
         return jsonify(result)
     except Exception as e:
