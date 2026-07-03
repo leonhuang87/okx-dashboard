@@ -6,5 +6,17 @@
   "conf_threshold": 0.58,
   "tp_atr_mult": 3.0,
   "sl_atr_mult": 2.0,
-  "trades": []
+  "trades": [
+    {
+      "time": "2026-07-04T00:45:33.844214",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1731.64,
+      "size": 8.649999999999999,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3710943504303931392",
+      "fee": 0.5392
+    }
+  ]
 }
