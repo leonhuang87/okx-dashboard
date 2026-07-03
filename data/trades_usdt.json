@@ -305,6 +305,126 @@
       "sl": 0,
       "order_id": "3711528891971813376",
       "fee": 0.5368
+    },
+    {
+      "time": "2026-07-04T05:43:52.892734",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "size": 8.47,
+      "entry": 1760.38,
+      "exit": 1758.18,
+      "pnl_settle": 18.6568,
+      "reason": "REVERSE",
+      "equity": 4993.5189,
+      "order_id": "3711544036261380096",
+      "fee": 0.5361
+    },
+    {
+      "time": "2026-07-04T05:49:22.803764",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1761.14,
+      "size": 8.49,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3711555105532952576",
+      "fee": 0.5383
+    },
+    {
+      "time": "2026-07-04T05:51:26.705872",
+      "action": "CLOSE",
+      "side": "LONG",
+      "size": 8.49,
+      "entry": 1761.14,
+      "exit": 1761.2,
+      "pnl_settle": 0.5094,
+      "reason": "REVERSE",
+      "equity": 4994.0283,
+      "order_id": "3711559262859968512",
+      "fee": 0.5383
+    },
+    {
+      "time": "2026-07-04T05:51:29.965224",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1760.99,
+      "size": 8.5,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3711559372113199104",
+      "fee": 0.5389
+    },
+    {
+      "time": "2026-07-04T05:54:46.210698",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "size": 8.5,
+      "entry": 1760.99,
+      "exit": 1765.39,
+      "pnl_settle": -37.4,
+      "reason": "REVERSE",
+      "equity": 4956.6283,
+      "order_id": "3711565956465836032",
+      "fee": 0.5402
+    },
+    {
+      "time": "2026-07-04T06:04:38.010487",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1759.19,
+      "size": 8.44,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3711585813139832832",
+      "fee": 0.5345
+    },
+    {
+      "time": "2026-07-04T06:21:01.474809",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "size": 8.44,
+      "entry": 1759.19,
+      "exit": 1758.87,
+      "pnl_settle": 2.7008,
+      "reason": "REVERSE",
+      "equity": 4959.3291,
+      "order_id": "3711618811205795840",
+      "fee": 0.5344
+    },
+    {
+      "time": "2026-07-04T06:22:06.906546",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1759.34,
+      "size": 8.45,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3711621006504509440",
+      "fee": 0.5352
+    },
+    {
+      "time": "2026-07-04T06:28:48.250850",
+      "action": "CLOSE",
+      "side": "LONG",
+      "size": 5.08,
+      "entry": 1759.34,
+      "exit": 1759.63,
+      "pnl_settle": 1.4634,
+      "reason": "REVERSE",
+      "equity": 4960.7925,
+      "order_id": "3711634472871149568",
+      "fee": 0.3218
+    },
+    {
+      "time": "2026-07-04T06:28:51.277205",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1759.62,
+      "size": 8.45,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3711634574373306368",
+      "fee": 0.5353
     }
   ]
 }
