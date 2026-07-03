@@ -54,6 +54,17 @@
       "reason": "REVERSE",
       "equity": 4.950219,
       "order_id": "sim_1783100798996"
+    },
+    {
+      "time": "2026-07-04T01:51:42.889099",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1736.73,
+      "size": 2579,
+      "tp": 0,
+      "sl": 0,
+      "fee": 0.005346,
+      "order_id": "sim_1783101102889"
     }
   ]
 }
