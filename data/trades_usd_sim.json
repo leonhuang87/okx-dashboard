@@ -161,6 +161,19 @@
       "sl": 0,
       "fee": 0.005309,
       "order_id": "sim_1783110792004"
+    },
+    {
+      "time": "2026-07-04T05:23:42.098815",
+      "action": "CLOSE",
+      "side": "LONG",
+      "entry": 1752.315214,
+      "exit": 1763.37,
+      "size": 2584,
+      "pnl_settle": 0.087201,
+      "fee": 0.005275,
+      "reason": "REVERSE",
+      "equity": 4.99809,
+      "order_id": "sim_1783113822098"
     }
   ]
 }
