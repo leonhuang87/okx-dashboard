@@ -1,0 +1,22 @@
+{
+  "capital": 5.0,
+  "capital_mode": "fixed",
+  "fixed_amount": 5.0,
+  "leverage": 3.0,
+  "conf_threshold": 0.58,
+  "tp_atr_mult": 3.0,
+  "sl_atr_mult": 2.0,
+  "trades": [
+    {
+      "time": "2026-07-04T00:08:57.164041",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1730.96,
+      "size": 2596,
+      "tp": 0,
+      "sl": 0,
+      "fee": 16176.888551,
+      "order_id": "sim_1783094937164"
+    }
+  ]
+}

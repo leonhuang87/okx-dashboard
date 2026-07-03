@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.okx_config.json
+strategy.log
+market.db
