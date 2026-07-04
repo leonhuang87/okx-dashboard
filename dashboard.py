@@ -107,6 +107,8 @@ labels = {
     "usdt": "🇺🇸 U本位 ETH-USDT",
     "usd": "💰 币本位 ETH-USD",
     "usd_sim": "🧪 币本位本地模拟",
+    "usd_original": "📜 原版ETH-USD模拟",
+    "usdt_original": "📜 原版ETH-USDT模拟",
 }
 options = [labels.get(s, s) for s in strategy_names]
 selected_label = st.sidebar.selectbox("选择策略", options, index=0)
