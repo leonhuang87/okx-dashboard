@@ -131,6 +131,19 @@
       "fee": 0.00036,
       "equity": 9.98191,
       "order_id": "wave_raw_1783349770358"
+    },
+    {
+      "time": "2026-07-07T00:05:13.248721",
+      "action": "CLOSE",
+      "side": "LONG",
+      "entry": 1748.634846,
+      "exit": 1784.87,
+      "size": 1.0,
+      "pnl_settle": 0.019582,
+      "fee": 0.00072,
+      "reason": "REVERSE",
+      "equity": 10.001492,
+      "order_id": "wave_raw_1783353913248"
     }
   ]
 }
