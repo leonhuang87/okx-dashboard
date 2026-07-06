@@ -198,6 +198,54 @@
       "equity": 0,
       "order_id": "3719539020507930624",
       "fee": 0.1799
+    },
+    {
+      "time": "2026-07-07T00:11:03.135496",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1799.17,
+      "size": 2.78,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3719571342686969856",
+      "fee": 0.1801
+    },
+    {
+      "time": "2026-07-07T00:12:04.415727",
+      "action": "CLOSE",
+      "side": "LONG",
+      "size": 2.78,
+      "entry": 0.0,
+      "exit": 1801.76,
+      "pnl_settle": 0,
+      "reason": "TP",
+      "equity": 0,
+      "order_id": "3719573398969671680",
+      "fee": 0.1803
+    },
+    {
+      "time": "2026-07-07T00:14:06.562783",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1801.41,
+      "size": 2.77,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3719577497475768320",
+      "fee": 0.1796
+    },
+    {
+      "time": "2026-07-07T00:15:07.797291",
+      "action": "CLOSE",
+      "side": "LONG",
+      "size": 2.77,
+      "entry": 0.0,
+      "exit": 1800.33,
+      "pnl_settle": 0,
+      "reason": "TP",
+      "equity": 0,
+      "order_id": "3719579552282075136",
+      "fee": 0.1795
     }
   ]
 }
