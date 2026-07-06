@@ -62,6 +62,19 @@
       "fee": 0.00036,
       "equity": 9.974035,
       "order_id": "wave_smooth_1783355754584"
+    },
+    {
+      "time": "2026-07-07T01:00:58.931425",
+      "action": "CLOSE",
+      "side": "LONG",
+      "entry": 1791.499132,
+      "exit": 1790.77,
+      "size": 1.0,
+      "pnl_settle": -0.001127,
+      "fee": 0.00072,
+      "reason": "REVERSE",
+      "equity": 9.972908,
+      "order_id": "wave_smooth_1783357258931"
     }
   ]
 }
