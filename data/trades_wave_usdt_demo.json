@@ -102,6 +102,30 @@
       "equity": 0,
       "order_id": null,
       "fee": 0
+    },
+    {
+      "time": "2026-07-06T22:25:48.930571",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1761.24,
+      "size": 2.84,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3719359468561260544",
+      "fee": 0.1801
+    },
+    {
+      "time": "2026-07-06T22:28:50.234469",
+      "action": "CLOSE",
+      "side": "LONG",
+      "size": 1.5,
+      "entry": 1761.24,
+      "exit": 1752.57,
+      "pnl_settle": -13.005,
+      "reason": "SL",
+      "equity": 5053.1038,
+      "order_id": "3719365552315326464",
+      "fee": 0.0946
     }
   ]
 }
