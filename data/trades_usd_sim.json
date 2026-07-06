@@ -1,0 +1,46 @@
+{
+  "capital": 10.0,
+  "capital_mode": "fixed",
+  "fixed_amount": 10.0,
+  "leverage": 3.0,
+  "conf_threshold": 0.58,
+  "tp_atr_mult": 5.0,
+  "sl_atr_mult": 1.0,
+  "trades": [
+    {
+      "time": "2026-07-05T13:59:09.250206",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1764.26,
+      "size": 30.0,
+      "tp": 0,
+      "sl": 0,
+      "fee": 0.0108,
+      "order_id": "sim_1783231149250"
+    },
+    {
+      "time": "2026-07-05T16:01:11.476937",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "entry": 1764.26,
+      "exit": 1769.01,
+      "size": 30.0,
+      "pnl_settle": -0.102101,
+      "fee": 0.0216,
+      "reason": "REVERSE",
+      "equity": 9.897899,
+      "order_id": "sim_1783238471477"
+    },
+    {
+      "time": "2026-07-05T16:06:15.666690",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1767.18,
+      "size": 29.6937,
+      "tp": 0,
+      "sl": 0,
+      "fee": 0.01069,
+      "order_id": "sim_1783238775666"
+    }
+  ]
+}
