@@ -104,9 +104,9 @@ if not strategies:
 # 策略选择
 strategy_names = list(strategies.keys())
 labels = {
-    "wave": "🌊 正弦波 · ETH-USDT",
-    "wave_inv": "🌊 正弦波 · ETH-USD",
-    "raw_center": "📊 原始中心点 · ETH-USD",
+    "wave_usdt_demo": "🇺🇸 U本位无平滑·OKX模拟",
+    "wave_inverse_raw": "💰 币本位无平滑·本地模拟",
+    "wave_inverse_smooth": "💰 币本位EMA8·本地模拟",
 }
 options = [labels.get(s, s) for s in strategy_names]
 selected_label = st.sidebar.selectbox("选择策略", options, index=0)
