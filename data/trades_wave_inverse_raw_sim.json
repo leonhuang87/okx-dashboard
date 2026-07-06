@@ -167,6 +167,16 @@
       "reason": "REVERSE",
       "equity": 9.996856,
       "order_id": "wave_raw_1783355781134"
+    },
+    {
+      "time": "2026-07-07T00:36:24.273957",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1791.89,
+      "size": 1.0,
+      "fee": 0.00036,
+      "equity": 9.996856,
+      "order_id": "wave_raw_1783355784273"
     }
   ]
 }
