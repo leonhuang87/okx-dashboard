@@ -1,0 +1,21 @@
+{
+  "capital": 10,
+  "capital_mode": "compound",
+  "fixed_amount": 10,
+  "leverage": 1,
+  "conf_threshold": 0.58,
+  "tp_atr_mult": 5.0,
+  "sl_atr_mult": 1.0,
+  "trades": [
+    {
+      "time": "2026-07-06T21:35:41.151961",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1739.12,
+      "size": 1.0,
+      "fee": 0.00036,
+      "equity": 10.0,
+      "order_id": "wave_smooth_1783344941151"
+    }
+  ]
+}
