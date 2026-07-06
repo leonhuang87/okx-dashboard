@@ -107,10 +107,6 @@ labels = {
     "wave": "🌊 正弦波 · ETH-USDT",
     "wave_inv": "🌊 正弦波 · ETH-USD",
     "raw_center": "📊 原始中心点 · ETH-USD",
-    "usdt": "🇺🇸 U本位 ETH-USDT",
-    "usd": "💰 币本位 ETH-USD",
-    "usd_sim": "🧪 币本位本地模拟",
-    "usdt_sim": "🧪 U本位本地模拟",
 }
 options = [labels.get(s, s) for s in strategy_names]
 selected_label = st.sidebar.selectbox("选择策略", options, index=0)
