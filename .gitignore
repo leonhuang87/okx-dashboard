@@ -1,46 +1,5 @@
-# Data files
-data/
-*.db
-*.csv
-
-# Python
 __pycache__/
 *.pyc
-*.pyo
-
-# Models (large files)
-models/
-
-# Temp/backup files
-*.tmp
-*.log
-*.bak
-style-*.html
-*.ps1
-
-# Backtest scripts (not core)
-eth_backtest*.py
-eth_cross_validate.py
-eth_lgb*.py
-eth_multi_strategy.py
-multi_strategy_backtest.py
-scalp_backtest.py
-debug_*.py
-diagnose.py
-dl_*.py
-download_*.py
-save_*.py
-fix_ts.py
-market_db.py
-
-# Config secrets
-.okx/
-
-# OS
-Thumbs.db
-Desktop.ini
-NUL
-
-# IDE
-.vscode/
-.idea/
+.okx_config.json
+strategy.log
+market.db

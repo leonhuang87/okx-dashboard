@@ -1,0 +1,94 @@
+{
+  "capital": 10.0,
+  "capital_mode": "fixed",
+  "fixed_amount": 10.0,
+  "leverage": 3.0,
+  "conf_threshold": 0.58,
+  "tp_atr_mult": 5.0,
+  "sl_atr_mult": 1.0,
+  "trades": [
+    {
+      "time": "2026-07-05T13:59:31.492911",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1764.26,
+      "size": 30.0,
+      "tp": 1755.16,
+      "sl": 1766.08,
+      "fee": 0.0108,
+      "order_id": "orig_1783231171492"
+    },
+    {
+      "time": "2026-07-05T14:35:33.501444",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "entry": 1764.263556,
+      "exit": 1766.26,
+      "size": 30.0,
+      "pnl_settle": -0.05551,
+      "fee": 0.0216,
+      "reason": "SL",
+      "equity": 9.94449,
+      "order_id": "orig_1783233333501"
+    },
+    {
+      "time": "2026-07-05T14:40:35.766851",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1763.87,
+      "size": 30.0,
+      "tp": 1753.31,
+      "sl": 1765.99,
+      "fee": 0.0108,
+      "order_id": "orig_1783233635766"
+    },
+    {
+      "time": "2026-07-05T15:45:13.006533",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "entry": 1763.87,
+      "exit": 1766.17,
+      "size": 30.0,
+      "pnl_settle": -0.06061,
+      "fee": 0.0216,
+      "reason": "SL",
+      "equity": 9.88388,
+      "order_id": "orig_1783237513006"
+    },
+    {
+      "time": "2026-07-05T15:50:15.066351",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1765.12,
+      "size": 29.6516,
+      "tp": 1756.94,
+      "sl": 1766.76,
+      "fee": 0.010675,
+      "order_id": "orig_1783237815066"
+    },
+    {
+      "time": "2026-07-05T15:55:17.178901",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "entry": 1765.12347,
+      "exit": 1766.94,
+      "size": 29.6516,
+      "pnl_settle": -0.051797,
+      "fee": 0.02135,
+      "reason": "SL",
+      "equity": 9.832083,
+      "order_id": "orig_1783238117178"
+    },
+    {
+      "time": "2026-07-05T16:00:19.481261",
+      "action": "OPEN",
+      "side": "LONG",
+      "price": 1769.25,
+      "size": 29.4962,
+      "tp": 1778.64,
+      "sl": 1767.37,
+      "fee": 0.010619,
+      "order_id": "orig_1783238419481"
+    }
+  ]
+}
