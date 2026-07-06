@@ -1,1 +1,59 @@
-{"capital": 5000, "leverage": 1, "capital_mode": "compound", "trades": []}
+{
+  "capital": 5000,
+  "capital_mode": "compound",
+  "fixed_amount": 5000,
+  "leverage": 1,
+  "conf_threshold": 0.58,
+  "tp_atr_mult": 5.0,
+  "sl_atr_mult": 1.0,
+  "trades": [
+    {
+      "time": "2026-07-06T19:58:37.046364",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1765.57,
+      "size": 2.83,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3719063113435463680",
+      "fee": 0.1799
+    },
+    {
+      "time": "2026-07-06T20:03:38.442840",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "size": 2.83,
+      "entry": 1765.57,
+      "exit": 1742.21,
+      "pnl_settle": 66.1088,
+      "reason": "TP",
+      "equity": 5066.1088,
+      "order_id": "3719073226909040640",
+      "fee": 0.1775
+    },
+    {
+      "time": "2026-07-06T20:04:39.993819",
+      "action": "OPEN",
+      "side": "SHORT",
+      "price": 1743.98,
+      "size": 2.86,
+      "tp": 0,
+      "sl": 0,
+      "order_id": "3719075292284993536",
+      "fee": 0.1796
+    },
+    {
+      "time": "2026-07-06T20:05:41.243439",
+      "action": "CLOSE",
+      "side": "SHORT",
+      "size": 2.86,
+      "entry": 0.0,
+      "exit": 1734.75,
+      "pnl_settle": 0,
+      "reason": "SL",
+      "equity": 0,
+      "order_id": "3719077347393290240",
+      "fee": 0.1786
+    }
+  ]
+}
