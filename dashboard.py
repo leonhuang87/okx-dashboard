@@ -125,9 +125,17 @@ if not strategies:
 st.sidebar.markdown("---")
 auto_refresh = st.sidebar.checkbox("🔄 自动刷新 (60秒)", value=True)
 if auto_refresh:
-    import time
-    time.sleep(1)
-    st.rerun()
+    # 使用 JavaScript 实现自动刷新，避免无限循环
+    st.markdown(
+        """
+        <script>
+            setTimeout(function() {
+                window.location.reload();
+            }, 60000);
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
 
 # ===== 三个策略卡片纵向排列 =====
 for strategy_id, config in STRATEGY_CONFIG.items():
