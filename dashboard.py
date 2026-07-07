@@ -2,7 +2,7 @@
 """
 OKX 交易系统 - 远程监控面板
 部署到 Streamlit Cloud，手机/电脑浏览器随时查看。
-只读数据，不控制交易。
+三个策略卡片纵向排列，一目了然。
 """
 import streamlit as st
 import json, os, glob
@@ -13,7 +13,7 @@ st.set_page_config(
     page_title="OKX 交易监控",
     page_icon="📈",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 # ===== 数据加载 =====
@@ -92,133 +92,146 @@ def build_equity_curve(trades, capital):
             points.append({"time": time_str, "equity": t["equity"]})
     return points
 
+# ===== 策略配置 =====
+STRATEGY_CONFIG = {
+    "wave_usdt_demo": {
+        "label": "🇺🇸 U本位无平滑·OKX模拟",
+        "is_inverse": False,
+        "color": "#2196F3",
+    },
+    "wave_inverse_raw_sim": {
+        "label": "💰 币本位无平滑·本地模拟",
+        "is_inverse": True,
+        "color": "#4CAF50",
+    },
+    "wave_inverse_smooth_sim": {
+        "label": "💰 币本位EMA8·本地模拟",
+        "is_inverse": True,
+        "color": "#FF9800",
+    },
+}
+
 # ===== 主界面 =====
-st.title("📈 OKX 交易监控")
+st.title("📈 OKX 策略监控面板")
 
 # 加载所有策略
 strategies = get_strategies()
+
 if not strategies:
-    st.warning("未找到策略数据。请确保 data/ 目录下有 trades_*.json 文件。")
+    st.warning("⚠️ 未找到策略数据。请确保 data/ 目录下有 trades_*.json 文件。")
     st.stop()
 
-# 策略选择
-strategy_names = list(strategies.keys())
-labels = {
-    "wave_usdt_demo": "🇺🇸 U本位无平滑·OKX模拟",
-    "wave_inverse_raw_sim": "💰 币本位无平滑·本地模拟",
-    "wave_inverse_smooth_sim": "💰 币本位EMA8·本地模拟",
-}
-options = [labels.get(s, s) for s in strategy_names]
-selected_label = st.sidebar.selectbox("选择策略", options, index=0)
-selected_idx = options.index(selected_label)
-selected = strategy_names[selected_idx]
-
-data = strategies[selected]
-capital = data.get("capital", 5000)
-trades = data.get("trades", [])
-is_inverse = "inverse" in selected
-
-# 侧边栏信息
+# 自动刷新
 st.sidebar.markdown("---")
-st.sidebar.markdown(f"**初始资金**: {capital} {'ETH' if is_inverse else 'USDT'}")
-st.sidebar.markdown(f"**杠杆**: {data.get('leverage', 10)}x")
-st.sidebar.markdown(f"**模式**: {data.get('capital_mode', 'fixed')}")
-st.sidebar.markdown(f"**交易数**: {len(trades)}")
-st.sidebar.markdown(f"**更新时间**: {datetime.now().strftime('%H:%M:%S')}")
-
-# ===== 统计卡片 =====
-stats = calc_stats(trades, capital)
-
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    pnl_str = f"{stats['total_pnl']:+.6f}" if is_inverse else f"{stats['total_pnl']:+.2f}"
-    st.metric("总收益", pnl_str)
-with col2:
-    st.metric("收益率", f"{stats['return_pct']:+.2f}%")
-with col3:
-    st.metric("胜率", f"{stats['win_rate']:.1f}%")
-with col4:
-    st.metric("最大回撤", f"{stats['max_dd']:.2f}%")
-
-col5, col6, col7, col8 = st.columns(4)
-with col5:
-    st.metric("盈亏比", f"{stats['profit_factor']:.2f}")
-with col6:
-    st.metric("总交易", stats["total_trades"])
-with col7:
-    avg_w_str = f"{stats['avg_win']:.6f}" if is_inverse else f"{stats['avg_win']:.2f}"
-    st.metric("平均盈利", avg_w_str)
-with col8:
-    avg_l_str = f"{stats['avg_loss']:.6f}" if is_inverse else f"{stats['avg_loss']:.2f}"
-    st.metric("平均亏损", avg_l_str)
-
-# ===== 当前持仓 =====
-opens = [t for t in trades if t.get("action") == "OPEN"]
-closes = [t for t in trades if t.get("action") == "CLOSE"]
-
-# 判断是否有未平仓
-if len(opens) > len(closes):
-    last_open = opens[-1]
-    st.info(
-        f"📊 **当前持仓**: {last_open.get('side', '?')} "
-        f"| 开仓价: {last_open.get('price', '?')} "
-        f"| 数量: {last_open.get('size', '?')} "
-        f"| 开仓时间: {last_open.get('time', '?')[:19]}"
-    )
-else:
-    st.success("✅ 当前无持仓")
-
-# ===== 净值曲线 =====
-st.subheader("📈 净值曲线")
-equity_points = build_equity_curve(trades, capital)
-if len(equity_points) > 1:
-    eq_df = pd.DataFrame(equity_points)
-    eq_df = eq_df.dropna(subset=["equity"])
-    eq_df["equity"] = eq_df["equity"].astype(float)
-    st.line_chart(eq_df.set_index("time")["equity"], height=300)
-else:
-    st.caption("暂无足够数据绘制净值曲线")
-
-# ===== 交易记录 =====
-st.subheader("📋 交易记录")
-if trades:
-    records = []
-    for t in reversed(trades[-50:]):  # 最近50笔，最新在前
-        action = t.get("action", "")
-        side = t.get("side", "")
-        pnl = t.get("pnl_settle", 0)
-        reason = t.get("reason", "")
-
-        if action == "OPEN":
-            records.append({
-                "时间": t.get("time", "")[:19],
-                "操作": f"开{'多' if side == 'LONG' else '空'}",
-                "价格": t.get("price", 0),
-                "数量": t.get("size", 0),
-                "盈亏": "--",
-                "原因": "--",
-            })
-        else:
-            pnl_color = "+" if pnl > 0 else ""
-            unit = "ETH" if is_inverse else "USDT"
-            records.append({
-                "时间": t.get("time", "")[:19],
-                "操作": f"平{'多' if side == 'LONG' else '空'}",
-                "价格": t.get("exit", 0),
-                "数量": t.get("size", 0),
-                "盈亏": f"{pnl_color}{pnl:.6f} {unit}" if is_inverse else f"{pnl_color}{pnl:.2f} {unit}",
-                "原因": reason or "--",
-            })
-
-    df = pd.DataFrame(records)
-    st.dataframe(df, use_container_width=True, hide_index=True)
-else:
-    st.caption("暂无交易记录")
-
-# ===== 自动刷新 =====
-st.sidebar.markdown("---")
-auto_refresh = st.sidebar.checkbox("自动刷新 (60秒)", value=True)
+auto_refresh = st.sidebar.checkbox("🔄 自动刷新 (60秒)", value=True)
 if auto_refresh:
     import time
     time.sleep(1)
     st.rerun()
+
+# ===== 三个策略卡片纵向排列 =====
+for strategy_id, config in STRATEGY_CONFIG.items():
+    if strategy_id not in strategies:
+        continue
+    
+    data = strategies[strategy_id]
+    capital = data.get("capital", 5000 if not config["is_inverse"] else 10)
+    trades = data.get("trades", [])
+    is_inverse = config["is_inverse"]
+    unit = "ETH" if is_inverse else "USDT"
+    
+    stats = calc_stats(trades, capital)
+    
+    # 策略卡片
+    with st.container():
+        st.markdown("---")
+        
+        # 标题栏
+        col_title, col_status = st.columns([3, 1])
+        with col_title:
+            st.markdown(f"### {config['label']}")
+        with col_status:
+            opens = [t for t in trades if t.get("action") == "OPEN"]
+            closes = [t for t in trades if t.get("action") == "CLOSE"]
+            has_position = len(opens) > len(closes)
+            if has_position:
+                last_open = opens[-1]
+                st.info(f"📊 持仓中: {last_open.get('side', '?')} @ {last_open.get('price', '?')}")
+            elif stats["total_trades"] > 0:
+                st.success("✅ 空仓")
+            else:
+                st.warning("⏸️ 暂无交易")
+        
+        # 统计卡片 - 第一行
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            pnl_str = f"{stats['total_pnl']:+.6f}" if is_inverse else f"{stats['total_pnl']:+.2f}"
+            st.metric("💰 总收益", pnl_str, f"{unit}")
+        with col2:
+            st.metric("📊 收益率", f"{stats['return_pct']:+.2f}%")
+        with col3:
+            st.metric("🎯 胜率", f"{stats['win_rate']:.1f}%")
+        with col4:
+            st.metric("📉 最大回撤", f"{stats['max_dd']:.2f}%")
+        
+        # 统计卡片 - 第二行
+        col5, col6, col7, col8 = st.columns(4)
+        with col5:
+            st.metric("⚖️ 盈亏比", f"{stats['profit_factor']:.2f}")
+        with col6:
+            st.metric("📝 总交易", stats["total_trades"])
+        with col7:
+            avg_w_str = f"{stats['avg_win']:.6f}" if is_inverse else f"{stats['avg_win']:.2f}"
+            st.metric("📈 平均盈利", avg_w_str)
+        with col8:
+            avg_l_str = f"{stats['avg_loss']:.6f}" if is_inverse else f"{stats['avg_loss']:.2f}"
+            st.metric("📉 平均亏损", avg_l_str)
+        
+        # 净值曲线
+        equity_points = build_equity_curve(trades, capital)
+        if len(equity_points) > 1:
+            eq_df = pd.DataFrame(equity_points)
+            eq_df = eq_df.dropna(subset=["equity"])
+            eq_df["equity"] = eq_df["equity"].astype(float)
+            st.line_chart(eq_df.set_index("time")["equity"], height=200)
+        else:
+            st.caption("暂无足够数据绘制净值曲线")
+        
+        # 交易记录（折叠）
+        with st.expander(f"📋 查看交易记录 ({stats['total_trades']}笔)", expanded=False):
+            if trades:
+                records = []
+                for t in reversed(trades[-50:]):  # 最近50笔，最新在前
+                    action = t.get("action", "")
+                    side = t.get("side", "")
+                    pnl = t.get("pnl_settle", 0)
+                    reason = t.get("reason", "")
+
+                    if action == "OPEN":
+                        records.append({
+                            "时间": t.get("time", "")[:19],
+                            "操作": f"开{'多' if side == 'LONG' else '空'}",
+                            "价格": t.get("price", 0),
+                            "数量": t.get("size", 0),
+                            "盈亏": "--",
+                            "原因": "--",
+                        })
+                    else:
+                        pnl_color = "+" if pnl > 0 else ""
+                        records.append({
+                            "时间": t.get("time", "")[:19],
+                            "操作": f"平{'多' if side == 'LONG' else '空'}",
+                            "价格": t.get("exit", 0),
+                            "数量": t.get("size", 0),
+                            "盈亏": f"{pnl_color}{pnl:.6f} {unit}" if is_inverse else f"{pnl_color}{pnl:.2f} {unit}",
+                            "原因": reason or "--",
+                        })
+
+                df = pd.DataFrame(records)
+                st.dataframe(df, use_container_width=True, hide_index=True)
+            else:
+                st.caption("暂无交易记录")
+
+# ===== 底部信息 =====
+st.markdown("---")
+st.caption(f"🔄 更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
