@@ -105,8 +105,8 @@ if not strategies:
 strategy_names = list(strategies.keys())
 labels = {
     "wave_usdt_demo": "🇺🇸 U本位无平滑·OKX模拟",
-    "wave_inverse_raw": "💰 币本位无平滑·本地模拟",
-    "wave_inverse_smooth": "💰 币本位EMA8·本地模拟",
+    "wave_inverse_raw_sim": "💰 币本位无平滑·本地模拟",
+    "wave_inverse_smooth_sim": "💰 币本位EMA8·本地模拟",
 }
 options = [labels.get(s, s) for s in strategy_names]
 selected_label = st.sidebar.selectbox("选择策略", options, index=0)
@@ -116,7 +116,7 @@ selected = strategy_names[selected_idx]
 data = strategies[selected]
 capital = data.get("capital", 5000)
 trades = data.get("trades", [])
-is_inverse = "usd" in selected
+is_inverse = "inverse" in selected
 
 # 侧边栏信息
 st.sidebar.markdown("---")
