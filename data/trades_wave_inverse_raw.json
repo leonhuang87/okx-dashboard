@@ -1,1 +1,6 @@
-{"capital": 10, "leverage": 1, "capital_mode": "compound", "trades": []}
+{
+  "capital": 10,
+  "leverage": 1,
+  "capital_mode": "compound",
+  "trades": []
+}
