@@ -19,9 +19,9 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# ===== 自适应 CSS =====
+# ===== 自适应 CSS + 缩放记忆 =====
 st.markdown("""
-<style>
+<style id="dynamic-zoom">
 /* 紧凑全局 */
 .block-container { padding-top: 1rem !important; padding-bottom: 0 !important; max-width: 100% !important; }
 [data-testid="stMetric"] { background: rgba(255,255,255,0.03); border-radius: 6px; padding: 4px 8px !important; }
@@ -46,8 +46,43 @@ div[data-testid="stVegaLiteChart"] { min-height: 160px !important; }
 
 /* 缩放控制按钮 */
 .zoom-bar { position: fixed; top: 4px; right: 12px; z-index: 999;
-            font-size: 0.7rem; color: #888; user-select: none; }
+            font-size: 0.7rem; color: #aaa; user-select: none;
+            background: rgba(40,40,40,0.8); padding: 2px 8px; border-radius: 4px; }
+.zoom-bar button { background: none; border: 1px solid #555; color: #aaa;
+                    cursor: pointer; margin: 0 2px; border-radius: 3px;
+                    width: 22px; height: 22px; font-size: 0.75rem; }
+.zoom-bar button:hover { background: #333; color: #fff; }
+.zoom-bar .label { margin: 0 4px; }
 </style>
+
+<!-- 缩放控制条 + localStorage 记忆 -->
+<div class="zoom-bar">
+    <span class="label">缩放</span>
+    <button onclick="setZoom(-0.05)" title="缩小">−</button>
+    <span id="zoom-val" style="display:inline-block;width:36px;text-align:center;">100%</span>
+    <button onclick="setZoom(0.05)" title="放大">+</button>
+    <button onclick="setZoom(0,true)" title="重置" style="width:auto;padding:0 6px;">R</button>
+</div>
+
+<script>
+function applyZoom(scale) {
+    scale = Math.max(0.6, Math.min(1.8, scale));
+    document.body.style.zoom = scale;
+    document.getElementById('zoom-val').textContent = Math.round(scale * 100) + '%';
+    localStorage.setItem('okx_zoom', scale);
+}
+function setZoom(delta, reset) {
+    var cur = parseFloat(localStorage.getItem('okx_zoom') || '1.0');
+    if (reset) cur = 1.0;
+    else cur += delta;
+    applyZoom(cur);
+}
+// 启动时恢复记忆的缩放
+(function() {
+    var saved = parseFloat(localStorage.getItem('okx_zoom') || '1.0');
+    applyZoom(saved);
+})();
+</script>
 """, unsafe_allow_html=True)
 
 
