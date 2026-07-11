@@ -146,7 +146,13 @@ def render_strategy_card(data, key_prefix):
     position = data.get("position")
     eq_curve = data.get("equity_curve", [])
     demo_mode = data.get("demo_mode", True)
-    is_inverse = "USD" in data.get("strategy_id", "") and "USDT" not in data.get("strategy_id", "")
+    currency = data.get("currency", "")
+    if currency == "ETH":
+        is_inverse = True
+    elif currency == "USDT":
+        is_inverse = False
+    else:
+        is_inverse = "USD" in data.get("strategy_id", "") and "USDT" not in data.get("strategy_id", "")
     unit = "ETH" if is_inverse else "USDT"
     label = STRATEGY_LABELS.get(data.get("strategy_id", ""), data.get("strategy_id", "?"))
 
@@ -174,7 +180,8 @@ def render_strategy_card(data, key_prefix):
     # 指标行（2x3 紧凑网格）
     c1, c2, c3 = st.columns(3)
     with c1:
-        st.metric("权益", f"{equity:,.0f}", fmt_pnl(pnl_total, unit))
+        eq_fmt = f"{equity:.4f}" if is_inverse else f"{equity:,.2f}"
+        st.metric(f"权益 ({unit})", eq_fmt, fmt_pnl(pnl_total, unit))
     with c2:
         ret_color = "normal"
         st.metric("收益率", f"{total_return:+.2f}%")
