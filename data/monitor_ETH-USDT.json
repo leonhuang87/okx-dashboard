@@ -6,8 +6,8 @@
   "equity": 10000.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-12 12:10:58",
-  "current_price": 1809.2,
+  "updated_at": "2026-07-12 12:21:01",
+  "current_price": 1808.75,
   "position": null,
   "stats": {
     "total_return": 0.0,
@@ -243,6 +243,14 @@
     },
     {
       "time": "2026-07-12 12:10:00",
+      "equity": 10000.0
+    },
+    {
+      "time": "2026-07-12 12:15:00",
+      "equity": 10000.0
+    },
+    {
+      "time": "2026-07-12 12:20:00",
       "equity": 10000.0
     }
   ],
