@@ -6,8 +6,8 @@
   "equity": 10000.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-13 06:03:33",
-  "current_price": 1802.53,
+  "updated_at": "2026-07-13 06:12:39",
+  "current_price": 1802.11,
   "position": null,
   "stats": {
     "total_return": 0.0,
@@ -1099,6 +1099,14 @@
     },
     {
       "time": "2026-07-13 06:00:00",
+      "equity": 10000.0
+    },
+    {
+      "time": "2026-07-13 06:05:00",
+      "equity": 10000.0
+    },
+    {
+      "time": "2026-07-13 06:10:00",
       "equity": 10000.0
     }
   ],
