@@ -4,11 +4,11 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 9.9611,
+  "equity": 9.9935,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-13 13:18:05",
-  "current_price": 1783.74,
+  "updated_at": "2026-07-13 13:28:09",
+  "current_price": 1777.96,
   "position": {
     "side": "SHORT",
     "entry_price": 1777.420845,
@@ -16,7 +16,7 @@
     "entry_time": "2026-07-13 12:45:00"
   },
   "stats": {
-    "total_return": -0.0039,
+    "total_return": -0.0007,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -1302,6 +1302,14 @@
     {
       "time": "2026-07-13 13:15:00",
       "equity": 9.97
+    },
+    {
+      "time": "2026-07-13 13:20:00",
+      "equity": 9.97
+    },
+    {
+      "time": "2026-07-13 13:25:00",
+      "equity": 9.99
     }
   ],
   "trades": [
