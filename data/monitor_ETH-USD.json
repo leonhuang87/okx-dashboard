@@ -2,12 +2,13 @@
   "strategy_id": "ETH-USD",
   "inst_id": "ETH-USD-SWAP",
   "capital": 10.0,
+  "initial_capital": 10.0,
   "currency": "ETH",
   "equity": 10.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-13 08:34:27",
-  "current_price": 1825.82,
+  "updated_at": "2026-07-13 08:38:05",
+  "current_price": 1817.28,
   "position": null,
   "stats": {
     "total_return": 0.0,
@@ -1067,6 +1068,10 @@
     },
     {
       "time": "2026-07-13 08:30:00",
+      "equity": 10.0
+    },
+    {
+      "time": "2026-07-13 08:35:00",
       "equity": 10.0
     }
   ],
