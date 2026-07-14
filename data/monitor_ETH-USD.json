@@ -4,28 +4,25 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 9.6933,
+  "equity": 9.6852,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-15 05:55:50",
-  "current_price": 1874.58,
-  "position": null,
+  "updated_at": "2026-07-15 06:05:56",
+  "current_price": 1872.15,
+  "position": {
+    "side": "LONG",
+    "entry_price": 1873.066065,
+    "qty": 9.688491983167717,
+    "entry_time": "2026-07-15 06:05:00"
+  },
   "stats": {
-    "total_return": -0.0307,
+    "total_return": -0.0315,
     "n_trades": 1,
     "win_rate": 0.0,
     "profit_factor": 0.0,
-    "cash": 9.6933
+    "cash": 9.6899
   },
   "equity_curve": [
-    {
-      "time": "2026-07-13 12:20:00",
-      "equity": 10.0
-    },
-    {
-      "time": "2026-07-13 12:25:00",
-      "equity": 10.0
-    },
     {
       "time": "2026-07-13 12:30:00",
       "equity": 10.0
@@ -2017,6 +2014,14 @@
     {
       "time": "2026-07-15 05:55:00",
       "equity": 9.69
+    },
+    {
+      "time": "2026-07-15 06:00:00",
+      "equity": 9.69
+    },
+    {
+      "time": "2026-07-15 06:05:00",
+      "equity": 9.69
     }
   ],
   "trades": [
@@ -2037,6 +2042,13 @@
       "pnl_settle": -0.3032,
       "equity": 9.69,
       "reason": "signal"
+    },
+    {
+      "action": "OPEN",
+      "side": "LONG",
+      "time": "2026-07-15 06:05:00",
+      "price": 1873.0661,
+      "size": 9.6885
     }
   ]
 }
