@@ -4,33 +4,25 @@
   "capital": 10000.0,
   "initial_capital": 10000.0,
   "currency": "USDT",
-  "equity": 9697.5057,
+  "equity": 9692.5338,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-16 21:20:29",
-  "current_price": 1877.74,
+  "updated_at": "2026-07-16 21:30:36",
+  "current_price": 1885.37,
   "position": {
-    "side": "LONG",
-    "entry_price": 1874.51679,
-    "qty": 5.1662611128172395,
-    "entry_time": "2026-07-15 06:05:00"
+    "side": "SHORT",
+    "entry_price": 1882.0585,
+    "qty": 5.160851030074085,
+    "entry_time": "2026-07-16 21:30:00"
   },
   "stats": {
-    "total_return": -0.0302,
-    "n_trades": 1,
-    "win_rate": 0.0,
-    "profit_factor": 0.0,
-    "cash": 9680.8537
+    "total_return": -0.0307,
+    "n_trades": 2,
+    "win_rate": 0.5,
+    "profit_factor": 0.1,
+    "cash": 9709.624
   },
   "equity_curve": [
-    {
-      "time": "2026-07-15 03:45:00",
-      "equity": 9684.24
-    },
-    {
-      "time": "2026-07-15 03:50:00",
-      "equity": 9684.24
-    },
     {
       "time": "2026-07-15 03:55:00",
       "equity": 9684.24
@@ -2022,6 +2014,14 @@
     {
       "time": "2026-07-16 21:20:00",
       "equity": 9697.51
+    },
+    {
+      "time": "2026-07-16 21:25:00",
+      "equity": 9718.69
+    },
+    {
+      "time": "2026-07-16 21:30:00",
+      "equity": 9692.53
     }
   ],
   "trades": [
@@ -2040,7 +2040,7 @@
       "exit": 1833.2347,
       "size": null,
       "pnl_settle": -312.2568,
-      "equity": 9697.51,
+      "equity": 9692.53,
       "reason": "signal"
     },
     {
@@ -2048,7 +2048,25 @@
       "side": "LONG",
       "time": "2026-07-15 06:05:00",
       "price": 1874.5168,
-      "size": 5.1663
+      "size": null
+    },
+    {
+      "action": "CLOSE",
+      "side": "LONG",
+      "time": "2026-07-16 21:30:00",
+      "price": 1882.0585,
+      "exit": 1882.0585,
+      "size": null,
+      "pnl_settle": 32.1698,
+      "equity": 9692.53,
+      "reason": "signal"
+    },
+    {
+      "action": "OPEN",
+      "side": "SHORT",
+      "time": "2026-07-16 21:30:00",
+      "price": 1882.0585,
+      "size": 5.1609
     }
   ]
 }
