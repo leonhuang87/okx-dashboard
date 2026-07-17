@@ -4,11 +4,11 @@
   "capital": 10000.0,
   "initial_capital": 10000.0,
   "currency": "USDT",
-  "equity": 9896.6971,
+  "equity": 9905.0061,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-17 12:28:57",
-  "current_price": 1845.81,
+  "updated_at": "2026-07-17 12:39:01",
+  "current_price": 1844.2,
   "position": {
     "side": "SHORT",
     "entry_price": 1882.0585,
@@ -16,21 +16,13 @@
     "entry_time": "2026-07-16 21:30:00"
   },
   "stats": {
-    "total_return": -0.0103,
+    "total_return": -0.0095,
     "n_trades": 2,
     "win_rate": 0.5,
     "profit_factor": 0.1,
     "cash": 9709.624
   },
   "equity_curve": [
-    {
-      "time": "2026-07-15 18:50:00",
-      "equity": 9696.83
-    },
-    {
-      "time": "2026-07-15 18:55:00",
-      "equity": 9689.6
-    },
     {
       "time": "2026-07-15 19:00:00",
       "equity": 9697.71
@@ -2022,6 +2014,14 @@
     {
       "time": "2026-07-17 12:25:00",
       "equity": 9884.88
+    },
+    {
+      "time": "2026-07-17 12:30:00",
+      "equity": 9895.41
+    },
+    {
+      "time": "2026-07-17 12:35:00",
+      "equity": 9895.36
     }
   ],
   "trades": [
@@ -2040,7 +2040,7 @@
       "exit": 1833.2347,
       "size": null,
       "pnl_settle": -312.2568,
-      "equity": 9896.7,
+      "equity": 9905.01,
       "reason": "signal"
     },
     {
@@ -2058,7 +2058,7 @@
       "exit": 1882.0585,
       "size": null,
       "pnl_settle": 32.1698,
-      "equity": 9896.7,
+      "equity": 9905.01,
       "reason": "signal"
     },
     {
