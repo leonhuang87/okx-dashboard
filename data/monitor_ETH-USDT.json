@@ -4,11 +4,11 @@
   "capital": 10000.0,
   "initial_capital": 10000.0,
   "currency": "USDT",
-  "equity": 9987.0384,
+  "equity": 9995.6414,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-21 23:08:43",
-  "current_price": 1927.7,
+  "updated_at": "2026-07-21 23:18:47",
+  "current_price": 1929.36,
   "position": {
     "side": "LONG",
     "entry_price": 1873.4862749999998,
@@ -16,21 +16,13 @@
     "entry_time": "2026-07-20 20:45:00"
   },
   "stats": {
-    "total_return": -0.0013,
+    "total_return": -0.0004,
     "n_trades": 5,
     "win_rate": 0.4,
     "profit_factor": 0.36,
     "cash": 9706.072
   },
   "equity_curve": [
-    {
-      "time": "2026-07-20 05:30:00",
-      "equity": 9854.98
-    },
-    {
-      "time": "2026-07-20 05:35:00",
-      "equity": 9850.32
-    },
     {
       "time": "2026-07-20 05:40:00",
       "equity": 9825.51
@@ -2022,6 +2014,14 @@
     {
       "time": "2026-07-21 23:05:00",
       "equity": 9971.7
+    },
+    {
+      "time": "2026-07-21 23:10:00",
+      "equity": 9991.34
+    },
+    {
+      "time": "2026-07-21 23:15:00",
+      "equity": 9983.05
     }
   ],
   "trades": [
@@ -2040,7 +2040,7 @@
       "exit": 1833.2347,
       "size": null,
       "pnl_settle": -312.2568,
-      "equity": 9987.04,
+      "equity": 9995.64,
       "reason": "signal"
     },
     {
@@ -2058,7 +2058,7 @@
       "exit": 1882.0585,
       "size": null,
       "pnl_settle": 32.1698,
-      "equity": 9987.04,
+      "equity": 9995.64,
       "reason": "signal"
     },
     {
@@ -2076,7 +2076,7 @@
       "exit": 1857.5283,
       "size": null,
       "pnl_settle": 119.8419,
-      "equity": 9987.04,
+      "equity": 9995.64,
       "reason": "signal"
     },
     {
@@ -2094,7 +2094,7 @@
       "exit": 1856.1115,
       "size": null,
       "pnl_settle": -14.3754,
-      "equity": 9987.04,
+      "equity": 9995.64,
       "reason": "signal"
     },
     {
@@ -2112,7 +2112,7 @@
       "exit": 1873.4863,
       "size": null,
       "pnl_settle": -98.7458,
-      "equity": 9987.04,
+      "equity": 9995.64,
       "reason": "signal"
     },
     {
