@@ -4,11 +4,11 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 9.9782,
+  "equity": 10.0009,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-22 18:18:45",
-  "current_price": 1921.67,
+  "updated_at": "2026-07-22 18:28:49",
+  "current_price": 1926.28,
   "position": {
     "side": "LONG",
     "entry_price": 1871.15511,
@@ -16,21 +16,13 @@
     "entry_time": "2026-07-20 20:45:00"
   },
   "stats": {
-    "total_return": -0.0022,
+    "total_return": 0.0001,
     "n_trades": 5,
     "win_rate": 0.4,
     "profit_factor": 0.37,
     "cash": 9.7227
   },
   "equity_curve": [
-    {
-      "time": "2026-07-21 00:40:00",
-      "equity": 9.86
-    },
-    {
-      "time": "2026-07-21 00:45:00",
-      "equity": 9.85
-    },
     {
       "time": "2026-07-21 00:50:00",
       "equity": 9.86
@@ -2022,6 +2014,14 @@
     {
       "time": "2026-07-22 18:15:00",
       "equity": 9.98
+    },
+    {
+      "time": "2026-07-22 18:20:00",
+      "equity": 9.99
+    },
+    {
+      "time": "2026-07-22 18:25:00",
+      "equity": 9.99
     }
   ],
   "trades": [
@@ -2040,7 +2040,7 @@
       "exit": 1831.6588,
       "size": null,
       "pnl_settle": -0.3032,
-      "equity": 9.98,
+      "equity": 10.0,
       "reason": "signal"
     },
     {
@@ -2058,7 +2058,7 @@
       "exit": 1880.7192,
       "size": null,
       "pnl_settle": 0.0327,
-      "equity": 9.98,
+      "equity": 10.0,
       "reason": "signal"
     },
     {
@@ -2076,7 +2076,7 @@
       "exit": 1856.4277,
       "size": null,
       "pnl_settle": 0.1204,
-      "equity": 9.98,
+      "equity": 10.0,
       "reason": "signal"
     },
     {
@@ -2094,7 +2094,7 @@
       "exit": 1854.9521,
       "size": null,
       "pnl_settle": -0.0147,
-      "equity": 9.98,
+      "equity": 10.0,
       "reason": "signal"
     },
     {
@@ -2112,7 +2112,7 @@
       "exit": 1871.1551,
       "size": null,
       "pnl_settle": -0.0919,
-      "equity": 9.98,
+      "equity": 10.0,
       "reason": "signal"
     },
     {
