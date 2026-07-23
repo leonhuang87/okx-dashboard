@@ -4,33 +4,25 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 9.988,
+  "equity": 9.9516,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-23 13:41:30",
-  "current_price": 1923.65,
+  "updated_at": "2026-07-23 13:51:39",
+  "current_price": 1919.71,
   "position": {
-    "side": "LONG",
-    "entry_price": 1871.15511,
-    "qty": 9.72123567407308,
-    "entry_time": "2026-07-20 20:45:00"
+    "side": "SHORT",
+    "entry_price": 1919.0400000000002,
+    "qty": 9.963525014308157,
+    "entry_time": "2026-07-23 13:50:00"
   },
   "stats": {
-    "total_return": -0.0012,
-    "n_trades": 5,
-    "win_rate": 0.4,
-    "profit_factor": 0.37,
-    "cash": 9.7227
+    "total_return": -0.0048,
+    "n_trades": 6,
+    "win_rate": 0.5,
+    "profit_factor": 0.95,
+    "cash": 9.9551
   },
   "equity_curve": [
-    {
-      "time": "2026-07-21 20:05:00",
-      "equity": 10.02
-    },
-    {
-      "time": "2026-07-21 20:10:00",
-      "equity": 10.03
-    },
     {
       "time": "2026-07-21 20:15:00",
       "equity": 10.04
@@ -2022,6 +2014,14 @@
     {
       "time": "2026-07-23 13:40:00",
       "equity": 9.98
+    },
+    {
+      "time": "2026-07-23 13:45:00",
+      "equity": 9.99
+    },
+    {
+      "time": "2026-07-23 13:50:00",
+      "equity": 9.95
     }
   ],
   "trades": [
@@ -2040,7 +2040,7 @@
       "exit": 1831.6588,
       "size": null,
       "pnl_settle": -0.3032,
-      "equity": 9.99,
+      "equity": 9.95,
       "reason": "signal"
     },
     {
@@ -2058,7 +2058,7 @@
       "exit": 1880.7192,
       "size": null,
       "pnl_settle": 0.0327,
-      "equity": 9.99,
+      "equity": 9.95,
       "reason": "signal"
     },
     {
@@ -2076,7 +2076,7 @@
       "exit": 1856.4277,
       "size": null,
       "pnl_settle": 0.1204,
-      "equity": 9.99,
+      "equity": 9.95,
       "reason": "signal"
     },
     {
@@ -2094,7 +2094,7 @@
       "exit": 1854.9521,
       "size": null,
       "pnl_settle": -0.0147,
-      "equity": 9.99,
+      "equity": 9.95,
       "reason": "signal"
     },
     {
@@ -2112,7 +2112,7 @@
       "exit": 1871.1551,
       "size": null,
       "pnl_settle": -0.0919,
-      "equity": 9.99,
+      "equity": 9.95,
       "reason": "signal"
     },
     {
@@ -2120,7 +2120,25 @@
       "side": "LONG",
       "time": "2026-07-20 20:45:00",
       "price": 1871.1551,
-      "size": 9.7212
+      "size": null
+    },
+    {
+      "action": "CLOSE",
+      "side": "LONG",
+      "time": "2026-07-23 13:50:00",
+      "price": 1919.04,
+      "exit": 1919.04,
+      "size": null,
+      "pnl_settle": 0.2358,
+      "equity": 9.95,
+      "reason": "signal"
+    },
+    {
+      "action": "OPEN",
+      "side": "SHORT",
+      "time": "2026-07-23 13:50:00",
+      "price": 1919.04,
+      "size": 9.9635
     }
   ]
 }
