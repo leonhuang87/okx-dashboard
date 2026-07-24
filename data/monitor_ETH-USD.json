@@ -4,11 +4,11 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 10.1763,
+  "equity": 10.1743,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-07-24 13:15:18",
-  "current_price": 1877.36,
+  "updated_at": "2026-07-24 13:26:23",
+  "current_price": 1877.73,
   "position": {
     "side": "SHORT",
     "entry_price": 1919.0400000000002,
@@ -16,21 +16,13 @@
     "entry_time": "2026-07-23 13:50:00"
   },
   "stats": {
-    "total_return": 0.0176,
+    "total_return": 0.0174,
     "n_trades": 6,
     "win_rate": 0.5,
     "profit_factor": 0.95,
     "cash": 9.9551
   },
   "equity_curve": [
-    {
-      "time": "2026-07-22 19:40:00",
-      "equity": 10.0
-    },
-    {
-      "time": "2026-07-22 19:45:00",
-      "equity": 9.97
-    },
     {
       "time": "2026-07-22 19:50:00",
       "equity": 9.99
@@ -2022,6 +2014,14 @@
     {
       "time": "2026-07-24 13:15:00",
       "equity": 10.18
+    },
+    {
+      "time": "2026-07-24 13:20:00",
+      "equity": 10.17
+    },
+    {
+      "time": "2026-07-24 13:25:00",
+      "equity": 10.18
     }
   ],
   "trades": [
@@ -2040,7 +2040,7 @@
       "exit": 1831.6588,
       "size": null,
       "pnl_settle": -0.3032,
-      "equity": 10.18,
+      "equity": 10.17,
       "reason": "signal"
     },
     {
@@ -2058,7 +2058,7 @@
       "exit": 1880.7192,
       "size": null,
       "pnl_settle": 0.0327,
-      "equity": 10.18,
+      "equity": 10.17,
       "reason": "signal"
     },
     {
@@ -2076,7 +2076,7 @@
       "exit": 1856.4277,
       "size": null,
       "pnl_settle": 0.1204,
-      "equity": 10.18,
+      "equity": 10.17,
       "reason": "signal"
     },
     {
@@ -2094,7 +2094,7 @@
       "exit": 1854.9521,
       "size": null,
       "pnl_settle": -0.0147,
-      "equity": 10.18,
+      "equity": 10.17,
       "reason": "signal"
     },
     {
@@ -2112,7 +2112,7 @@
       "exit": 1871.1551,
       "size": null,
       "pnl_settle": -0.0919,
-      "equity": 10.18,
+      "equity": 10.17,
       "reason": "signal"
     },
     {
@@ -2130,7 +2130,7 @@
       "exit": 1919.04,
       "size": null,
       "pnl_settle": 0.2358,
-      "equity": 10.18,
+      "equity": 10.17,
       "reason": "signal"
     },
     {
