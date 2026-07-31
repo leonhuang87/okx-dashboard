@@ -20,6 +20,7 @@ OKX_CMD = r'C:\Users\leonh\AppData\Local\hermes\node\okx.cmd'
 
 # Initialize strategy engine
 from engine import StrategyEngine
+from okx_env import get_okx_env  # 凭证从 .env / 环境变量加载，不硬编码
 engine = StrategyEngine()
 
 # Background data fetcher - fetch latest candles every 5 minutes
@@ -53,13 +54,10 @@ data_thread.start()
 MODEL_DIR = 'D:/software_maker/models/model_01'
 
 def get_okx_env():
-    env = os.environ.copy()
-    env.update({
-        'OKX_API_KEY': 'REDACTED_API_KEY',
-        'OKX_SECRET_KEY': 'REDACTED_SECRET',
-        'OKX_PASSPHRASE': 'REDACTED_PASSPHRASE'
-    })
-    return env
+    """凭证从 okx_env 模块加载（.env 文件或环境变量），不在源码中硬编码。"""
+    # 直接复用 okx_env 模块的实现，保留本函数名以兼容已有调用
+    from okx_env import get_okx_env as _impl
+    return _impl()
 
 # ===== Static files =====
 @app.route('/')

@@ -3,3 +3,9 @@ __pycache__/
 .okx_config.json
 strategy.log
 market.db
+
+# 敏感凭证 — 永不提交
+.env
+*.env
+.env.local
+okx_secrets*.json

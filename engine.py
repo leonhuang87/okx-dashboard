@@ -13,10 +13,10 @@ import numpy as np
 DB_PATH = 'D:/软件制作/币交易开发/data/market.db'
 MODEL_DIR = 'D:/software_maker/models/model_01'
 OKX_CMD = r'C:\Users\leonh\AppData\Local\hermes\node\okx.cmd'
-OKX_API_KEY = 'REDACTED_API_KEY'
-OKX_SECRET = 'REDACTED_SECRET'
-OKX_PASS = 'REDACTED_PASSPHRASE'
 LOG_PATH = 'D:/软件制作/币交易开发/data/strategy.log'
+
+# OKX 凭证从 .env 文件或环境变量加载（见 okx_env.py），不硬编码在源码中
+from okx_env import get_okx_env as get_env, OKX_API_KEY, OKX_SECRET, OKX_PASSPHRASE as OKX_PASS
 
 logging.basicConfig(
     filename=LOG_PATH, level=logging.INFO,
@@ -24,10 +24,7 @@ logging.basicConfig(
 )
 log = logging.getLogger('Strategy')
 
-def get_env():
-    env = os.environ.copy()
-    env.update({'OKX_API_KEY': OKX_API_KEY, 'OKX_SECRET_KEY': OKX_SECRET, 'OKX_PASSPHRASE': OKX_PASS})
-    return env
+# get_env() 已从 okx_env 模块导入（见文件顶部），无需重复定义
 
 
 class StrategyEngine:
