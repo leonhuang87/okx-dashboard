@@ -11,6 +11,7 @@ from datetime import datetime
 
 import pandas as pd
 import streamlit as st
+import altair as alt
 
 st.set_page_config(
     page_title="OKX 策略监控",
@@ -196,12 +197,32 @@ def render_strategy_card(data, key_prefix):
     with c6:
         st.metric("交易数", n_trades)
 
-    # 净值曲线
+    # 净值曲线（归一化为净值比，基准=1.0）
     if len(eq_curve) > 1:
         eq_df = pd.DataFrame(eq_curve)
         eq_df = eq_df.dropna(subset=["equity"])
         eq_df["equity"] = eq_df["equity"].astype(float)
-        st.line_chart(eq_df.set_index("time")["equity"], height=180, use_container_width=True)
+        # 归一化：equity / capital → 基准 1.0
+        if capital > 0:
+            eq_df["equity"] = eq_df["equity"] / capital
+        # 按天降采样（每天取最后一个点），X 轴用日期
+        eq_df["date"] = pd.to_datetime(eq_df["time"]).dt.date
+        eq_df = eq_df.groupby("date").last().reset_index()
+        # Y 轴范围：以 1.0 为基准，上下留 5% 边距（不从 0 开始）
+        y_min = min(1.0, eq_df["equity"].min())
+        y_max = max(1.0, eq_df["equity"].max())
+        y_pad = (y_max - y_min) * 0.05 if y_max > y_min else 0.01
+        chart = alt.Chart(eq_df).mark_line(color='#10b981', strokeWidth=2).encode(
+            x=alt.X('date:T', title=None,
+                    axis=alt.Axis(format='%Y-%m-%d', labelAngle=-45)),
+            y=alt.Y('equity:Q', title=None,
+                    scale=alt.Scale(domain=[y_min - y_pad, y_max + y_pad])),
+        ).properties(height=180)
+        # 基准线 1.0
+        rule = alt.Chart(pd.DataFrame({'y': [1.0]})).mark_rule(
+            color='gray', strokeDash=[4, 4]
+        ).encode(y='y:Q')
+        st.altair_chart(chart + rule, use_container_width=True)
     else:
         st.caption("净值数据不足")
 
