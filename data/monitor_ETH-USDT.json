@@ -4,11 +4,11 @@
   "capital": 10000.0,
   "initial_capital": 10000.0,
   "currency": "USDT",
-  "equity": 9561.2379,
+  "equity": 9564.7097,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-03 03:05:51",
-  "current_price": 1876.02,
+  "updated_at": "2026-08-03 03:15:55",
+  "current_price": 1875.69,
   "position": {
     "side": "SHORT",
     "entry_price": 1856.98,
@@ -16,7 +16,7 @@
     "entry_time": "2026-08-02 20:55:00"
   },
   "stats": {
-    "total_return": -0.0439,
+    "total_return": -0.0435,
     "n_trades": 1,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -28,8 +28,8 @@
       "equity": 9752.19
     },
     {
-      "time": "2026-08-03 03:05:00",
-      "equity": 9561.24
+      "time": "2026-08-03 03:15:00",
+      "equity": 9564.71
     }
   ],
   "trades": [
@@ -48,7 +48,7 @@
       "exit": 1856.98,
       "size": null,
       "pnl_settle": -224.6096,
-      "equity": 9561.24,
+      "equity": 9564.71,
       "reason": "信号"
     },
     {
