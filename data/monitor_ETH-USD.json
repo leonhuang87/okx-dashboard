@@ -7,8 +7,8 @@
   "equity": 9.5469,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-03 14:20:47",
-  "current_price": 1854.19,
+  "updated_at": "2026-08-03 14:30:51",
+  "current_price": 1854.18,
   "position": {
     "side": "SHORT",
     "entry_price": 1854.29,
@@ -28,7 +28,7 @@
       "equity": 9.86
     },
     {
-      "time": "2026-08-03 14:20:00",
+      "time": "2026-08-03 14:30:00",
       "equity": 9.55
     }
   ],
