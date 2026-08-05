@@ -4,11 +4,11 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 9.3255,
+  "equity": 9.3136,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-05 10:10:08",
-  "current_price": 1872.63,
+  "updated_at": "2026-08-05 10:20:13",
+  "current_price": 1870.24,
   "position": {
     "side": "LONG",
     "entry_price": 1866.37,
@@ -16,7 +16,7 @@
     "entry_time": "2026-08-04 20:15:00"
   },
   "stats": {
-    "total_return": -0.0675,
+    "total_return": -0.0686,
     "n_trades": 9,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -36,8 +36,8 @@
       "equity": 9.32
     },
     {
-      "time": "2026-08-05 10:10:00",
-      "equity": 9.33
+      "time": "2026-08-05 10:20:00",
+      "equity": 9.31
     }
   ],
   "trades": [
@@ -56,7 +56,7 @@
       "exit": 1874.87,
       "size": null,
       "pnl_settle": -0.0105,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
@@ -74,7 +74,7 @@
       "exit": 1855.12,
       "size": null,
       "pnl_settle": -0.1133,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
@@ -92,7 +92,7 @@
       "exit": 1883.23,
       "size": null,
       "pnl_settle": -0.1542,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
@@ -110,7 +110,7 @@
       "exit": 1854.29,
       "size": null,
       "pnl_settle": -0.1584,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
@@ -128,7 +128,7 @@
       "exit": 1866.85,
       "size": null,
       "pnl_settle": -0.0709,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
@@ -146,7 +146,7 @@
       "exit": 1860.0,
       "size": null,
       "pnl_settle": -0.0415,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
@@ -164,7 +164,7 @@
       "exit": 1863.01,
       "size": null,
       "pnl_settle": -0.0218,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
@@ -182,7 +182,7 @@
       "exit": 1855.94,
       "size": null,
       "pnl_settle": -0.0424,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
@@ -200,7 +200,7 @@
       "exit": 1866.37,
       "size": null,
       "pnl_settle": -0.0588,
-      "equity": 9.33,
+      "equity": 9.31,
       "reason": "信号"
     },
     {
