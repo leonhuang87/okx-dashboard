@@ -4,11 +4,11 @@
   "capital": 10000.0,
   "initial_capital": 10000.0,
   "currency": "USDT",
-  "equity": 8944.3726,
+  "equity": 8943.9081,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-06 11:04:55",
-  "current_price": 1897.32,
+  "updated_at": "2026-08-06 11:14:59",
+  "current_price": 1897.27,
   "position": {
     "side": "LONG",
     "entry_price": 1868.06,
@@ -40,8 +40,8 @@
       "equity": 8724.16
     },
     {
-      "time": "2026-08-06 11:00:00",
-      "equity": 8953.2
+      "time": "2026-08-06 11:10:00",
+      "equity": 8938.7
     }
   ],
   "trades": [
@@ -60,7 +60,7 @@
       "exit": 1856.98,
       "size": null,
       "pnl_settle": -224.6096,
-      "equity": 8944.37,
+      "equity": 8943.91,
       "reason": "信号"
     },
     {
@@ -78,7 +78,7 @@
       "exit": 1885.39,
       "size": null,
       "pnl_settle": -312.6742,
-      "equity": 8944.37,
+      "equity": 8943.91,
       "reason": "信号"
     },
     {
@@ -96,7 +96,7 @@
       "exit": 1857.01,
       "size": null,
       "pnl_settle": -297.589,
-      "equity": 8944.37,
+      "equity": 8943.91,
       "reason": "信号"
     },
     {
@@ -114,7 +114,7 @@
       "exit": 1868.85,
       "size": null,
       "pnl_settle": -129.4533,
-      "equity": 8944.37,
+      "equity": 8943.91,
       "reason": "信号"
     },
     {
@@ -132,7 +132,7 @@
       "exit": 1861.76,
       "size": null,
       "pnl_settle": -80.9433,
-      "equity": 8944.37,
+      "equity": 8943.91,
       "reason": "信号"
     },
     {
@@ -150,7 +150,7 @@
       "exit": 1864.84,
       "size": null,
       "pnl_settle": -42.0193,
-      "equity": 8944.37,
+      "equity": 8943.91,
       "reason": "信号"
     },
     {
@@ -168,7 +168,7 @@
       "exit": 1858.14,
       "size": null,
       "pnl_settle": -76.1604,
-      "equity": 8944.37,
+      "equity": 8943.91,
       "reason": "信号"
     },
     {
@@ -186,7 +186,7 @@
       "exit": 1868.06,
       "size": null,
       "pnl_settle": -106.204,
-      "equity": 8944.37,
+      "equity": 8943.91,
       "reason": "信号"
     },
     {
