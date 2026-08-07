@@ -4,255 +4,59 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 9.3978,
+  "equity": 9.858,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-07 16:36:26",
-  "current_price": 1903.88,
+  "updated_at": "2026-08-07 16:46:50",
+  "current_price": 1908.11,
   "position": {
-    "side": "LONG",
-    "entry_price": 1902.16,
-    "qty": 9.392582232972414,
-    "entry_time": "2026-08-07 15:35:00"
+    "side": "SHORT",
+    "entry_price": 1895.23,
+    "qty": 9.928536198772706,
+    "entry_time": "2026-08-07 13:05:00"
   },
   "stats": {
-    "total_return": -0.0602,
-    "n_trades": 11,
-    "win_rate": 0.0909,
-    "profit_factor": 0.2,
-    "cash": 9.3893
+    "total_return": -0.0142,
+    "n_trades": 1,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "cash": 9.9251
   },
   "equity_curve": [
     {
-      "time": "2026-08-02 23:55:00",
-      "equity": 9.86
-    },
-    {
-      "time": "2026-08-03 23:55:00",
-      "equity": 9.52
-    },
-    {
-      "time": "2026-08-04 23:55:00",
-      "equity": 9.32
-    },
-    {
-      "time": "2026-08-05 23:55:00",
-      "equity": 9.32
-    },
-    {
       "time": "2026-08-06 23:55:00",
-      "equity": 9.5
+      "equity": 10.0
     },
     {
-      "time": "2026-08-07 16:35:00",
-      "equity": 9.4
+      "time": "2026-08-07 16:45:00",
+      "equity": 9.86
     }
   ],
   "trades": [
     {
       "action": "OPEN",
-      "side": "SHORT",
-      "time": "2026-08-02 13:05:00",
-      "price": 1874.2124,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "SHORT",
-      "time": "2026-08-02 13:15:00",
-      "price": 1874.87,
-      "exit": 1874.87,
-      "size": null,
-      "pnl_settle": -0.0105,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
       "side": "LONG",
-      "time": "2026-08-02 13:15:00",
-      "price": 1874.87,
+      "time": "2026-08-06 15:55:00",
+      "price": 1906.78,
       "size": null
     },
     {
       "action": "CLOSE",
       "side": "LONG",
-      "time": "2026-08-02 20:55:00",
-      "price": 1855.12,
-      "exit": 1855.12,
+      "time": "2026-08-07 13:05:00",
+      "price": 1895.23,
+      "exit": 1895.23,
       "size": null,
-      "pnl_settle": -0.1133,
-      "equity": 9.4,
+      "pnl_settle": -0.068,
+      "equity": 9.86,
       "reason": "信号"
     },
     {
       "action": "OPEN",
       "side": "SHORT",
-      "time": "2026-08-02 20:55:00",
-      "price": 1855.12,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "SHORT",
-      "time": "2026-08-03 05:05:00",
-      "price": 1883.23,
-      "exit": 1883.23,
-      "size": null,
-      "pnl_settle": -0.1542,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "time": "2026-08-03 05:05:00",
-      "price": 1883.23,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "time": "2026-08-03 13:25:00",
-      "price": 1854.29,
-      "exit": 1854.29,
-      "size": null,
-      "pnl_settle": -0.1584,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "SHORT",
-      "time": "2026-08-03 13:25:00",
-      "price": 1854.29,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "SHORT",
-      "time": "2026-08-04 02:35:00",
-      "price": 1866.85,
-      "exit": 1866.85,
-      "size": null,
-      "pnl_settle": -0.0709,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "time": "2026-08-04 02:35:00",
-      "price": 1866.85,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "time": "2026-08-04 09:40:00",
-      "price": 1860.0,
-      "exit": 1860.0,
-      "size": null,
-      "pnl_settle": -0.0415,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "SHORT",
-      "time": "2026-08-04 09:40:00",
-      "price": 1860.0,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "SHORT",
-      "time": "2026-08-04 11:05:00",
-      "price": 1863.01,
-      "exit": 1863.01,
-      "size": null,
-      "pnl_settle": -0.0218,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "time": "2026-08-04 11:05:00",
-      "price": 1863.01,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "time": "2026-08-04 16:50:00",
-      "price": 1855.94,
-      "exit": 1855.94,
-      "size": null,
-      "pnl_settle": -0.0424,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "SHORT",
-      "time": "2026-08-04 16:50:00",
-      "price": 1855.94,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "SHORT",
-      "time": "2026-08-04 20:15:00",
-      "price": 1866.37,
-      "exit": 1866.37,
-      "size": null,
-      "pnl_settle": -0.0588,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "time": "2026-08-04 20:15:00",
-      "price": 1866.37,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "time": "2026-08-07 12:40:00",
-      "price": 1895.98,
-      "exit": 1895.98,
-      "size": null,
-      "pnl_settle": 0.1387,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "SHORT",
-      "time": "2026-08-07 12:40:00",
-      "price": 1895.98,
-      "size": null
-    },
-    {
-      "action": "CLOSE",
-      "side": "SHORT",
-      "time": "2026-08-07 15:35:00",
-      "price": 1902.16,
-      "exit": 1902.16,
-      "size": null,
-      "pnl_settle": -0.0372,
-      "equity": 9.4,
-      "reason": "信号"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "time": "2026-08-07 15:35:00",
-      "price": 1902.16,
-      "size": 9.3926
+      "time": "2026-08-07 13:05:00",
+      "price": 1895.23,
+      "size": 9.9285
     }
   ]
 }
