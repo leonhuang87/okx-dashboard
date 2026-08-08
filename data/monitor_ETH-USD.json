@@ -7,8 +7,8 @@
   "equity": 10.0026,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-08 15:39:50",
-  "current_price": 1912.27,
+  "updated_at": "2026-08-08 15:49:54",
+  "current_price": 1912.28,
   "position": {
     "side": "LONG",
     "entry_price": 1911.11,
@@ -28,8 +28,8 @@
       "equity": 10.02
     },
     {
-      "time": "2026-08-08 15:35:00",
-      "equity": 10.01
+      "time": "2026-08-08 15:45:00",
+      "equity": 10.0
     }
   ],
   "trades": [
