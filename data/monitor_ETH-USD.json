@@ -4,11 +4,11 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 9.9777,
+  "equity": 9.9853,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-09 23:08:08",
-  "current_price": 1923.08,
+  "updated_at": "2026-08-09 23:18:15",
+  "current_price": 1924.54,
   "position": {
     "side": "LONG",
     "entry_price": 1918.08,
@@ -16,7 +16,7 @@
     "entry_time": "2026-08-09 19:05:00"
   },
   "stats": {
-    "total_return": -0.0022,
+    "total_return": -0.0015,
     "n_trades": 4,
     "win_rate": 0.25,
     "profit_factor": 0.17,
@@ -32,7 +32,7 @@
       "equity": 10.05
     },
     {
-      "time": "2026-08-09 23:05:00",
+      "time": "2026-08-09 23:15:00",
       "equity": 9.98
     }
   ],
@@ -52,7 +52,7 @@
       "exit": 1911.81,
       "size": null,
       "pnl_settle": -0.0033,
-      "equity": 9.98,
+      "equity": 9.99,
       "reason": "信号"
     },
     {
@@ -70,7 +70,7 @@
       "exit": 1912.33,
       "size": null,
       "pnl_settle": -0.0097,
-      "equity": 9.98,
+      "equity": 9.99,
       "reason": "信号"
     },
     {
@@ -88,7 +88,7 @@
       "exit": 1914.85,
       "size": null,
       "pnl_settle": 0.0062,
-      "equity": 9.98,
+      "equity": 9.99,
       "reason": "信号"
     },
     {
@@ -106,7 +106,7 @@
       "exit": 1918.08,
       "size": null,
       "pnl_settle": -0.0238,
-      "equity": 9.98,
+      "equity": 9.99,
       "reason": "信号"
     },
     {
