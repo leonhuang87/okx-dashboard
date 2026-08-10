@@ -4,11 +4,11 @@
   "capital": 10000.0,
   "initial_capital": 10000.0,
   "currency": "USDT",
-  "equity": 9973.6715,
+  "equity": 9977.8097,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-10 12:16:08",
-  "current_price": 1919.39,
+  "updated_at": "2026-08-10 12:26:12",
+  "current_price": 1918.99,
   "position": {
     "side": "SHORT",
     "entry_price": 1922.75,
@@ -16,7 +16,7 @@
     "entry_time": "2026-08-10 11:25:00"
   },
   "stats": {
-    "total_return": -0.0026,
+    "total_return": -0.0022,
     "n_trades": 7,
     "win_rate": 0.4286,
     "profit_factor": 0.95,
@@ -36,8 +36,8 @@
       "equity": 9988.96
     },
     {
-      "time": "2026-08-10 12:15:00",
-      "equity": 9974.5
+      "time": "2026-08-10 12:25:00",
+      "equity": 9988.36
     }
   ],
   "trades": [
@@ -56,7 +56,7 @@
       "exit": 1913.84,
       "size": null,
       "pnl_settle": -15.0446,
-      "equity": 9973.67,
+      "equity": 9977.81,
       "reason": "信号"
     },
     {
@@ -74,7 +74,7 @@
       "exit": 1916.32,
       "size": null,
       "pnl_settle": -39.8375,
-      "equity": 9973.67,
+      "equity": 9977.81,
       "reason": "信号"
     },
     {
@@ -92,7 +92,7 @@
       "exit": 1919.91,
       "size": null,
       "pnl_settle": 23.293,
-      "equity": 9973.67,
+      "equity": 9977.81,
       "reason": "信号"
     },
     {
@@ -110,7 +110,7 @@
       "exit": 1919.54,
       "size": null,
       "pnl_settle": -10.091,
-      "equity": 9973.67,
+      "equity": 9977.81,
       "reason": "信号"
     },
     {
@@ -128,7 +128,7 @@
       "exit": 1916.1,
       "size": null,
       "pnl_settle": -49.4827,
-      "equity": 9973.67,
+      "equity": 9977.81,
       "reason": "信号"
     },
     {
@@ -146,7 +146,7 @@
       "exit": 1913.93,
       "size": null,
       "pnl_settle": 8.549,
-      "equity": 9973.67,
+      "equity": 9977.81,
       "reason": "信号"
     },
     {
@@ -164,7 +164,7 @@
       "exit": 1922.75,
       "size": null,
       "pnl_settle": 77.1623,
-      "equity": 9973.67,
+      "equity": 9977.81,
       "reason": "信号"
     },
     {
