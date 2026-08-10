@@ -4,11 +4,11 @@
   "capital": 10.0,
   "initial_capital": 10.0,
   "currency": "ETH",
-  "equity": 9.8545,
+  "equity": 9.8536,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-10 19:22:18",
-  "current_price": 1917.14,
+  "updated_at": "2026-08-10 19:32:22",
+  "current_price": 1916.98,
   "position": {
     "side": "LONG",
     "entry_price": 1926.98,
@@ -36,7 +36,7 @@
       "equity": 9.98
     },
     {
-      "time": "2026-08-10 19:20:00",
+      "time": "2026-08-10 19:30:00",
       "equity": 9.85
     }
   ],
