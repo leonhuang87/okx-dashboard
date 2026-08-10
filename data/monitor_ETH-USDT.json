@@ -4,23 +4,23 @@
   "capital": 10000.0,
   "initial_capital": 10000.0,
   "currency": "USDT",
-  "equity": 9977.8097,
+  "equity": 9966.257,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-10 12:26:12",
-  "current_price": 1918.99,
+  "updated_at": "2026-08-10 12:36:19",
+  "current_price": 1919.11,
   "position": {
-    "side": "SHORT",
-    "entry_price": 1922.75,
-    "qty": 10.34546653199395,
-    "entry_time": "2026-08-10 11:25:00"
+    "side": "LONG",
+    "entry_price": 1918.6,
+    "qty": 10.390842559189498,
+    "entry_time": "2026-08-10 12:30:00"
   },
   "stats": {
-    "total_return": -0.0022,
-    "n_trades": 7,
-    "win_rate": 0.4286,
-    "profit_factor": 0.95,
-    "cash": 9938.9108
+    "total_return": -0.0034,
+    "n_trades": 8,
+    "win_rate": 0.5,
+    "profit_factor": 1.21,
+    "cash": 9960.9577
   },
   "equity_curve": [
     {
@@ -36,8 +36,8 @@
       "equity": 9988.96
     },
     {
-      "time": "2026-08-10 12:25:00",
-      "equity": 9988.36
+      "time": "2026-08-10 12:35:00",
+      "equity": 9963.76
     }
   ],
   "trades": [
@@ -56,7 +56,7 @@
       "exit": 1913.84,
       "size": null,
       "pnl_settle": -15.0446,
-      "equity": 9977.81,
+      "equity": 9966.26,
       "reason": "信号"
     },
     {
@@ -74,7 +74,7 @@
       "exit": 1916.32,
       "size": null,
       "pnl_settle": -39.8375,
-      "equity": 9977.81,
+      "equity": 9966.26,
       "reason": "信号"
     },
     {
@@ -92,7 +92,7 @@
       "exit": 1919.91,
       "size": null,
       "pnl_settle": 23.293,
-      "equity": 9977.81,
+      "equity": 9966.26,
       "reason": "信号"
     },
     {
@@ -110,7 +110,7 @@
       "exit": 1919.54,
       "size": null,
       "pnl_settle": -10.091,
-      "equity": 9977.81,
+      "equity": 9966.26,
       "reason": "信号"
     },
     {
@@ -128,7 +128,7 @@
       "exit": 1916.1,
       "size": null,
       "pnl_settle": -49.4827,
-      "equity": 9977.81,
+      "equity": 9966.26,
       "reason": "信号"
     },
     {
@@ -146,7 +146,7 @@
       "exit": 1913.93,
       "size": null,
       "pnl_settle": 8.549,
-      "equity": 9977.81,
+      "equity": 9966.26,
       "reason": "信号"
     },
     {
@@ -164,7 +164,7 @@
       "exit": 1922.75,
       "size": null,
       "pnl_settle": 77.1623,
-      "equity": 9977.81,
+      "equity": 9966.26,
       "reason": "信号"
     },
     {
@@ -172,7 +172,25 @@
       "side": "SHORT",
       "time": "2026-08-10 11:25:00",
       "price": 1922.75,
-      "size": 10.3455
+      "size": null
+    },
+    {
+      "action": "CLOSE",
+      "side": "SHORT",
+      "time": "2026-08-10 12:30:00",
+      "price": 1918.6,
+      "exit": 1918.6,
+      "size": null,
+      "pnl_settle": 29.0245,
+      "equity": 9966.26,
+      "reason": "信号"
+    },
+    {
+      "action": "OPEN",
+      "side": "LONG",
+      "time": "2026-08-10 12:30:00",
+      "price": 1918.6,
+      "size": 10.3908
     }
   ]
 }
