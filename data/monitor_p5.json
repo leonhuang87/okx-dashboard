@@ -1,20 +1,20 @@
 {
   "strategy_id": "p5",
   "capital": 100000.0,
-  "equity": 99996.01,
+  "equity": 99981.44,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-16 07:30:45",
-  "current_price": 1882.2,
+  "updated_at": "2026-08-16 07:41:15",
+  "current_price": 1882.98,
   "prices": {
-    "BTC-USDT-SWAP": 63077.3,
-    "ETH-USDT-SWAP": 1882.2,
-    "SOL-USDT-SWAP": 75.34,
+    "BTC-USDT-SWAP": 63072.4,
+    "ETH-USDT-SWAP": 1882.98,
+    "SOL-USDT-SWAP": 75.33,
     "DOGE-USDT-SWAP": 0.0696,
-    "XRP-USDT-SWAP": 1.0012
+    "XRP-USDT-SWAP": 1.0018
   },
   "stats": {
-    "total_return": -0.0,
+    "total_return": -0.0002,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -33,10 +33,10 @@
       "entry": 75.6478,
       "frac": 0.2,
       "leverage": 2,
-      "unrealized": -81.38,
+      "unrealized": -84.02,
       "notional": 20000.0,
       "margin": 10000.0,
-      "price": 75.34
+      "price": 75.33
     },
     {
       "slot": "A-S",
@@ -47,10 +47,10 @@
       "entry": 1.0058,
       "frac": 0.2,
       "leverage": 2,
-      "unrealized": 91.39,
+      "unrealized": 79.46,
       "notional": 19996.6,
       "margin": 9998.3,
-      "price": 1.0012
+      "price": 1.0018
     }
   ],
   "snapshot": {
