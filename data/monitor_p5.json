@@ -1,0 +1,70 @@
+{
+  "strategy_id": "p5",
+  "capital": 100000.0,
+  "equity": 99966.0,
+  "leverage": 1,
+  "demo_mode": true,
+  "updated_at": "2026-08-15 19:08:07",
+  "current_price": 1880.55,
+  "prices": {
+    "BTC-USDT-SWAP": 62966.1,
+    "ETH-USDT-SWAP": 1880.55,
+    "SOL-USDT-SWAP": 75.61,
+    "DOGE-USDT-SWAP": 0.0698,
+    "XRP-USDT-SWAP": 1.0063
+  },
+  "stats": {
+    "total_return": -0.0003,
+    "n_trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "n_open": 2,
+    "cash": 99986.0
+  },
+  "slots": [
+    {
+      "slot": "A-L",
+      "leg": "",
+      "inst": "SOL-USDT-SWAP",
+      "side": 1,
+      "qty": 264.38308422,
+      "entry": 75.6478,
+      "frac": 0.2,
+      "unrealized": -10.0,
+      "notional": 20000.0,
+      "margin": 10000.0,
+      "price": 75.61
+    },
+    {
+      "slot": "A-S",
+      "leg": "",
+      "inst": "XRP-USDT-SWAP",
+      "side": -1,
+      "qty": 19881.3517854,
+      "entry": 1.0058,
+      "frac": 0.2,
+      "unrealized": -10.0,
+      "notional": 19996.6,
+      "margin": 9998.3,
+      "price": 1.0063
+    }
+  ],
+  "snapshot": {
+    "策略": "P5 五标轮动 + D3",
+    "判断器门": "关(震荡)",
+    "wA": 0.2,
+    "wB": 0.8,
+    "A多": "SOL",
+    "A空": "XRP",
+    "分化spread": 3.062,
+    "腿位(a/s/d/k)": "····",
+    "分数": "BTC:-0.05  ETH:+0.15  SOL:+1.37  DOGE:+0.22  XRP:-1.69"
+  },
+  "equity_curve": [
+    {
+      "time": "2026-08-15 19:00:00",
+      "equity": 99941.11
+    }
+  ],
+  "trades": []
+}
