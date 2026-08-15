@@ -4,7 +4,7 @@
   "equity": 99966.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-15 21:25:03",
+  "updated_at": "2026-08-15 21:29:21",
   "current_price": 1880.55,
   "prices": {
     "BTC-USDT-SWAP": 62966.1,
@@ -66,7 +66,7 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-15 21:15:00",
+      "time": "2026-08-15 21:20:00",
       "equity": 99949.72
     }
   ],
