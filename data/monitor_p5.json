@@ -4,7 +4,7 @@
   "equity": 99966.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-15 21:04:02",
+  "updated_at": "2026-08-15 21:16:33",
   "current_price": 1880.55,
   "prices": {
     "BTC-USDT-SWAP": 62966.1,
@@ -66,9 +66,34 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-15 20:55:00",
+      "time": "2026-08-15 21:10:00",
       "equity": 99949.72
     }
   ],
-  "trades": []
+  "trades": [
+    {
+      "action": "OPEN",
+      "side": "SHORT",
+      "inst": "XRP-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-15 17:30:00",
+      "price": 1.0058,
+      "qty": 19881.351785,
+      "fee": 6.9988,
+      "pnl": null,
+      "reason": "A空->XRP"
+    },
+    {
+      "action": "OPEN",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-15 17:30:00",
+      "price": 75.6478,
+      "qty": 264.383084,
+      "fee": 7.0,
+      "pnl": null,
+      "reason": "A多->SOL"
+    }
+  ]
 }
