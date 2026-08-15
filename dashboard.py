@@ -54,7 +54,7 @@ h1, h2, h3, h4, .stCaption {{ color: {TC['text']} !important; }}
 </style>
 """, unsafe_allow_html=True)
 
-STRATEGY_LABELS = {"p5": "虚拟币轮动多仓策略 by HS"}
+STRATEGY_LABELS = {"p5": "轮动多仓策略 by HS"}
 
 ASSET_LABELS = {
     "BTC-USDT-SWAP": "BTC", "ETH-USDT-SWAP": "ETH", "SOL-USDT-SWAP": "SOL",
@@ -242,8 +242,8 @@ def render_card(data):
 
 
 # ===== 主界面 =====
-st.set_page_config(page_title="虚拟币轮动多仓策略 by HS", page_icon="📈", layout="wide")
-st.markdown("## 📈 虚拟币轮动多仓策略 by HS")
+st.set_page_config(page_title="轮动多仓策略 by HS", page_icon="📈", layout="wide")
+st.markdown("## 📈 轮动多仓策略 by HS")
 
 strategies = get_strategies()
 if not strategies:
