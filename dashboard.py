@@ -54,7 +54,7 @@ h1, h2, h3, h4, .stCaption {{ color: {TC['text']} !important; }}
 </style>
 """, unsafe_allow_html=True)
 
-STRATEGY_LABELS = {"p5": "P5 五标轮动 + D3"}
+STRATEGY_LABELS = {"p5": "虚拟币轮动多仓策略"}
 
 ASSET_LABELS = {
     "BTC-USDT-SWAP": "BTC", "ETH-USDT-SWAP": "ETH", "SOL-USDT-SWAP": "SOL",
@@ -124,7 +124,10 @@ def render_card(data):
     mode_text = "🧪 模拟盘" if demo_mode else "⚠️ 实盘"
     label = STRATEGY_LABELS.get(data.get("strategy_id", ""), data.get("strategy_id", "?"))
     st.markdown(f"#### {label} · {mode_text}")
-    st.caption(f"ETH 价格 {price:,.2f} | 更新 {data.get('updated_at', '?')[:19]}")
+    price_row = "  ".join(
+        f"{ASSET_LABELS.get(k, k)} {v:,.4g}" for k, v in prices.items()
+    ) if prices else (f"ETH {price:,.2f}" if price else "")
+    st.caption(f"{price_row} | 更新 {data.get('updated_at', '?')[:19]}")
 
     # 快照行（策略状态）
     if snapshot:
@@ -217,8 +220,8 @@ def render_card(data):
 
 
 # ===== 主界面 =====
-st.set_page_config(page_title="OKX 策略监控", page_icon="📈", layout="wide")
-st.markdown("## 📈 OKX 策略监控")
+st.set_page_config(page_title="虚拟币轮动多仓策略", page_icon="📈", layout="wide")
+st.markdown("## 📈 虚拟币轮动多仓策略")
 
 strategies = get_strategies()
 if not strategies:
