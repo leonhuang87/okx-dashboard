@@ -101,6 +101,15 @@ def fmt_pnl(val):
     return f"{'+' if val >= 0 else ''}{val:,.2f}"
 
 
+def fmt_price(val):
+    """价格显示：>=1 用两位小数（带千分位），<1 用四位小数（避免科学计数法）。"""
+    try:
+        v = float(val)
+    except (TypeError, ValueError):
+        return f"{val}"
+    return f"{v:,.2f}" if v >= 1 else f"{v:.4f}"
+
+
 def render_card(data):
     """渲染单策略卡片（P5：组合权益 + 仓位槽）。"""
     capital = data.get("capital", 10000)
@@ -125,8 +134,8 @@ def render_card(data):
     label = STRATEGY_LABELS.get(data.get("strategy_id", ""), data.get("strategy_id", "?"))
     st.markdown(f"#### {label} · {mode_text}")
     price_row = "  ".join(
-        f"{ASSET_LABELS.get(k, k)} {v:,.4g}" for k, v in prices.items()
-    ) if prices else (f"ETH {price:,.2f}" if price else "")
+        f"{ASSET_LABELS.get(k, k)} {fmt_price(v)}" for k, v in prices.items()
+    ) if prices else (f"ETH {fmt_price(price)}" if price else "")
     st.caption(f"{price_row} | 更新 {data.get('updated_at', '?')[:19]}")
 
     # 策略参数不对外展示（2026-08-16：策略保密，仅内部使用）
@@ -203,22 +212,31 @@ def render_card(data):
     else:
         st.caption("净值数据不足")
 
-    # 最近交易
+    # 最近交易（开仓/平仓/资金费）
     if trades:
         records = []
-        for t in reversed(trades[-10:]):
-            side_cn = "多" if t.get("side", "") == "LONG" else "空"
-            reason_map = {"close": "信号", "close_sl": "止损", "close_trail": "轨道",
-                          "flip": "反手", "sl": "止损", "trail": "轨道", "换仓": "换仓"}
+        reason_map = {"close": "信号", "close_sl": "止损", "close_trail": "轨道",
+                      "flip": "反手", "换仓": "换仓", "end": "期末"}
+        for t in reversed(trades[-20:]):
+            act = str(t.get("action", "OPEN")).upper()
+            side_cn = "多" if t.get("side") == "LONG" else ("空" if t.get("side") == "SHORT" else "")
+            if act == "OPEN":
+                op = f"开{side_cn}"
+            elif act == "FUNDING":
+                op = "资金费"
+            else:
+                rsn = t.get("reason", "") or "close"
+                op = f"平{side_cn}({reason_map.get(rsn, rsn)})"
             records.append({
                 "时间": t.get("time", "")[5:16],
-                "标的": ASSET_LABELS.get(t.get("inst", ""), t.get("inst", "")),
-                "操作": f"平{side_cn}({reason_map.get(t.get('reason', 'close'), t.get('reason', ''))})",
-                "开仓价": t.get("entry_price", 0),
-                "平仓价": t.get("exit_price", 0),
-                "盈亏": fmt_pnl(t.get("pnl", 0)),
+                "标的": ASSET_LABELS.get(t.get("inst", ""), t.get("inst", "") or "-"),
+                "操作": op,
+                "价格": fmt_price(t.get("price", 0)),
+                "数量": f"{t.get('qty', 0):,.4f}",
+                "手续费": f"{t.get('fee', 0):.4f}",
+                "盈亏": "" if t.get("pnl") is None else fmt_pnl(t.get("pnl", 0)),
             })
-        st.dataframe(pd.DataFrame(records), use_container_width=True, hide_index=True, height=150)
+        st.dataframe(pd.DataFrame(records), use_container_width=True, hide_index=True, height=200)
     else:
         st.caption("暂无交易")
 
