@@ -129,10 +129,7 @@ def render_card(data):
     ) if prices else (f"ETH {price:,.2f}" if price else "")
     st.caption(f"{price_row} | 更新 {data.get('updated_at', '?')[:19]}")
 
-    # 快照行（策略状态）
-    if snapshot:
-        snap_text = " | ".join(f"{k}: {v}" for k, v in snapshot.items() if k != "策略")
-        st.caption(f"🧠 {snap_text}")
+    # 策略参数不对外展示（2026-08-16：策略保密，仅内部使用）
 
     available = stats.get("available", stats.get("cash", 0))
     frozen = stats.get("frozen", 0)
