@@ -4,7 +4,7 @@
   "equity": 99966.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-15 19:19:29",
+  "updated_at": "2026-08-15 19:30:36",
   "current_price": 1880.55,
   "prices": {
     "BTC-USDT-SWAP": 62966.1,
@@ -19,7 +19,9 @@
     "win_rate": 0.0,
     "profit_factor": 0.0,
     "n_open": 2,
-    "cash": 99986.0
+    "cash": 99986.0,
+    "available": 99986.0,
+    "frozen": 19998.3
   },
   "slots": [
     {
@@ -62,7 +64,7 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-15 19:10:00",
+      "time": "2026-08-15 19:20:00",
       "equity": 99941.11
     }
   ],
