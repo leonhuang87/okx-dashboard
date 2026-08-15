@@ -134,21 +134,28 @@ def render_card(data):
         snap_text = " | ".join(f"{k}: {v}" for k, v in snapshot.items() if k != "策略")
         st.caption(f"🧠 {snap_text}")
 
-    c1, c2, c3 = st.columns(3)
+    available = stats.get("available", stats.get("cash", 0))
+    frozen = stats.get("frozen", 0)
+
+    c1, c2, c3, c4 = st.columns(4)
     with c1:
         st.metric("组合权益", f"{equity:,.2f}", fmt_pnl(pnl_total))
     with c2:
         st.metric("收益率", f"{total_return:+.2f}%")
     with c3:
-        st.metric("胜率", f"{win_rate:.0f}%")
-
-    c4, c5, c6 = st.columns(3)
+        st.metric("可用资金", f"{available:,.2f}")
     with c4:
-        st.metric("盈亏比", f"{profit_factor:.2f}")
+        st.metric("冻结资金", f"{frozen:,.2f}")
+
+    c5, c6, c7 = st.columns(3)
     with c5:
-        st.metric("回撤", f"{max_dd:.2f}%")
+        st.metric("胜率", f"{win_rate:.0f}%")
     with c6:
-        st.metric("交易数", n_trades)
+        st.metric("盈亏比", f"{profit_factor:.2f}")
+    with c7:
+        st.metric("回撤", f"{max_dd:.2f}%")
+
+    st.caption(f"交易数: {n_trades}")
 
     # 仓位槽表
     if slots:
