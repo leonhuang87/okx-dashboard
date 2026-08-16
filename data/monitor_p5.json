@@ -1,10 +1,10 @@
 {
   "strategy_id": "p5",
-  "capital": 100000.0,
-  "equity": 99949.01,
+  "capital": 10000.0,
+  "equity": 10000.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-16 17:26:17",
+  "updated_at": "2026-08-16 17:32:03",
   "current_price": 1883.97,
   "prices": {
     "BTC-USDT-SWAP": 63065.0,
@@ -14,45 +14,16 @@
     "XRP-USDT-SWAP": 1.0017
   },
   "stats": {
-    "total_return": -0.0005,
+    "total_return": 0.0,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
-    "n_open": 2,
-    "cash": 99979.0,
-    "available": 99979.0,
-    "frozen": 29996.18
+    "n_open": 0,
+    "cash": 10000.0,
+    "available": 10000.0,
+    "frozen": 0
   },
-  "slots": [
-    {
-      "slot": "A-L",
-      "leg": "",
-      "inst": "SOL-USDT-SWAP",
-      "side": 1,
-      "qty": 397.31028881,
-      "entry": 75.5077,
-      "frac": 0.3,
-      "leverage": 2,
-      "unrealized": -14.99,
-      "notional": 30000.0,
-      "margin": 15000.0,
-      "price": 75.47
-    },
-    {
-      "slot": "A-S",
-      "leg": "",
-      "inst": "XRP-USDT-SWAP",
-      "side": -1,
-      "qty": 29956.42999585,
-      "entry": 1.0012,
-      "frac": 0.3,
-      "leverage": 2,
-      "unrealized": -15.0,
-      "notional": 29992.35,
-      "margin": 14996.18,
-      "price": 1.0017
-    }
-  ],
+  "slots": [],
   "snapshot": {
     "策略": "轮动多仓策略 by HS",
     "判断器门": "关(震荡)",
@@ -64,36 +35,6 @@
     "腿位(a/s/d/k)": "····",
     "分数": "BTC:-0.00  ETH:+0.24  SOL:+1.12  DOGE:+0.38  XRP:-1.74"
   },
-  "equity_curve": [
-    {
-      "time": "2026-08-16 16:40:00",
-      "equity": 99949.01
-    }
-  ],
-  "trades": [
-    {
-      "action": "OPEN",
-      "side": "SHORT",
-      "inst": "XRP-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-16 16:00:00",
-      "price": 1.0012,
-      "qty": 29956.429996,
-      "fee": 10.4973,
-      "pnl": null,
-      "reason": "A空->XRP"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-16 16:00:00",
-      "price": 75.5077,
-      "qty": 397.310289,
-      "fee": 10.5,
-      "pnl": null,
-      "reason": "A多->SOL"
-    }
-  ]
+  "equity_curve": [],
+  "trades": []
 }
