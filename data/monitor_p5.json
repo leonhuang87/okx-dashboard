@@ -1,10 +1,10 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 10000.0,
+  "equity": 9993.06,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-18 00:15:19",
+  "updated_at": "2026-08-18 00:33:33",
   "current_price": 1912.23,
   "prices": {
     "BTC-USDT-SWAP": 64170.0,
@@ -14,16 +14,47 @@
     "XRP-USDT-SWAP": 1.0061
   },
   "stats": {
-    "total_return": 0.0,
+    "total_return": -0.0007,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
-    "n_open": 0,
-    "cash": 10000.0,
-    "available": 10000.0,
-    "frozen": 0
+    "n_open": 2,
+    "cash": 9997.82,
+    "available": 9997.82,
+    "frozen": 3110.54
   },
-  "slots": [],
+  "slots": [
+    {
+      "slot": "A-L",
+      "leg": "",
+      "inst": "SOL-USDT-SWAP",
+      "side": 1,
+      "qty": 40.94447997,
+      "entry": 76.0,
+      "frac": 0.2308,
+      "entry_ts": 1786982400000,
+      "leverage": 2,
+      "unrealized": 2.05,
+      "notional": 3111.78,
+      "margin": 1555.89,
+      "price": 76.05
+    },
+    {
+      "slot": "A-S",
+      "leg": "",
+      "inst": "XRP-USDT-SWAP",
+      "side": -1,
+      "qty": 3097.22486737,
+      "entry": 1.0039,
+      "frac": 0.2308,
+      "entry_ts": 1786982400000,
+      "leverage": 2,
+      "unrealized": -6.81,
+      "notional": 3109.3,
+      "margin": 1554.65,
+      "price": 1.0061
+    }
+  ],
   "snapshot": {
     "策略": "轮动多仓策略 by HS",
     "判断器门": "关(震荡)",
@@ -41,68 +72,20 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-17 23:55:00",
-      "equity": 10019.04
+      "time": "2026-08-18 00:25:00",
+      "equity": 9994.7
     }
   ],
   "trades": [
     {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "XRP-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-18 00:09:27",
-      "price": 1.0056,
-      "qty": 3104.767405,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未确认: HTTPSConnectionPool(host='www.okx.com', port=443): Max retri"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-18 00:09:07",
-      "price": 75.4977,
-      "qty": 41.264613,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未确认: HTTPSConnectionPool(host='www.okx.com', port=443): Max retri"
-    },
-    {
       "action": "OPEN",
       "side": "SHORT",
       "inst": "XRP-USDT-SWAP",
       "slot": "A-S",
-      "time": "2026-08-17 23:30:00",
-      "price": 1.0056,
-      "qty": 3104.767405,
-      "fee": 1.0928,
-      "pnl": null,
-      "reason": "A空->XRP"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "XRP-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-17 22:11:33",
-      "price": 1.0014,
-      "qty": 3110.208543,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未确认: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "OPEN",
-      "side": "SHORT",
-      "inst": "XRP-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-17 14:30:00",
-      "price": 1.0014,
-      "qty": 3110.208543,
-      "fee": 1.0901,
+      "time": "2026-08-18 00:00:00",
+      "price": 1.0039,
+      "qty": 3097.224867,
+      "fee": 1.0883,
       "pnl": null,
       "reason": "A空->XRP"
     },
@@ -111,10 +94,10 @@
       "side": "LONG",
       "inst": "SOL-USDT-SWAP",
       "slot": "A-L",
-      "time": "2026-08-17 14:30:00",
-      "price": 75.4977,
-      "qty": 41.264613,
-      "fee": 1.0904,
+      "time": "2026-08-18 00:00:00",
+      "price": 76.0,
+      "qty": 40.94448,
+      "fee": 1.0891,
       "pnl": null,
       "reason": "A多->SOL"
     }
