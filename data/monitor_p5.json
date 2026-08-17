@@ -4,11 +4,11 @@
   "equity": 9999.87,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-18 06:21:55",
-  "current_price": 1903.35,
+  "updated_at": "2026-08-18 06:31:26",
+  "current_price": 1903.27,
   "prices": {
-    "BTC-USDT-SWAP": 64264.7,
-    "ETH-USDT-SWAP": 1903.35,
+    "BTC-USDT-SWAP": 64261.3,
+    "ETH-USDT-SWAP": 1903.27,
     "SOL-USDT-SWAP": 75.77,
     "DOGE-USDT-SWAP": 0.0702,
     "XRP-USDT-SWAP": 1.0002
