@@ -1,27 +1,27 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 10007.12,
+  "equity": 10003.54,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-17 22:10:22",
-  "current_price": 1901.92,
+  "updated_at": "2026-08-17 22:20:53",
+  "current_price": 1900.25,
   "prices": {
-    "BTC-USDT-SWAP": 63616.8,
-    "ETH-USDT-SWAP": 1901.92,
-    "SOL-USDT-SWAP": 75.58,
+    "BTC-USDT-SWAP": 63655.2,
+    "ETH-USDT-SWAP": 1900.25,
+    "SOL-USDT-SWAP": 75.61,
     "DOGE-USDT-SWAP": 0.0702,
-    "XRP-USDT-SWAP": 0.9995
+    "XRP-USDT-SWAP": 0.9991
   },
   "stats": {
-    "total_return": 0.0007,
+    "total_return": 0.0004,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
-    "n_open": 2,
-    "cash": 9997.82,
-    "available": 9997.82,
-    "frozen": 3114.97
+    "n_open": 1,
+    "cash": 9998.91,
+    "available": 9998.91,
+    "frozen": 1557.69
   },
   "slots": [
     {
@@ -34,25 +34,10 @@
       "frac": 0.2308,
       "entry_ts": 1786948200000,
       "leverage": 2,
-      "unrealized": 3.39,
+      "unrealized": 4.63,
       "notional": 3115.38,
       "margin": 1557.69,
-      "price": 75.58
-    },
-    {
-      "slot": "A-S",
-      "leg": "",
-      "inst": "XRP-USDT-SWAP",
-      "side": -1,
-      "qty": 3110.20854283,
-      "entry": 1.0014,
-      "frac": 0.2308,
-      "entry_ts": 1786948200000,
-      "leverage": 2,
-      "unrealized": 5.91,
-      "notional": 3114.56,
-      "margin": 1557.28,
-      "price": 0.9995
+      "price": 75.61
     }
   ],
   "snapshot": {
@@ -77,6 +62,18 @@
     }
   ],
   "trades": [
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "XRP-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-17 22:11:33",
+      "price": 1.0014,
+      "qty": 3110.208543,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未确认: All operations failed | 51008: Order failed. Insufficient US"
+    },
     {
       "action": "OPEN",
       "side": "SHORT",
