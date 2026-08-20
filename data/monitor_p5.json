@@ -1,60 +1,29 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 10038.42,
+  "equity": 9657.15,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-20 23:55:30",
-  "current_price": 2085.15,
+  "updated_at": "2026-08-21 00:05:06",
+  "current_price": 2317.6,
   "prices": {
-    "BTC-USDT-SWAP": 68530.1,
-    "ETH-USDT-SWAP": 2085.15,
-    "SOL-USDT-SWAP": 81.81,
-    "DOGE-USDT-SWAP": 0.0725,
-    "XRP-USDT-SWAP": 1.0676
+    "BTC-USDT-SWAP": 72304.2,
+    "ETH-USDT-SWAP": 2317.6,
+    "SOL-USDT-SWAP": 87.08,
+    "DOGE-USDT-SWAP": 0.0797,
+    "XRP-USDT-SWAP": 1.2584
   },
   "stats": {
-    "total_return": 0.0038,
-    "n_trades": 0,
-    "win_rate": 0.0,
-    "profit_factor": 0.0,
-    "n_open": 2,
-    "cash": 9997.82,
-    "available": 9997.82,
-    "frozen": 3110.54
+    "total_return": -0.0343,
+    "n_trades": 2,
+    "win_rate": 0.5,
+    "profit_factor": 0.57,
+    "n_open": 0,
+    "cash": 9657.15,
+    "available": 9657.15,
+    "frozen": 0
   },
-  "slots": [
-    {
-      "slot": "A-L",
-      "leg": "",
-      "inst": "SOL-USDT-SWAP",
-      "side": 1,
-      "qty": 40.94447997,
-      "entry": 76.0,
-      "frac": 0.2308,
-      "entry_ts": 1786982400000,
-      "leverage": 2,
-      "unrealized": 237.89,
-      "notional": 3111.78,
-      "margin": 1555.89,
-      "price": 81.81
-    },
-    {
-      "slot": "A-S",
-      "leg": "",
-      "inst": "XRP-USDT-SWAP",
-      "side": -1,
-      "qty": 3097.22486737,
-      "entry": 1.0039,
-      "frac": 0.2308,
-      "entry_ts": 1786982400000,
-      "leverage": 2,
-      "unrealized": -197.29,
-      "notional": 3109.3,
-      "margin": 1554.65,
-      "price": 1.0676
-    }
-  ],
+  "slots": [],
   "snapshot": {
     "策略": "轮动多仓策略 by HS",
     "判断器门": "关(震荡)",
@@ -66,9 +35,9 @@
     "份额A空": "0.048",
     "份额B": "0.905",
     "总名义": "1.0x",
-    "分化spread": 1.95,
+    "分化spread": 2.14,
     "腿位(a/s/d/k)": "··多·",
-    "分数": "BTC:-0.94  ETH:+1.01  SOL:+0.89  DOGE:-0.66  XRP:-0.30"
+    "分数": "BTC:-1.18  ETH:+0.96  SOL:+0.70  DOGE:-0.50  XRP:+0.02"
   },
   "equity_curve": [
     {
@@ -76,11 +45,47 @@
       "equity": 10046.56
     },
     {
-      "time": "2026-08-20 08:55:00",
-      "equity": 10042.29
+      "time": "2026-08-20 23:55:00",
+      "equity": -224310132.66
     }
   ],
   "trades": [
+    {
+      "action": "CLOSE",
+      "side": "SHORT",
+      "inst": "XRP-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-20 23:30:00",
+      "price": 1.2611,
+      "qty": 3097.224867,
+      "fee": 1.3671,
+      "pnl": -799.01,
+      "reason": "换仓"
+    },
+    {
+      "action": "REJECT",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-20 23:30:00",
+      "price": 87.3737,
+      "qty": 7.111674,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "CLOSE",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-20 23:30:00",
+      "price": 87.2515,
+      "qty": 40.94448,
+      "fee": 1.2504,
+      "pnl": 458.35,
+      "reason": "换仓"
+    },
     {
       "action": "REJECT",
       "side": "LONG",
