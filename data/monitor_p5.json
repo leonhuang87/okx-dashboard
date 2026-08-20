@@ -1,29 +1,60 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 9657.15,
+  "equity": 10000.25,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-21 01:26:20",
-  "current_price": 2340.81,
+  "updated_at": "2026-08-21 01:36:38",
+  "current_price": 2325.01,
   "prices": {
-    "BTC-USDT-SWAP": 72688.6,
-    "ETH-USDT-SWAP": 2340.81,
-    "SOL-USDT-SWAP": 87.56,
-    "DOGE-USDT-SWAP": 0.0827,
-    "XRP-USDT-SWAP": 1.3192
+    "BTC-USDT-SWAP": 72438.2,
+    "ETH-USDT-SWAP": 2325.01,
+    "SOL-USDT-SWAP": 87.33,
+    "DOGE-USDT-SWAP": 0.0802,
+    "XRP-USDT-SWAP": 1.2607
   },
   "stats": {
-    "total_return": -0.0343,
-    "n_trades": 2,
-    "win_rate": 0.5,
-    "profit_factor": 0.57,
-    "n_open": 0,
-    "cash": 9657.15,
-    "available": 9657.15,
-    "frozen": 0
+    "total_return": 0.0,
+    "n_trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "n_open": 2,
+    "cash": 9999.55,
+    "available": 9999.55,
+    "frozen": 643.29
   },
-  "slots": [],
+  "slots": [
+    {
+      "slot": "A-L",
+      "leg": "",
+      "inst": "SOL-USDT-SWAP",
+      "side": 1,
+      "qty": 7.33823521,
+      "entry": 87.61,
+      "frac": 0.0476,
+      "entry_ts": 1787243400000,
+      "leverage": 2,
+      "unrealized": -2.05,
+      "notional": 642.9,
+      "margin": 321.45,
+      "price": 87.33
+    },
+    {
+      "slot": "A-S",
+      "leg": "",
+      "inst": "BTC-USDT-SWAP",
+      "side": -1,
+      "qty": 0.00884793,
+      "entry": 72749.9205,
+      "frac": 0.0476,
+      "entry_ts": 1787243400000,
+      "leverage": 2,
+      "unrealized": 2.76,
+      "notional": 643.69,
+      "margin": 321.84,
+      "price": 72438.2
+    }
+  ],
   "snapshot": {
     "策略": "轮动多仓策略 by HS",
     "判断器门": "关(震荡)",
@@ -41,84 +72,32 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-18 23:55:00",
-      "equity": 10046.56
-    },
-    {
-      "time": "2026-08-20 23:55:00",
-      "equity": -224310132.66
+      "time": "2026-08-21 01:20:00",
+      "equity": 9998.91
     }
   ],
   "trades": [
     {
-      "action": "CLOSE",
-      "side": "SHORT",
-      "inst": "XRP-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-20 23:30:00",
-      "price": 1.2611,
-      "qty": 3097.224867,
-      "fee": 1.3671,
-      "pnl": -799.01,
-      "reason": "换仓"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-20 23:30:00",
-      "price": 87.3737,
-      "qty": 7.111674,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-20 23:30:00",
-      "price": 87.2515,
-      "qty": 40.94448,
-      "fee": 1.2504,
-      "pnl": 458.35,
-      "reason": "换仓"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "B",
-      "time": "2026-08-20 08:30:00",
-      "price": 2264.3916,
-      "qty": 0.541786,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
       "action": "OPEN",
       "side": "SHORT",
-      "inst": "XRP-USDT-SWAP",
+      "inst": "BTC-USDT-SWAP",
       "slot": "A-S",
-      "time": "2026-08-18 00:00:00",
-      "price": 1.0039,
-      "qty": 3097.224867,
-      "fee": 1.0883,
+      "time": "2026-08-21 00:30:00",
+      "price": 72749.9205,
+      "qty": 0.008848,
+      "fee": 0.2253,
       "pnl": null,
-      "reason": "A空->XRP"
+      "reason": "A空->BTC"
     },
     {
       "action": "OPEN",
       "side": "LONG",
       "inst": "SOL-USDT-SWAP",
       "slot": "A-L",
-      "time": "2026-08-18 00:00:00",
-      "price": 76.0,
-      "qty": 40.94448,
-      "fee": 1.0891,
+      "time": "2026-08-21 00:30:00",
+      "price": 87.61,
+      "qty": 7.338235,
+      "fee": 0.225,
       "pnl": null,
       "reason": "A多->SOL"
     }
