@@ -1,20 +1,20 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 10070.48,
+  "equity": 10060.92,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-20 08:23:54",
-  "current_price": 2266.7,
+  "updated_at": "2026-08-20 08:34:26",
+  "current_price": 2263.25,
   "prices": {
-    "BTC-USDT-SWAP": 69726.0,
-    "ETH-USDT-SWAP": 2266.7,
-    "SOL-USDT-SWAP": 85.74,
-    "DOGE-USDT-SWAP": 0.0753,
-    "XRP-USDT-SWAP": 1.1092
+    "BTC-USDT-SWAP": 69600.0,
+    "ETH-USDT-SWAP": 2263.25,
+    "SOL-USDT-SWAP": 85.62,
+    "DOGE-USDT-SWAP": 0.0754,
+    "XRP-USDT-SWAP": 1.1107
   },
   "stats": {
-    "total_return": 0.007,
+    "total_return": 0.0061,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -34,10 +34,10 @@
       "frac": 0.2308,
       "entry_ts": 1786982400000,
       "leverage": 2,
-      "unrealized": 398.8,
+      "unrealized": 393.89,
       "notional": 3111.78,
       "margin": 1555.89,
-      "price": 85.74
+      "price": 85.62
     },
     {
       "slot": "A-S",
@@ -49,22 +49,22 @@
       "frac": 0.2308,
       "entry_ts": 1786982400000,
       "leverage": 2,
-      "unrealized": -326.14,
+      "unrealized": -330.78,
       "notional": 3109.3,
       "margin": 1554.65,
-      "price": 1.1092
+      "price": 1.1107
     }
   ],
   "snapshot": {
     "策略": "轮动多仓策略 by HS",
     "判断器门": "关(震荡)",
-    "wA": 0.231,
-    "wB": 0.538,
+    "wA": 0.048,
+    "wB": 0.905,
     "A多": "SOL",
     "A空": "BTC",
-    "份额A多": "0.231",
-    "份额A空": "0.231",
-    "份额B": "0.538",
+    "份额A多": "0.048",
+    "份额A空": "0.048",
+    "份额B": "0.905",
     "总名义": "1.0x",
     "分化spread": 2.161,
     "腿位(a/s/d/k)": "····",
