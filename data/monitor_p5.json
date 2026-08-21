@@ -1,27 +1,27 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 10032.64,
+  "equity": 10016.48,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-22 04:07:51",
-  "current_price": 2425.97,
+  "updated_at": "2026-08-22 04:18:29",
+  "current_price": 2393.07,
   "prices": {
-    "BTC-USDT-SWAP": 77139.5,
-    "ETH-USDT-SWAP": 2425.97,
-    "SOL-USDT-SWAP": 91.16,
-    "DOGE-USDT-SWAP": 0.0852,
-    "XRP-USDT-SWAP": 1.3739
+    "BTC-USDT-SWAP": 77222.8,
+    "ETH-USDT-SWAP": 2393.07,
+    "SOL-USDT-SWAP": 91.34,
+    "DOGE-USDT-SWAP": 0.0838,
+    "XRP-USDT-SWAP": 1.4028
   },
   "stats": {
-    "total_return": 0.0033,
+    "total_return": 0.0016,
     "n_trades": 1,
     "win_rate": 1.0,
     "profit_factor": Infinity,
     "n_open": 3,
-    "cash": 10025.21,
-    "available": 10025.21,
-    "frozen": 2006.49
+    "cash": 10025.57,
+    "available": 10025.57,
+    "frozen": 1490.86
   },
   "slots": [
     {
@@ -29,15 +29,15 @@
       "leg": "s",
       "inst": "ETH-USDT-SWAP",
       "side": 1,
-      "qty": 0.68624111,
-      "entry": 2395.1582,
+      "qty": 0.25508898,
+      "entry": 2400.71,
       "frac": 0.0452,
       "entry_ts": 1787304600000,
       "leverage": 2,
-      "unrealized": 21.14,
-      "notional": 1643.66,
-      "margin": 821.83,
-      "price": 2425.97
+      "unrealized": 6.16,
+      "notional": 612.39,
+      "margin": 306.2,
+      "price": 2424.86
     },
     {
       "slot": "A-L",
@@ -49,10 +49,10 @@
       "frac": 0.0476,
       "entry_ts": 1787326200000,
       "leverage": 2,
-      "unrealized": 25.12,
+      "unrealized": 24.32,
       "notional": 1725.64,
       "margin": 862.82,
-      "price": 2425.97
+      "price": 2424.86
     },
     {
       "slot": "A-S",
@@ -64,10 +64,10 @@
       "frac": 0.0476,
       "entry_ts": 1787243400000,
       "leverage": 2,
-      "unrealized": -38.84,
+      "unrealized": -39.58,
       "notional": 643.69,
       "margin": 321.84,
-      "price": 77139.5
+      "price": 77222.8
     }
   ],
   "snapshot": {
@@ -93,16 +93,16 @@
   ],
   "trades": [
     {
-      "action": "ADD",
+      "action": "REJECT",
       "side": "LONG",
       "inst": "ETH-USDT-SWAP",
       "slot": "B",
       "time": "2026-08-21 23:30:00",
       "price": 2391.8735,
       "qty": 0.431152,
-      "fee": 0.3609,
+      "fee": 0,
       "pnl": null,
-      "reason": "B-s日权"
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
     },
     {
       "action": "OPEN",
