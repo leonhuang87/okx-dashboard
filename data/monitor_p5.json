@@ -1,20 +1,20 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 10029.11,
+  "equity": 10030.08,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-22 13:22:56",
-  "current_price": 2393.07,
+  "updated_at": "2026-08-22 13:33:27",
+  "current_price": 2437.37,
   "prices": {
-    "BTC-USDT-SWAP": 77222.8,
-    "ETH-USDT-SWAP": 2393.07,
-    "SOL-USDT-SWAP": 91.34,
-    "DOGE-USDT-SWAP": 0.0838,
-    "XRP-USDT-SWAP": 1.4028
+    "BTC-USDT-SWAP": 77290.0,
+    "ETH-USDT-SWAP": 2437.37,
+    "SOL-USDT-SWAP": 94.06,
+    "DOGE-USDT-SWAP": 0.091,
+    "XRP-USDT-SWAP": 1.5214
   },
   "stats": {
-    "total_return": 0.0029,
+    "total_return": 0.003,
     "n_trades": 1,
     "win_rate": 1.0,
     "profit_factor": Infinity,
@@ -34,10 +34,10 @@
       "frac": 0.0424,
       "entry_ts": 1787304600000,
       "leverage": 2,
-      "unrealized": 8.04,
+      "unrealized": 8.42,
       "notional": 551.26,
       "margin": 275.63,
-      "price": 2435.73
+      "price": 2437.37
     },
     {
       "slot": "A-L",
@@ -49,10 +49,10 @@
       "frac": 0.0476,
       "entry_ts": 1787326200000,
       "leverage": 2,
-      "unrealized": 32.17,
+      "unrealized": 33.35,
       "notional": 1725.64,
       "margin": 862.82,
-      "price": 2435.73
+      "price": 2437.37
     },
     {
       "slot": "A-S",
@@ -64,10 +64,10 @@
       "frac": 0.0476,
       "entry_ts": 1787243400000,
       "leverage": 2,
-      "unrealized": -39.58,
+      "unrealized": -40.17,
       "notional": 643.69,
       "margin": 321.84,
-      "price": 77222.8
+      "price": 77290.0
     }
   ],
   "snapshot": {
@@ -82,7 +82,7 @@
     "份额B": "0.848",
     "总名义": "1.0x",
     "分化spread": 2.725,
-    "腿位(a/s/d/k)": "·多多·",
+    "腿位(a/s/d/k)": "·多··",
     "分数": "BTC:-1.27  ETH:+0.55  SOL:-0.63  DOGE:-0.10  XRP:+1.46"
   },
   "equity_curve": [
@@ -91,8 +91,8 @@
       "equity": 26876.91
     },
     {
-      "time": "2026-08-22 08:25:00",
-      "equity": 10090.21
+      "time": "2026-08-22 13:25:00",
+      "equity": 10030.08
     }
   ],
   "trades": [
