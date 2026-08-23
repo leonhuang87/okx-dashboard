@@ -1,44 +1,29 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 8282.01,
+  "equity": 8278.21,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-23 13:26:47",
-  "current_price": 2383.93,
+  "updated_at": "2026-08-23 13:37:22",
+  "current_price": 2380.61,
   "prices": {
-    "BTC-USDT-SWAP": 76294.5,
-    "ETH-USDT-SWAP": 2383.93,
-    "SOL-USDT-SWAP": 93.18,
-    "DOGE-USDT-SWAP": 0.0906,
-    "XRP-USDT-SWAP": 1.4718
+    "BTC-USDT-SWAP": 76254.0,
+    "ETH-USDT-SWAP": 2380.61,
+    "SOL-USDT-SWAP": 92.92,
+    "DOGE-USDT-SWAP": 0.0902,
+    "XRP-USDT-SWAP": 1.4665
   },
   "stats": {
-    "total_return": -0.1718,
-    "n_trades": 3,
-    "win_rate": 0.3333,
+    "total_return": -0.1722,
+    "n_trades": 4,
+    "win_rate": 0.25,
     "profit_factor": 0.02,
-    "n_open": 2,
-    "cash": 8266.34,
-    "available": 8266.34,
-    "frozen": 572.83
+    "n_open": 1,
+    "cash": 8263.57,
+    "available": 8263.57,
+    "frozen": 423.87
   },
   "slots": [
-    {
-      "slot": "B",
-      "leg": "s",
-      "inst": "ETH-USDT-SWAP",
-      "side": 1,
-      "qty": 0.12409939,
-      "entry": 2400.71,
-      "frac": 0.0269,
-      "entry_ts": 1787304600000,
-      "leverage": 2,
-      "unrealized": -2.08,
-      "notional": 297.93,
-      "margin": 148.96,
-      "price": 2383.93
-    },
     {
       "slot": "A-L",
       "leg": "",
@@ -49,10 +34,10 @@
       "frac": 0.0759,
       "entry_ts": 1787412600000,
       "leverage": 2,
-      "unrealized": 17.76,
+      "unrealized": 14.64,
       "notional": 847.73,
       "margin": 423.87,
-      "price": 1.4718
+      "price": 1.4665
     }
   ],
   "snapshot": {
@@ -67,7 +52,7 @@
     "份额B": "0.538",
     "总名义": "1.0x",
     "分化spread": 2.815,
-    "腿位(a/s/d/k)": "·多··",
+    "腿位(a/s/d/k)": "····",
     "分数": "BTC:-1.13  ETH:+0.09  SOL:-0.70  DOGE:+0.06  XRP:+1.69"
   },
   "equity_curve": [
@@ -80,11 +65,23 @@
       "equity": 8266.46
     },
     {
-      "time": "2026-08-23 08:25:00",
-      "equity": 8268.31
+      "time": "2026-08-23 13:25:00",
+      "equity": 8277.81
     }
   ],
   "trades": [
+    {
+      "action": "CLOSE",
+      "side": "LONG",
+      "inst": "ETH-USDT-SWAP",
+      "slot": "B",
+      "time": "2026-08-23 13:00:00",
+      "price": 2380.1082,
+      "qty": 0.124099,
+      "fee": 0.1034,
+      "pnl": -2.76,
+      "reason": "B-s平(trail)"
+    },
     {
       "action": "REDUCE",
       "side": "LONG",
