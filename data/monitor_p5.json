@@ -1,27 +1,27 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 8296.76,
+  "equity": 9994.83,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-24 00:43:29",
-  "current_price": 2446.12,
+  "updated_at": "2026-08-24 00:54:21",
+  "current_price": 2448.15,
   "prices": {
-    "BTC-USDT-SWAP": 77373.6,
-    "ETH-USDT-SWAP": 2446.12,
-    "SOL-USDT-SWAP": 95.51,
-    "DOGE-USDT-SWAP": 0.0924,
-    "XRP-USDT-SWAP": 1.5045
+    "BTC-USDT-SWAP": 77360.5,
+    "ETH-USDT-SWAP": 2448.15,
+    "SOL-USDT-SWAP": 95.3,
+    "DOGE-USDT-SWAP": 0.0922,
+    "XRP-USDT-SWAP": 1.5049
   },
   "stats": {
-    "total_return": -0.1703,
-    "n_trades": 5,
-    "win_rate": 0.4,
-    "profit_factor": 0.03,
+    "total_return": -0.0005,
+    "n_trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
     "n_open": 2,
-    "cash": 8293.82,
-    "available": 8293.82,
-    "frozen": 2586.12
+    "cash": 9997.81,
+    "available": 9997.81,
+    "frozen": 3130.77
   },
   "slots": [
     {
@@ -29,30 +29,30 @@
       "leg": "",
       "inst": "XRP-USDT-SWAP",
       "side": 1,
-      "qty": 1726.22070618,
-      "entry": 1.4985,
+      "qty": 2080.87924454,
+      "entry": 1.5068,
       "frac": 0.2308,
-      "entry_ts": 1787499000000,
+      "entry_ts": 1787500800000,
       "leverage": 2,
-      "unrealized": 10.36,
-      "notional": 2586.74,
-      "margin": 1293.37,
-      "price": 1.5045
+      "unrealized": -3.95,
+      "notional": 3135.47,
+      "margin": 1567.73,
+      "price": 1.5049
     },
     {
       "slot": "A-S",
       "leg": "",
       "inst": "BTC-USDT-SWAP",
       "side": -1,
-      "qty": 0.03351167,
-      "entry": 77152.3122,
+      "qty": 0.04039677,
+      "entry": 77384.5911,
       "frac": 0.2308,
-      "entry_ts": 1787499000000,
+      "entry_ts": 1787500800000,
       "leverage": 2,
-      "unrealized": -7.42,
-      "notional": 2585.5,
-      "margin": 1292.75,
-      "price": 77373.6
+      "unrealized": 0.97,
+      "notional": 3126.09,
+      "margin": 1563.04,
+      "price": 77360.5
     }
   ],
   "snapshot": {
@@ -72,16 +72,8 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-21 23:55:00",
-      "equity": 26876.91
-    },
-    {
-      "time": "2026-08-22 23:55:00",
-      "equity": 8266.46
-    },
-    {
-      "time": "2026-08-23 23:55:00",
-      "equity": 8291.24
+      "time": "2026-08-24 00:45:00",
+      "equity": 9994.7
     }
   ],
   "trades": [
@@ -90,10 +82,10 @@
       "side": "SHORT",
       "inst": "BTC-USDT-SWAP",
       "slot": "A-S",
-      "time": "2026-08-23 23:30:00",
-      "price": 77152.3122,
-      "qty": 0.033512,
-      "fee": 0.9049,
+      "time": "2026-08-24 00:00:00",
+      "price": 77384.5911,
+      "qty": 0.040397,
+      "fee": 1.0941,
       "pnl": null,
       "reason": "A空->BTC"
     },
@@ -102,192 +94,12 @@
       "side": "LONG",
       "inst": "XRP-USDT-SWAP",
       "slot": "A-L",
-      "time": "2026-08-23 23:30:00",
-      "price": 1.4985,
-      "qty": 1726.220706,
-      "fee": 0.9054,
+      "time": "2026-08-24 00:00:00",
+      "price": 1.5068,
+      "qty": 2080.879245,
+      "fee": 1.0974,
       "pnl": null,
       "reason": "A多->XRP"
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "inst": "XRP-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-23 23:30:00",
-      "price": 1.4971,
-      "qty": 588.049362,
-      "fee": 0.3081,
-      "pnl": 32.06,
-      "reason": "换仓"
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "B",
-      "time": "2026-08-23 13:00:00",
-      "price": 2380.1082,
-      "qty": 0.124099,
-      "fee": 0.1034,
-      "pnl": -2.76,
-      "reason": "B-s平(trail)"
-    },
-    {
-      "action": "REDUCE",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "B",
-      "time": "2026-08-23 08:00:00",
-      "price": 2421.73,
-      "qty": 0.072327,
-      "fee": 0.0613,
-      "pnl": 1.46,
-      "reason": "B-s权重调仓"
-    },
-    {
-      "action": "REDUCE",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "B",
-      "time": "2026-08-22 23:30:00",
-      "price": 2409.6046,
-      "qty": 0.033198,
-      "fee": 0.028,
-      "pnl": 0.27,
-      "reason": "B-s日权"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "BTC-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-22 23:30:00",
-      "price": 76949.4061,
-      "qty": 0.011006,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "CLOSE",
-      "side": "SHORT",
-      "inst": "BTC-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-22 23:30:00",
-      "price": 77033.709,
-      "qty": 0.008848,
-      "fee": 0.2386,
-      "pnl": -38.37,
-      "reason": "换仓"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "inst": "XRP-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-22 23:30:00",
-      "price": 1.4416,
-      "qty": 588.049362,
-      "fee": 0.2967,
-      "pnl": null,
-      "reason": "A多->XRP"
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-22 23:30:00",
-      "price": 1.4403,
-      "qty": 0.721676,
-      "fee": 0.0004,
-      "pnl": -1725.21,
-      "reason": "换仓"
-    },
-    {
-      "action": "REDUCE",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "B",
-      "time": "2026-08-22 08:00:00",
-      "price": 2515.91,
-      "qty": 0.025465,
-      "fee": 0.0224,
-      "pnl": 2.91,
-      "reason": "B-s权重调仓"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "B",
-      "time": "2026-08-21 23:30:00",
-      "price": 2391.8735,
-      "qty": 0.431152,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-21 23:30:00",
-      "price": 2391.16,
-      "qty": 0.721676,
-      "fee": 0.604,
-      "pnl": null,
-      "reason": "A多->ETH"
-    },
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-21 23:30:00",
-      "price": 91.33,
-      "qty": 7.338235,
-      "fee": 0.2346,
-      "pnl": 26.84,
-      "reason": "换仓"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "B",
-      "time": "2026-08-21 17:30:00",
-      "price": 2400.71,
-      "qty": 0.255089,
-      "fee": 0.2143,
-      "pnl": null,
-      "reason": "B-s开仓"
-    },
-    {
-      "action": "OPEN",
-      "side": "SHORT",
-      "inst": "BTC-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-21 00:30:00",
-      "price": 72749.9205,
-      "qty": 0.008848,
-      "fee": 0.2253,
-      "pnl": null,
-      "reason": "A空->BTC"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-21 00:30:00",
-      "price": 87.61,
-      "qty": 7.338235,
-      "fee": 0.225,
-      "pnl": null,
-      "reason": "A多->SOL"
     }
   ]
 }
