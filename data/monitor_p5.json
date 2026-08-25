@@ -1,20 +1,20 @@
 {
   "strategy_id": "p5",
   "capital": 10000.0,
-  "equity": 9874.11,
+  "equity": 9866.99,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-25 20:21:01",
-  "current_price": 2471.25,
+  "updated_at": "2026-08-25 20:30:33",
+  "current_price": 2467.32,
   "prices": {
-    "BTC-USDT-SWAP": 78911.6,
-    "ETH-USDT-SWAP": 2471.25,
-    "SOL-USDT-SWAP": 98.23,
-    "DOGE-USDT-SWAP": 0.0896,
-    "XRP-USDT-SWAP": 1.477
+    "BTC-USDT-SWAP": 78861.3,
+    "ETH-USDT-SWAP": 2467.32,
+    "SOL-USDT-SWAP": 98.17,
+    "DOGE-USDT-SWAP": 0.0895,
+    "XRP-USDT-SWAP": 1.4726
   },
   "stats": {
-    "total_return": -0.0126,
+    "total_return": -0.0133,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -34,10 +34,10 @@
       "frac": 0.2308,
       "entry_ts": 1787500800000,
       "leverage": 2,
-      "unrealized": -62.01,
+      "unrealized": -71.17,
       "notional": 3135.47,
       "margin": 1567.73,
-      "price": 1.477
+      "price": 1.4726
     },
     {
       "slot": "A-S",
@@ -49,10 +49,10 @@
       "frac": 0.2308,
       "entry_ts": 1787500800000,
       "leverage": 2,
-      "unrealized": -61.69,
+      "unrealized": -59.65,
       "notional": 3126.09,
       "margin": 1563.04,
-      "price": 78911.6
+      "price": 78861.3
     }
   ],
   "snapshot": {
@@ -67,7 +67,7 @@
     "份额B": "0.538",
     "总名义": "1.0x",
     "分化spread": 2.621,
-    "腿位(a/s/d/k)": "·多多·",
+    "腿位(a/s/d/k)": "·多··",
     "分数": "BTC:-0.75  ETH:+0.06  SOL:-0.35  DOGE:-0.79  XRP:+1.83"
   },
   "equity_curve": [
@@ -76,8 +76,8 @@
       "equity": 9994.7
     },
     {
-      "time": "2026-08-25 00:00:00",
-      "equity": 9917.2
+      "time": "2026-08-25 20:25:00",
+      "equity": 9866.99
     }
   ],
   "trades": [
