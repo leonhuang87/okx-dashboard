@@ -1,26 +1,26 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10043.41,
+  "equity": 10039.65,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-27 07:24:44",
-  "current_price": 2493.55,
+  "updated_at": "2026-08-27 07:35:18",
+  "current_price": 2497.69,
   "prices": {
-    "BTC-USDT-SWAP": 78687.2,
-    "ETH-USDT-SWAP": 2493.55,
-    "SOL-USDT-SWAP": 100.53,
-    "ADA-USDT-SWAP": 0.2109
+    "BTC-USDT-SWAP": 78845.0,
+    "ETH-USDT-SWAP": 2497.69,
+    "SOL-USDT-SWAP": 100.63,
+    "ADA-USDT-SWAP": 0.2113
   },
   "stats": {
-    "total_return": 0.0043,
+    "total_return": 0.004,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
     "n_open": 2,
-    "cash": 9999.0,
-    "available": 9999.0,
-    "frozen": 4018.33
+    "cash": 9999.44,
+    "available": 9999.44,
+    "frozen": 4016.84
   },
   "slots": [
     {
@@ -28,30 +28,30 @@
       "leg": "",
       "inst": "SOL-USDT-SWAP",
       "side": 1,
-      "qty": 41.84563629,
-      "entry": 95.65,
+      "qty": 41.81171575,
+      "entry": 95.6564,
       "frac": 0.4191,
       "entry_ts": 1787761800000,
       "leverage": 2,
-      "unrealized": 204.21,
-      "notional": 4002.53,
-      "margin": 2001.27,
-      "price": 100.53
+      "unrealized": 207.95,
+      "notional": 3999.56,
+      "margin": 1999.78,
+      "price": 100.63
     },
     {
       "slot": "A-S",
       "leg": "",
       "inst": "ADA-USDT-SWAP",
       "side": -1,
-      "qty": 19885.74008133,
+      "qty": 19885.74008134,
       "entry": 0.2029,
       "frac": 0.4191,
       "entry_ts": 1787761800000,
       "leverage": 2,
-      "unrealized": -159.79,
+      "unrealized": -167.75,
       "notional": 4034.11,
       "margin": 2017.06,
-      "price": 0.2109
+      "price": 0.2113
     }
   ],
   "snapshot": {
@@ -70,11 +70,83 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-27 07:15:00",
-      "equity": 10043.41
+      "time": "2026-08-27 07:30:00",
+      "equity": 10039.65
     }
   ],
   "trades": [
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 07:30:00",
+      "price": 0.2113,
+      "qty": 26.764215,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "ADD",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 07:30:00",
+      "price": 100.63,
+      "qty": 0.05408,
+      "fee": 0.0019,
+      "pnl": null,
+      "reason": "A-L权重调仓"
+    },
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 07:25:00",
+      "price": 0.2114,
+      "qty": 29.135041,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REDUCE",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 07:25:00",
+      "price": 100.82,
+      "qty": 0.014452,
+      "fee": 0.0005,
+      "pnl": 0.07,
+      "reason": "A-L权重调仓"
+    },
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 07:20:00",
+      "price": 0.2114,
+      "qty": 24.167393,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REDUCE",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 07:20:00",
+      "price": 100.76,
+      "qty": 0.073549,
+      "fee": 0.0026,
+      "pnl": 0.37,
+      "reason": "A-L权重调仓"
+    },
     {
       "action": "REJECT",
       "side": "SHORT",
@@ -1199,78 +1271,6 @@
       "time": "2026-08-27 03:20:00",
       "price": 0.2056,
       "qty": 97.500846,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 03:20:00",
-      "price": 96.45,
-      "qty": 0.326881,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 03:15:00",
-      "price": 0.2055,
-      "qty": 112.400416,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 03:15:00",
-      "price": 96.46,
-      "qty": 0.333049,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 03:10:00",
-      "price": 0.2055,
-      "qty": 114.155486,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 03:10:00",
-      "price": 96.48,
-      "qty": 0.327799,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 03:05:00",
-      "price": 0.2057,
-      "qty": 84.369129,
       "fee": 0,
       "pnl": null,
       "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
