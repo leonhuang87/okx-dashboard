@@ -1,19 +1,19 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10028.4,
+  "equity": 10020.43,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-27 06:54:04",
-  "current_price": 2492.98,
+  "updated_at": "2026-08-27 07:04:40",
+  "current_price": 2492.62,
   "prices": {
-    "BTC-USDT-SWAP": 78574.4,
-    "ETH-USDT-SWAP": 2492.98,
-    "SOL-USDT-SWAP": 99.84,
+    "BTC-USDT-SWAP": 78661.9,
+    "ETH-USDT-SWAP": 2492.62,
+    "SOL-USDT-SWAP": 99.65,
     "ADA-USDT-SWAP": 0.2102
   },
   "stats": {
-    "total_return": 0.0028,
+    "total_return": 0.002,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -28,15 +28,15 @@
       "leg": "",
       "inst": "SOL-USDT-SWAP",
       "side": 1,
-      "qty": 41.93800889,
+      "qty": 41.93800888,
       "entry": 95.65,
       "frac": 0.4191,
       "entry_ts": 1787761800000,
       "leverage": 2,
-      "unrealized": 175.72,
+      "unrealized": 167.75,
       "notional": 4011.37,
       "margin": 2005.68,
-      "price": 99.84
+      "price": 99.65
     },
     {
       "slot": "A-S",
@@ -70,11 +70,59 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-27 06:45:00",
-      "equity": 10028.37
+      "time": "2026-08-27 06:55:00",
+      "equity": 10020.42
     }
   ],
   "trades": [
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 06:55:00",
+      "price": 0.2102,
+      "qty": 92.634713,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 06:55:00",
+      "price": 99.65,
+      "qty": 0.204062,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 06:50:00",
+      "price": 0.21,
+      "qty": 120.434736,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 06:50:00",
+      "price": 99.66,
+      "qty": 0.218322,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
     {
       "action": "REJECT",
       "side": "SHORT",
@@ -1223,54 +1271,6 @@
       "time": "2026-08-27 02:45:00",
       "price": 0.2058,
       "qty": 96.661587,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 02:45:00",
-      "price": 96.76,
-      "qty": 0.228236,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 02:40:00",
-      "price": 0.2049,
-      "qty": 216.184912,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 02:40:00",
-      "price": 96.68,
-      "qty": 0.328058,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 02:35:00",
-      "price": 0.205,
-      "qty": 203.830134,
       "fee": 0,
       "pnl": null,
       "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
