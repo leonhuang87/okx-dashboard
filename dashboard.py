@@ -54,11 +54,15 @@ h1, h2, h3, h4, .stCaption {{ color: {TC['text']} !important; }}
 </style>
 """, unsafe_allow_html=True)
 
-STRATEGY_LABELS = {"p5": "轮动多仓策略 by HS"}
+STRATEGY_LABELS = {
+    "p5": "轮动多仓策略 by HS",
+    "all_abc": "A+B+C 三腿波动率目标 by HS",
+}
 
 ASSET_LABELS = {
     "BTC-USDT-SWAP": "BTC", "ETH-USDT-SWAP": "ETH", "SOL-USDT-SWAP": "SOL",
     "DOGE-USDT-SWAP": "DOGE", "XRP-USDT-SWAP": "XRP",
+    "ADA-USDT-SWAP": "ADA", "LINK-USDT-SWAP": "LINK",
 }
 
 
@@ -185,7 +189,7 @@ def render_card(data):
 
     # 各标的价格
     if prices:
-        st.caption(" | ".join(f"{ASSET_LABELS.get(k, k)} {v:,.2f}"
+        st.caption(" | ".join(f"{ASSET_LABELS.get(k, k)} {fmt_price(v)}"
                               for k, v in prices.items()))
 
     # 净值曲线
@@ -242,8 +246,8 @@ def render_card(data):
 
 
 # ===== 主界面 =====
-st.set_page_config(page_title="轮动多仓策略 by HS", page_icon="📈", layout="wide")
-st.markdown("## 📈 轮动多仓策略 by HS")
+st.set_page_config(page_title="OKX 策略监控", page_icon="📈", layout="wide")
+st.markdown("## 📈 OKX 策略监控")
 
 strategies = get_strategies()
 if not strategies:
