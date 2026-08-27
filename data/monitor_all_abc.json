@@ -4,13 +4,13 @@
   "equity": 10121.64,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-28 04:56:46",
-  "current_price": 2502.03,
+  "updated_at": "2026-08-28 05:07:30",
+  "current_price": 2504.08,
   "prices": {
-    "BTC-USDT-SWAP": 79954.2,
-    "ETH-USDT-SWAP": 2502.03,
-    "SOL-USDT-SWAP": 108.5,
-    "ADA-USDT-SWAP": 0.2132
+    "BTC-USDT-SWAP": 80038.6,
+    "ETH-USDT-SWAP": 2504.08,
+    "SOL-USDT-SWAP": 108.84,
+    "ADA-USDT-SWAP": 0.2139
   },
   "stats": {
     "total_return": 0.0122,
@@ -33,10 +33,10 @@
       "frac": 0.251,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": 190.94,
+      "unrealized": 199.39,
       "notional": 2506.58,
       "margin": 2506.58,
-      "price": 108.5
+      "price": 108.84
     },
     {
       "slot": "A-S",
@@ -48,10 +48,10 @@
       "frac": 0.251,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": -67.57,
+      "unrealized": -76.02,
       "notional": 2504.98,
       "margin": 2504.98,
-      "price": 0.2132
+      "price": 0.2139
     }
   ],
   "snapshot": {
