@@ -1,26 +1,26 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10071.13,
+  "equity": 10081.96,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-27 07:55:24",
-  "current_price": 2504.16,
+  "updated_at": "2026-08-27 08:04:55",
+  "current_price": 2505.65,
   "prices": {
-    "BTC-USDT-SWAP": 79038.2,
-    "ETH-USDT-SWAP": 2504.16,
-    "SOL-USDT-SWAP": 101.96,
-    "ADA-USDT-SWAP": 0.2125
+    "BTC-USDT-SWAP": 78993.2,
+    "ETH-USDT-SWAP": 2505.65,
+    "SOL-USDT-SWAP": 102.03,
+    "ADA-USDT-SWAP": 0.2121
   },
   "stats": {
-    "total_return": 0.0071,
+    "total_return": 0.0082,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
     "n_open": 2,
     "cash": 10000.95,
     "available": 10000.95,
-    "frozen": 3991.2
+    "frozen": 3991.51
   },
   "slots": [
     {
@@ -28,30 +28,30 @@
       "leg": "",
       "inst": "SOL-USDT-SWAP",
       "side": 1,
-      "qty": 41.39570662,
-      "entry": 95.65,
+      "qty": 41.41176976,
+      "entry": 95.6524,
       "frac": 0.4191,
       "entry_ts": 1787761800000,
       "leverage": 2,
-      "unrealized": 261.21,
-      "notional": 3959.5,
-      "margin": 1979.75,
-      "price": 101.96
+      "unrealized": 264.11,
+      "notional": 3961.14,
+      "margin": 1980.57,
+      "price": 102.03
     },
     {
       "slot": "A-S",
       "leg": "",
       "inst": "ADA-USDT-SWAP",
       "side": -1,
-      "qty": 19830.2372216,
+      "qty": 19825.45781159,
       "entry": 0.2029,
       "frac": 0.4191,
       "entry_ts": 1787761800000,
       "leverage": 2,
-      "unrealized": -191.03,
-      "notional": 4022.9,
-      "margin": 2011.45,
-      "price": 0.2125
+      "unrealized": -183.1,
+      "notional": 4021.88,
+      "margin": 2010.94,
+      "price": 0.2121
     }
   ],
   "snapshot": {
@@ -70,11 +70,35 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-27 07:50:00",
-      "equity": 10071.13
+      "time": "2026-08-27 07:55:00",
+      "equity": 10081.95
     }
   ],
   "trades": [
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 07:55:00",
+      "price": 0.2121,
+      "qty": 95.535249,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "ADD",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 07:55:00",
+      "price": 102.03,
+      "qty": 0.016063,
+      "fee": 0.0006,
+      "pnl": null,
+      "reason": "A-L权重调仓"
+    },
     {
       "action": "REJECT",
       "side": "SHORT",
@@ -100,16 +124,16 @@
       "reason": "A-L权重调仓"
     },
     {
-      "action": "ADD",
+      "action": "REJECT",
       "side": "SHORT",
       "inst": "ADA-USDT-SWAP",
       "slot": "A-S",
       "time": "2026-08-27 07:45:00",
       "price": 0.2125,
       "qty": 4.77941,
-      "fee": 0.0004,
+      "fee": 0,
       "pnl": null,
-      "reason": "A-S权重调仓"
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
     },
     {
       "action": "REDUCE",
@@ -1247,30 +1271,6 @@
       "time": "2026-08-27 03:45:00",
       "price": 0.2056,
       "qty": 120.305657,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 03:45:00",
-      "price": 96.71,
-      "qty": 0.258814,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 03:40:00",
-      "price": 0.2051,
-      "qty": 170.385488,
       "fee": 0,
       "pnl": null,
       "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
