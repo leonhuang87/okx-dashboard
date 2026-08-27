@@ -55,9 +55,11 @@ h1, h2, h3, h4, .stCaption {{ color: {TC['text']} !important; }}
 """, unsafe_allow_html=True)
 
 STRATEGY_LABELS = {
-    "p5": "轮动多仓策略 by HS",
     "all_abc": "A+B+C 三腿波动率目标 by HS",
 }
+
+# Streamlit 只展示当前在用策略（ALL），旧 P5 面板不再显示
+ACTIVE_STRATEGY = "all_abc"
 
 ASSET_LABELS = {
     "BTC-USDT-SWAP": "BTC", "ETH-USDT-SWAP": "ETH", "SOL-USDT-SWAP": "SOL",
@@ -81,6 +83,8 @@ def get_strategies():
     strategies = {}
     for f in glob.glob(os.path.join(DATA_DIR, "monitor_*.json")):
         name = os.path.basename(f).replace("monitor_", "").replace(".json", "")
+        if name != ACTIVE_STRATEGY:
+            continue
         data = load_monitor(os.path.basename(f))
         if data:
             strategies[name] = data
