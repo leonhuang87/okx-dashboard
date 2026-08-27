@@ -1,26 +1,26 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 9987.36,
+  "equity": 9992.2,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-27 09:47:30",
-  "current_price": 2491.94,
+  "updated_at": "2026-08-27 09:51:05",
+  "current_price": 2501.39,
   "prices": {
-    "BTC-USDT-SWAP": 78688.0,
-    "ETH-USDT-SWAP": 2491.94,
-    "SOL-USDT-SWAP": 101.18,
-    "ADA-USDT-SWAP": 0.2102
+    "BTC-USDT-SWAP": 78918.5,
+    "ETH-USDT-SWAP": 2501.39,
+    "SOL-USDT-SWAP": 101.64,
+    "ADA-USDT-SWAP": 0.2113
   },
   "stats": {
-    "total_return": -0.0013,
+    "total_return": -0.0008,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
     "n_open": 2,
-    "cash": 9997.02,
-    "available": 9997.02,
-    "frozen": 8402.72
+    "cash": 9997.07,
+    "available": 9997.07,
+    "frozen": 8382.08
   },
   "slots": [
     {
@@ -28,30 +28,30 @@
       "leg": "",
       "inst": "SOL-USDT-SWAP",
       "side": 1,
-      "qty": 41.36789386,
-      "entry": 101.6777,
+      "qty": 41.2327317,
+      "entry": 101.71,
       "frac": 0.4191,
-      "entry_ts": 1787794200000,
+      "entry_ts": 1787795100000,
       "leverage": 1,
-      "unrealized": -20.59,
-      "notional": 4206.19,
-      "margin": 4206.19,
-      "price": 101.18
+      "unrealized": -2.89,
+      "notional": 4193.78,
+      "margin": 4193.78,
+      "price": 101.64
     },
     {
       "slot": "A-S",
       "leg": "",
       "inst": "ADA-USDT-SWAP",
       "side": -1,
-      "qty": 19912.46792907,
-      "entry": 0.2107,
+      "qty": 19830.95183922,
+      "entry": 0.2112,
       "frac": 0.4191,
-      "entry_ts": 1787794200000,
+      "entry_ts": 1787795100000,
       "leverage": 1,
-      "unrealized": 10.92,
-      "notional": 4196.53,
-      "margin": 4196.53,
-      "price": 0.2102
+      "unrealized": -1.98,
+      "notional": 4188.3,
+      "margin": 4188.3,
+      "price": 0.2113
     }
   ],
   "snapshot": {
@@ -70,92 +70,20 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-27 09:40:00",
-      "equity": 9987.36
+      "time": "2026-08-27 09:45:00",
+      "equity": 9997.07
     }
   ],
   "trades": [
-    {
-      "action": "ADD",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 09:40:00",
-      "price": 0.2102,
-      "qty": 114.168991,
-      "fee": 0.0084,
-      "pnl": null,
-      "reason": "A-S权重调仓"
-    },
-    {
-      "action": "ADD",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 09:40:00",
-      "price": 101.18,
-      "qty": 0.184778,
-      "fee": 0.0065,
-      "pnl": null,
-      "reason": "A-L权重调仓"
-    },
-    {
-      "action": "ADD",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 09:35:00",
-      "price": 0.2113,
-      "qty": 9.202049,
-      "fee": 0.0007,
-      "pnl": null,
-      "reason": "A-S权重调仓"
-    },
-    {
-      "action": "ADD",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 09:35:00",
-      "price": 101.58,
-      "qty": 0.019914,
-      "fee": 0.0007,
-      "pnl": null,
-      "reason": "A-L权重调仓"
-    },
-    {
-      "action": "REDUCE",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 09:30:00",
-      "price": 0.2114,
-      "qty": 32.474178,
-      "fee": 0.0024,
-      "pnl": -0.02,
-      "reason": "A-S权重调仓"
-    },
-    {
-      "action": "REDUCE",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 09:30:00",
-      "price": 101.63,
-      "qty": 0.073587,
-      "fee": 0.0026,
-      "pnl": -0.01,
-      "reason": "A-L权重调仓"
-    },
     {
       "action": "OPEN",
       "side": "SHORT",
       "inst": "ADA-USDT-SWAP",
       "slot": "A-S",
-      "time": "2026-08-27 09:30:00",
-      "price": 0.2108,
-      "qty": 19821.571067,
-      "fee": 1.4621,
+      "time": "2026-08-27 09:45:00",
+      "price": 0.2112,
+      "qty": 19830.951839,
+      "fee": 1.4659,
       "pnl": null,
       "reason": "A-S开仓"
     },
@@ -164,10 +92,10 @@
       "side": "LONG",
       "inst": "SOL-USDT-SWAP",
       "slot": "A-L",
-      "time": "2026-08-27 09:30:00",
-      "price": 101.68,
-      "qty": 41.236789,
-      "fee": 1.4675,
+      "time": "2026-08-27 09:45:00",
+      "price": 101.71,
+      "qty": 41.232732,
+      "fee": 1.4678,
       "pnl": null,
       "reason": "A-L开仓"
     }
