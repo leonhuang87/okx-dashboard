@@ -1,19 +1,19 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10060.72,
+  "equity": 10058.73,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-27 08:35:39",
-  "current_price": 2497.77,
+  "updated_at": "2026-08-27 08:45:11",
+  "current_price": 2495.29,
   "prices": {
-    "BTC-USDT-SWAP": 78813.7,
-    "ETH-USDT-SWAP": 2497.77,
+    "BTC-USDT-SWAP": 78849.2,
+    "ETH-USDT-SWAP": 2495.29,
     "SOL-USDT-SWAP": 100.99,
-    "ADA-USDT-SWAP": 0.211
+    "ADA-USDT-SWAP": 0.2111
   },
   "stats": {
-    "total_return": 0.0061,
+    "total_return": 0.0059,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -48,10 +48,10 @@
       "frac": 0.4191,
       "entry_ts": 1787761800000,
       "leverage": 2,
-      "unrealized": -161.29,
+      "unrealized": -163.27,
       "notional": 4021.88,
       "margin": 2010.94,
-      "price": 0.211
+      "price": 0.2111
     }
   ],
   "snapshot": {
@@ -70,11 +70,59 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-27 08:30:00",
-      "equity": 10060.69
+      "time": "2026-08-27 08:40:00",
+      "equity": 10058.71
     }
   ],
   "trades": [
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 08:40:00",
+      "price": 0.2111,
+      "qty": 143.769745,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 08:40:00",
+      "price": 100.99,
+      "qty": 0.34614,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 08:35:00",
+      "price": 0.211,
+      "qty": 155.526257,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 08:35:00",
+      "price": 100.97,
+      "qty": 0.3592,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
     {
       "action": "REJECT",
       "side": "SHORT",
@@ -1223,54 +1271,6 @@
       "time": "2026-08-27 04:30:00",
       "price": 0.2047,
       "qty": 226.835246,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 04:30:00",
-      "price": 96.48,
-      "qty": 0.398126,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 04:25:00",
-      "price": 0.2051,
-      "qty": 187.970415,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 04:25:00",
-      "price": 96.68,
-      "qty": 0.310513,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 04:20:00",
-      "price": 0.2045,
-      "qty": 259.552071,
       "fee": 0,
       "pnl": null,
       "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
