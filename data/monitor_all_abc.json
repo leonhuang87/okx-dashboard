@@ -1,61 +1,30 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10004.94,
+  "equity": 10000.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-27 11:15:35",
-  "current_price": 2490.3,
+  "updated_at": "2026-08-27 11:36:22",
+  "current_price": 2448.93,
   "prices": {
-    "BTC-USDT-SWAP": 78643.3,
-    "ETH-USDT-SWAP": 2490.3,
-    "SOL-USDT-SWAP": 101.0,
-    "ADA-USDT-SWAP": 0.2079
+    "BTC-USDT-SWAP": 78863.1,
+    "ETH-USDT-SWAP": 2448.93,
+    "SOL-USDT-SWAP": 101.61,
+    "ADA-USDT-SWAP": 0.2121
   },
   "stats": {
-    "total_return": 0.0005,
+    "total_return": 0.0,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
-    "n_open": 2,
-    "cash": 9999.08,
-    "available": 9999.08,
-    "frozen": 2619.29
+    "n_open": 0,
+    "cash": 10000.0,
+    "available": 10000.0,
+    "frozen": 0
   },
-  "slots": [
-    {
-      "slot": "A-L",
-      "leg": "",
-      "inst": "SOL-USDT-SWAP",
-      "side": 1,
-      "qty": 12.96180643,
-      "entry": 101.04,
-      "frac": 0.131,
-      "entry_ts": 1787797800000,
-      "leverage": 1,
-      "unrealized": -0.52,
-      "notional": 1309.66,
-      "margin": 1309.66,
-      "price": 101.0
-    },
-    {
-      "slot": "A-S",
-      "leg": "",
-      "inst": "ADA-USDT-SWAP",
-      "side": -1,
-      "qty": 6268.69865994,
-      "entry": 0.2089,
-      "frac": 0.131,
-      "entry_ts": 1787797800000,
-      "leverage": 1,
-      "unrealized": 6.37,
-      "notional": 1309.63,
-      "margin": 1309.63,
-      "price": 0.2079
-    }
-  ],
+  "slots": [],
   "snapshot": {
-    "n5": 36000,
+    "n5": 35999,
     "nA": 224,
     "expA": 0.69848247493588,
     "expB": 1.0,
@@ -70,68 +39,44 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-27 10:35:00",
-      "equity": 9999.06
+      "time": "2026-08-27 11:25:00",
+      "equity": 9995.55
     }
   ],
   "trades": [
     {
-      "action": "ADD",
+      "action": "REJECT",
       "side": "SHORT",
       "inst": "ADA-USDT-SWAP",
       "slot": "A-S",
-      "time": "2026-08-27 10:35:00",
-      "price": 0.2089,
-      "qty": 25.09575,
-      "fee": 0.0018,
+      "time": "2026-08-27 11:36:21",
+      "price": 0.212,
+      "qty": 12352.835003,
+      "fee": 0,
       "pnl": null,
-      "reason": "A-S权重调仓"
+      "reason": "OKX下单未成交且OKX无仓: All operations failed | 51000: Parameter clOrdId error"
     },
     {
-      "action": "ADD",
+      "action": "REJECT",
       "side": "LONG",
       "inst": "SOL-USDT-SWAP",
       "slot": "A-L",
-      "time": "2026-08-27 10:35:00",
-      "price": 101.03,
-      "qty": 0.033165,
-      "fee": 0.0012,
+      "time": "2026-08-27 11:36:20",
+      "price": 101.6608,
+      "qty": 25.765183,
+      "fee": 0,
       "pnl": null,
-      "reason": "A-L权重调仓"
-    },
-    {
-      "action": "REDUCE",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 10:30:00",
-      "price": 0.2097,
-      "qty": 1.483445,
-      "fee": 0.0001,
-      "pnl": -0.0,
-      "reason": "A-S权重调仓"
-    },
-    {
-      "action": "REDUCE",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 10:30:00",
-      "price": 101.27,
-      "qty": 0.003664,
-      "fee": 0.0001,
-      "pnl": 0.0,
-      "reason": "A-L权重调仓"
+      "reason": "OKX下单未成交且OKX无仓: All operations failed | 51000: Parameter clOrdId error"
     },
     {
       "action": "OPEN",
       "side": "SHORT",
       "inst": "ADA-USDT-SWAP",
       "slot": "A-S",
-      "time": "2026-08-27 10:30:00",
-      "price": 0.2089,
-      "qty": 6245.086355,
-      "fee": 0.4566,
+      "time": "2026-08-27 11:25:00",
+      "price": 0.212,
+      "qty": 12352.835003,
+      "fee": 0.9166,
       "pnl": null,
       "reason": "A-S开仓"
     },
@@ -140,10 +85,10 @@
       "side": "LONG",
       "inst": "SOL-USDT-SWAP",
       "slot": "A-L",
-      "time": "2026-08-27 10:30:00",
-      "price": 101.04,
-      "qty": 12.932306,
-      "fee": 0.4573,
+      "time": "2026-08-27 11:25:00",
+      "price": 101.6608,
+      "qty": 25.765183,
+      "fee": 0.9168,
       "pnl": null,
       "reason": "A-L开仓"
     }
