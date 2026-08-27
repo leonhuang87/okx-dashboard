@@ -1,19 +1,19 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10066.9,
+  "equity": 10055.73,
   "leverage": 2,
   "demo_mode": true,
-  "updated_at": "2026-08-27 08:55:47",
-  "current_price": 2491.65,
+  "updated_at": "2026-08-27 09:05:18",
+  "current_price": 2491.31,
   "prices": {
-    "BTC-USDT-SWAP": 78692.2,
-    "ETH-USDT-SWAP": 2491.65,
-    "SOL-USDT-SWAP": 100.9,
+    "BTC-USDT-SWAP": 78713.4,
+    "ETH-USDT-SWAP": 2491.31,
+    "SOL-USDT-SWAP": 100.63,
     "ADA-USDT-SWAP": 0.2105
   },
   "stats": {
-    "total_return": 0.0067,
+    "total_return": 0.0056,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -33,10 +33,10 @@
       "frac": 0.4191,
       "entry_ts": 1787761800000,
       "leverage": 2,
-      "unrealized": 217.33,
+      "unrealized": 206.15,
       "notional": 3959.5,
       "margin": 1979.75,
-      "price": 100.9
+      "price": 100.63
     },
     {
       "slot": "A-S",
@@ -70,11 +70,59 @@
   },
   "equity_curve": [
     {
-      "time": "2026-08-27 08:50:00",
-      "equity": 10066.87
+      "time": "2026-08-27 09:00:00",
+      "equity": 10055.69
     }
   ],
   "trades": [
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 09:00:00",
+      "price": 0.2105,
+      "qty": 194.692586,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 09:00:00",
+      "price": 100.63,
+      "qty": 0.482946,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-08-27 08:55:00",
+      "price": 0.2106,
+      "qty": 173.826298,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
+    {
+      "action": "REJECT",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-08-27 08:55:00",
+      "price": 100.54,
+      "qty": 0.49664,
+      "fee": 0,
+      "pnl": null,
+      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
+    },
     {
       "action": "REJECT",
       "side": "SHORT",
@@ -1223,54 +1271,6 @@
       "time": "2026-08-27 04:50:00",
       "price": 0.2051,
       "qty": 195.004385,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 04:50:00",
-      "price": 96.76,
-      "qty": 0.289593,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 04:45:00",
-      "price": 0.2053,
-      "qty": 158.932502,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "LONG",
-      "inst": "SOL-USDT-SWAP",
-      "slot": "A-L",
-      "time": "2026-08-27 04:45:00",
-      "price": 96.67,
-      "qty": 0.295583,
-      "fee": 0,
-      "pnl": null,
-      "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
-    },
-    {
-      "action": "REJECT",
-      "side": "SHORT",
-      "inst": "ADA-USDT-SWAP",
-      "slot": "A-S",
-      "time": "2026-08-27 04:40:00",
-      "price": 0.2051,
-      "qty": 179.17795,
       "fee": 0,
       "pnl": null,
       "reason": "OKX下单未成交: All operations failed | 51008: Order failed. Insufficient US"
