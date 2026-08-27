@@ -1,19 +1,19 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10060.19,
+  "equity": 10047.47,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-27 22:02:31",
-  "current_price": 2495.29,
+  "updated_at": "2026-08-27 22:13:14",
+  "current_price": 2493.13,
   "prices": {
-    "BTC-USDT-SWAP": 79494.0,
-    "ETH-USDT-SWAP": 2495.29,
-    "SOL-USDT-SWAP": 105.98,
-    "ADA-USDT-SWAP": 0.2131
+    "BTC-USDT-SWAP": 79453.5,
+    "ETH-USDT-SWAP": 2493.13,
+    "SOL-USDT-SWAP": 105.42,
+    "ADA-USDT-SWAP": 0.213
   },
   "stats": {
-    "total_return": 0.006,
+    "total_return": 0.0047,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -33,10 +33,10 @@
       "frac": 0.251,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": 128.29,
+      "unrealized": 114.37,
       "notional": 2506.58,
       "margin": 2506.58,
-      "price": 105.98
+      "price": 105.42
     },
     {
       "slot": "A-S",
@@ -48,10 +48,10 @@
       "frac": 0.251,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": -66.37,
+      "unrealized": -65.16,
       "notional": 2504.98,
       "margin": 2504.98,
-      "price": 0.2131
+      "price": 0.213
     }
   ],
   "snapshot": {
@@ -74,22 +74,22 @@
         "max_run": 0
       },
       "BTC-USDT-SWAP:4H": {
-        "span_bars": 1498,
+        "span_bars": 1499,
         "missing": 0,
         "max_run": 0
       },
       "ETH-USDT-SWAP:4H": {
-        "span_bars": 1498,
+        "span_bars": 1499,
         "missing": 0,
         "max_run": 0
       },
       "SOL-USDT-SWAP:4H": {
-        "span_bars": 1498,
+        "span_bars": 1499,
         "missing": 0,
         "max_run": 0
       },
       "ADA-USDT-SWAP:4H": {
-        "span_bars": 1498,
+        "span_bars": 1499,
         "missing": 0,
         "max_run": 0
       }
