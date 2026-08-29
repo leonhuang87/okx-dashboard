@@ -4,11 +4,11 @@
   "equity": 10161.84,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-08-29 21:53:19",
-  "current_price": 2434.85,
+  "updated_at": "2026-08-29 22:02:50",
+  "current_price": 2434.6,
   "prices": {
-    "BTC-USDT-SWAP": 77670.3,
-    "ETH-USDT-SWAP": 2434.85,
+    "BTC-USDT-SWAP": 77662.5,
+    "ETH-USDT-SWAP": 2434.6,
     "SOL-USDT-SWAP": 103.74,
     "ADA-USDT-SWAP": 0.2001
   },
