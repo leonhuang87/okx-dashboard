@@ -1,19 +1,19 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10092.46,
+  "equity": 10093.16,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-09-03 03:32:16",
-  "current_price": 2385.68,
+  "updated_at": "2026-09-03 03:41:45",
+  "current_price": 2384.81,
   "prices": {
-    "BTC-USDT-SWAP": 77128.4,
-    "ETH-USDT-SWAP": 2385.68,
-    "SOL-USDT-SWAP": 99.09,
-    "ADA-USDT-SWAP": 0.1964
+    "BTC-USDT-SWAP": 77153.2,
+    "ETH-USDT-SWAP": 2384.81,
+    "SOL-USDT-SWAP": 99.22,
+    "ADA-USDT-SWAP": 0.1966
   },
   "stats": {
-    "total_return": 0.0092,
+    "total_return": 0.0093,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -33,10 +33,10 @@
       "frac": 0.2543,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": -48.71,
+      "unrealized": -45.43,
       "notional": 2550.81,
       "margin": 2550.81,
-      "price": 99.09
+      "price": 99.22
     },
     {
       "slot": "A-S",
@@ -48,10 +48,10 @@
       "frac": 0.2543,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": 128.53,
+      "unrealized": 125.94,
       "notional": 2666.12,
       "margin": 2666.12,
-      "price": 0.1964
+      "price": 0.1966
     }
   ],
   "snapshot": {
