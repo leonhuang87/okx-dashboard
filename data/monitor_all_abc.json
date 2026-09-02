@@ -1,19 +1,19 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10114.94,
+  "equity": 10112.51,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-09-02 07:57:43",
-  "current_price": 2418.36,
+  "updated_at": "2026-09-02 08:08:17",
+  "current_price": 2417.38,
   "prices": {
-    "BTC-USDT-SWAP": 77434.1,
-    "ETH-USDT-SWAP": 2418.36,
+    "BTC-USDT-SWAP": 77414.6,
+    "ETH-USDT-SWAP": 2417.38,
     "SOL-USDT-SWAP": 99.98,
-    "ADA-USDT-SWAP": 0.1965
+    "ADA-USDT-SWAP": 0.1967
   },
   "stats": {
-    "total_return": 0.0115,
+    "total_return": 0.0113,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -48,22 +48,22 @@
       "frac": 0.2413,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": 125.2,
+      "unrealized": 122.77,
       "notional": 2521.65,
       "margin": 2521.65,
-      "price": 0.1965
+      "price": 0.1967
     }
   ],
   "snapshot": {
     "n5": 36000,
-    "nA": 225,
-    "expA": 0.6435228759528421,
+    "nA": 224,
+    "expA": 0.6435228759528422,
     "expB": 1.0,
     "expC": 1.0,
     "targets": {
       "long": "SOL-USDT-SWAP",
       "short": "ADA-USDT-SWAP",
-      "spread": 2.6607553844787373
+      "spread": 2.6607553844787377
     },
     "posB": 0,
     "posC": 0,
