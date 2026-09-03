@@ -1,26 +1,26 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10020.04,
+  "equity": 10017.3,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-09-03 11:56:56",
-  "current_price": 2402.09,
+  "updated_at": "2026-09-03 12:06:28",
+  "current_price": 2403.07,
   "prices": {
-    "BTC-USDT-SWAP": 77709.7,
-    "ETH-USDT-SWAP": 2402.09,
-    "SOL-USDT-SWAP": 100.52,
-    "ADA-USDT-SWAP": 0.2048
+    "BTC-USDT-SWAP": 77707.6,
+    "ETH-USDT-SWAP": 2403.07,
+    "SOL-USDT-SWAP": 100.51,
+    "ADA-USDT-SWAP": 0.205
   },
   "stats": {
-    "total_return": 0.002,
+    "total_return": 0.0017,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
     "n_open": 2,
-    "cash": 10012.65,
-    "available": 10012.65,
-    "frozen": 5216.93
+    "cash": 10013.28,
+    "available": 10013.28,
+    "frozen": 5157.63
   },
   "slots": [
     {
@@ -28,42 +28,42 @@
       "leg": "",
       "inst": "SOL-USDT-SWAP",
       "side": 1,
-      "qty": 25.25077987,
-      "entry": 101.0191,
-      "frac": 0.2543,
+      "qty": 25.49589208,
+      "entry": 101.0138,
+      "frac": 0.2556,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": -12.6,
-      "notional": 2550.81,
-      "margin": 2550.81,
-      "price": 100.52
+      "unrealized": -12.84,
+      "notional": 2575.44,
+      "margin": 2575.44,
+      "price": 100.51
     },
     {
       "slot": "A-S",
       "leg": "",
       "inst": "ADA-USDT-SWAP",
       "side": -1,
-      "qty": 12920.5214004,
+      "qty": 12513.77661993,
       "entry": 0.2063,
-      "frac": 0.2543,
+      "frac": 0.2556,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": 19.99,
-      "notional": 2666.12,
-      "margin": 2666.12,
-      "price": 0.2048
+      "unrealized": 16.86,
+      "notional": 2582.19,
+      "margin": 2582.19,
+      "price": 0.205
     }
   ],
   "snapshot": {
     "n5": 36000,
-    "nA": 224,
-    "expA": 0.6780028654654681,
+    "nA": 225,
+    "expA": 0.6817177510946251,
     "expB": 1.0,
     "expC": 1.0,
     "targets": {
       "long": "SOL-USDT-SWAP",
       "short": "ADA-USDT-SWAP",
-      "spread": 2.601180395055504
+      "spread": 2.7109222721184887
     },
     "posB": 0,
     "posC": 0,
@@ -119,9 +119,37 @@
     {
       "time": "2026-09-02 12:00:00",
       "equity": 10127.97
+    },
+    {
+      "time": "2026-09-03 11:55:00",
+      "equity": 10020.03
     }
   ],
   "trades": [
+    {
+      "action": "REDUCE",
+      "side": "SHORT",
+      "inst": "ADA-USDT-SWAP",
+      "slot": "A-S",
+      "time": "2026-09-03 11:55:00",
+      "price": 0.2047,
+      "qty": 406.74478,
+      "fee": 0.0291,
+      "pnl": 0.64,
+      "reason": "A-S权重调仓"
+    },
+    {
+      "action": "ADD",
+      "side": "LONG",
+      "inst": "SOL-USDT-SWAP",
+      "slot": "A-L",
+      "time": "2026-09-03 11:55:00",
+      "price": 100.47,
+      "qty": 0.245112,
+      "fee": 0.0086,
+      "pnl": null,
+      "reason": "A-L权重调仓"
+    },
     {
       "action": "ADD",
       "side": "SHORT",
