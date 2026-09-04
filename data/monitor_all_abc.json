@@ -1,19 +1,19 @@
 {
   "strategy_id": "all_abc",
   "capital": 10000.0,
-  "equity": 10095.55,
+  "equity": 9940.62,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-09-03 18:12:54",
-  "current_price": 2390.08,
+  "updated_at": "2026-09-04 10:52:36",
+  "current_price": 2516.15,
   "prices": {
-    "BTC-USDT-SWAP": 77256.3,
-    "ETH-USDT-SWAP": 2390.08,
-    "SOL-USDT-SWAP": 99.26,
-    "ADA-USDT-SWAP": 0.1962
+    "BTC-USDT-SWAP": 81319.9,
+    "ETH-USDT-SWAP": 2516.15,
+    "SOL-USDT-SWAP": 105.11,
+    "ADA-USDT-SWAP": 0.2205
   },
   "stats": {
-    "total_return": 0.0096,
+    "total_return": -0.0059,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -33,10 +33,10 @@
       "frac": 0.2556,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": -44.71,
+      "unrealized": 104.44,
       "notional": 2575.44,
       "margin": 2575.44,
-      "price": 99.26
+      "price": 105.11
     },
     {
       "slot": "A-S",
@@ -48,48 +48,48 @@
       "frac": 0.2556,
       "entry_ts": 1787802300000,
       "leverage": 1,
-      "unrealized": 126.98,
+      "unrealized": -177.1,
       "notional": 2582.19,
       "margin": 2582.19,
-      "price": 0.1962
+      "price": 0.2205
     }
   ],
   "snapshot": {
-    "n5": 36000,
-    "nA": 225,
-    "expA": 0.6817177510946251,
+    "n5": 35999,
+    "nA": 224,
+    "expA": 0.6817177510946241,
     "expB": 1.0,
     "expC": 1.0,
     "targets": {
       "long": "SOL-USDT-SWAP",
       "short": "ADA-USDT-SWAP",
-      "spread": 2.7109222721184887
+      "spread": 2.7109222721184896
     },
     "posB": 0,
     "posC": 0,
     "gaps": {
       "eth_5m": {
-        "span_bars": 35999,
+        "span_bars": 35998,
         "missing": 0,
         "max_run": 0
       },
       "BTC-USDT-SWAP:4H": {
-        "span_bars": 1499,
+        "span_bars": 1498,
         "missing": 0,
         "max_run": 0
       },
       "ETH-USDT-SWAP:4H": {
-        "span_bars": 1499,
+        "span_bars": 1498,
         "missing": 0,
         "max_run": 0
       },
       "SOL-USDT-SWAP:4H": {
-        "span_bars": 1499,
+        "span_bars": 1498,
         "missing": 0,
         "max_run": 0
       },
       "ADA-USDT-SWAP:4H": {
-        "span_bars": 1499,
+        "span_bars": 1498,
         "missing": 0,
         "max_run": 0
       }
