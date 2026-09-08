@@ -1,0 +1,32 @@
+{
+  "strategy_id": "combo1",
+  "capital": 10000.0,
+  "equity": 10000.0,
+  "leverage": 1,
+  "demo_mode": true,
+  "updated_at": "2026-09-08 10:50:44",
+  "current_price": 2490.66,
+  "prices": {
+    "ETH-USDT-SWAP": 2490.66
+  },
+  "stats": {
+    "total_return": 0.0,
+    "n_trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "n_open": 0,
+    "cash": 10000.0,
+    "available": 10000.0,
+    "frozen": 0
+  },
+  "slots": [],
+  "snapshot": {
+    "策略": "combo1·ETH日线三因子",
+    "标的": "ETH-USDT-SWAP",
+    "rank窗口": 250,
+    "方向": "[-1,+1,+1] (w130/w140/w80)",
+    "再平衡": "目标差>0.05才动, 空仓阈值0.05"
+  },
+  "equity_curve": [],
+  "trades": []
+}

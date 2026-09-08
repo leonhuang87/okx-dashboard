@@ -55,11 +55,11 @@ h1, h2, h3, h4, .stCaption {{ color: {TC['text']} !important; }}
 """, unsafe_allow_html=True)
 
 STRATEGY_LABELS = {
-    "all_abc": "A+B+C 三腿波动率目标 by HS",
+    "combo1": "combo1·ETH日线三因子",
 }
 
 # Streamlit 只展示当前在用策略（ALL），旧 P5 面板不再显示
-ACTIVE_STRATEGY = "all_abc"
+ACTIVE_STRATEGY = "combo1"
 
 ASSET_LABELS = {
     "BTC-USDT-SWAP": "BTC", "ETH-USDT-SWAP": "ETH", "SOL-USDT-SWAP": "SOL",
