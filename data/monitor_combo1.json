@@ -1,25 +1,41 @@
 {
   "strategy_id": "combo1",
   "capital": 10000.0,
-  "equity": 10000.0,
+  "equity": 9974.09,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-09-08 11:19:00",
-  "current_price": 2482.4,
+  "updated_at": "2026-09-08 11:21:14",
+  "current_price": 2469.11,
   "prices": {
-    "ETH-USDT-SWAP": 2482.4
+    "ETH-USDT-SWAP": 2469.11
   },
   "stats": {
-    "total_return": 0.0,
+    "total_return": -0.0026,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
-    "n_open": 0,
-    "cash": 10000.0,
-    "available": 10000.0,
-    "frozen": 0
+    "n_open": 1,
+    "cash": 9998.09,
+    "available": 9998.09,
+    "frozen": 5461.28
   },
-  "slots": [],
+  "slots": [
+    {
+      "slot": "C1",
+      "leg": "",
+      "inst": "ETH-USDT-SWAP",
+      "side": 1,
+      "qty": 2.20212196,
+      "entry": 2480.01,
+      "frac": 0.544,
+      "entry_ts": 1788710400000,
+      "leverage": 1,
+      "unrealized": -24.0,
+      "notional": 5461.28,
+      "margin": 5461.28,
+      "price": 2469.11
+    }
+  ],
   "snapshot": {
     "策略": "combo1·ETH日线三因子",
     "标的": "ETH-USDT-SWAP",
@@ -27,6 +43,24 @@
     "方向": "[-1,+1,+1] (w130/w140/w80)",
     "再平衡": "目标差>0.05才动, 空仓阈值0.05"
   },
-  "equity_curve": [],
-  "trades": []
+  "equity_curve": [
+    {
+      "time": "",
+      "equity": 9995.38
+    }
+  ],
+  "trades": [
+    {
+      "action": "OPEN",
+      "side": "LONG",
+      "inst": "ETH-USDT-SWAP",
+      "slot": "C1",
+      "time": "2026-09-07 00:00:00",
+      "price": 2480.01,
+      "qty": 2.202122,
+      "fee": 1.9115,
+      "pnl": null,
+      "reason": "combo1 开仓 +1 frac=0.54 S=0.54"
+    }
+  ]
 }
