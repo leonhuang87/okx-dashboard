@@ -1,16 +1,16 @@
 {
   "strategy_id": "combo1",
   "capital": 10000.0,
-  "equity": 9991.86,
+  "equity": 9998.15,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-09-08 15:31:39",
-  "current_price": 2469.11,
+  "updated_at": "2026-09-08 15:42:03",
+  "current_price": 2480.04,
   "prices": {
-    "ETH-USDT-SWAP": 2469.11
+    "ETH-USDT-SWAP": 2480.04
   },
   "stats": {
-    "total_return": -0.0008,
+    "total_return": -0.0002,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
@@ -30,10 +30,10 @@
       "frac": 0.544,
       "entry_ts": 1788710400000,
       "leverage": 1,
-      "unrealized": -6.23,
+      "unrealized": 0.07,
       "notional": 5461.28,
       "margin": 5461.28,
-      "price": 2477.18
+      "price": 2480.04
     }
   ],
   "snapshot": {
