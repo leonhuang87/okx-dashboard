@@ -1,23 +1,23 @@
 {
   "strategy_id": "combo1",
   "capital": 10000.0,
-  "equity": 10032.93,
+  "equity": 10034.19,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-09-08 23:58:06",
-  "current_price": 2469.11,
+  "updated_at": "2026-09-09 00:07:24",
+  "current_price": 2496.35,
   "prices": {
-    "ETH-USDT-SWAP": 2469.11
+    "ETH-USDT-SWAP": 2496.35
   },
   "stats": {
-    "total_return": 0.0033,
+    "total_return": 0.0034,
     "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
     "n_open": 1,
-    "cash": 9998.09,
-    "available": 9998.09,
-    "frozen": 5461.28
+    "cash": 10008.01,
+    "available": 10008.01,
+    "frozen": 3973.3
   },
   "slots": [
     {
@@ -25,15 +25,15 @@
       "leg": "",
       "inst": "ETH-USDT-SWAP",
       "side": 1,
-      "qty": 2.20212196,
+      "qty": 1.60212903,
       "entry": 2480.01,
-      "frac": 0.544,
+      "frac": 0.3987,
       "entry_ts": 1788710400000,
       "leverage": 1,
-      "unrealized": 34.84,
-      "notional": 5461.28,
-      "margin": 5461.28,
-      "price": 2495.83
+      "unrealized": 26.18,
+      "notional": 3973.3,
+      "margin": 3973.3,
+      "price": 2496.35
     }
   ],
   "snapshot": {
@@ -47,9 +47,25 @@
     {
       "time": "",
       "equity": 9995.38
+    },
+    {
+      "time": "2026-09-08 23:55:00",
+      "equity": 10035.9
     }
   ],
   "trades": [
+    {
+      "action": "REDUCE",
+      "side": "LONG",
+      "inst": "ETH-USDT-SWAP",
+      "slot": "C1",
+      "time": "2026-09-08 00:00:00",
+      "price": 2497.42,
+      "qty": 0.599993,
+      "fee": 0.5245,
+      "pnl": 9.92,
+      "reason": "combo1 resize +1 frac=0.40 S=0.40"
+    },
     {
       "action": "OPEN",
       "side": "LONG",
