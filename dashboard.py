@@ -55,11 +55,12 @@ h1, h2, h3, h4, .stCaption {{ color: {TC['text']} !important; }}
 """, unsafe_allow_html=True)
 
 STRATEGY_LABELS = {
-    "combo1": "combo1·ETH日线三因子",
+    "s0801": "S0801·ETH日线5因子",
+    "combo1": "combo1·ETH日线三因子",  # 旧生产保留备份
 }
 
 # Streamlit 只展示当前在用策略（ALL），旧 P5 面板不再显示
-ACTIVE_STRATEGY = "combo1"
+ACTIVE_STRATEGY = "s0801"
 
 ASSET_LABELS = {
     "BTC-USDT-SWAP": "BTC", "ETH-USDT-SWAP": "ETH", "SOL-USDT-SWAP": "SOL",
