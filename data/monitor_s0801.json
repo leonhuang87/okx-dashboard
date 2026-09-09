@@ -1,22 +1,22 @@
 {
   "strategy_id": "s0801",
   "capital": 10000.0,
-  "equity": 9969.56,
+  "equity": 10000.0,
   "leverage": 1,
   "demo_mode": true,
-  "updated_at": "2026-09-10 07:14:04",
-  "current_price": 2489.29,
+  "updated_at": "2026-09-10 07:24:21",
+  "current_price": 2461.01,
   "prices": {
-    "ETH-USDT-SWAP": 2489.29
+    "ETH-USDT-SWAP": 2461.01
   },
   "stats": {
-    "total_return": -0.003,
-    "n_trades": 1,
+    "total_return": 0.0,
+    "n_trades": 0,
     "win_rate": 0.0,
     "profit_factor": 0.0,
     "n_open": 0,
-    "cash": 9969.56,
-    "available": 9969.56,
+    "cash": 10000.0,
+    "available": 10000.0,
     "frozen": 0
   },
   "slots": [],
@@ -27,40 +27,6 @@
     "方向": "[+1,+1,+1,-1,-1] (w140vol/w35hl/w80logret/w95entropy/w95fft)",
     "再平衡": "目标差>0.05才动, 空仓阈值0.05"
   },
-  "equity_curve": [
-    {
-      "time": "2026-09-09 21:55:00",
-      "equity": 10001.5
-    },
-    {
-      "time": "2026-09-10 07:05:00",
-      "equity": 9992.45
-    }
-  ],
-  "trades": [
-    {
-      "action": "CLOSE",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "C1",
-      "time": "2026-09-09 00:00:00",
-      "price": 2459.3741,
-      "qty": 0.765207,
-      "fee": 0.6587,
-      "pnl": -29.77,
-      "reason": "s0801 信号近零(0.03)，空仓"
-    },
-    {
-      "action": "OPEN",
-      "side": "LONG",
-      "inst": "ETH-USDT-SWAP",
-      "slot": "C1",
-      "time": "2026-09-08 00:00:00",
-      "price": 2496.54,
-      "qty": 0.765207,
-      "fee": 0.6686,
-      "pnl": null,
-      "reason": "s0801 开仓 +1 frac=0.19 S=0.19"
-    }
-  ]
+  "equity_curve": [],
+  "trades": []
 }
