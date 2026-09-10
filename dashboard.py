@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""OKX 策略监控面板（Streamlit Cloud，2026-08-16 单策略 P5 版）。
+"""OKX 策略监控面板（Streamlit Cloud，单策略 S0801 版）。
 
 读取 data/monitor_{strategy_id}.json（本地程序每 10 分钟经 GitHub 推送）。
 单卡片：组合权益 + 策略快照 + 仓位槽表 + 净值曲线 + 最近交易。
@@ -56,10 +56,9 @@ h1, h2, h3, h4, .stCaption {{ color: {TC['text']} !important; }}
 
 STRATEGY_LABELS = {
     "s0801": "S0801·ETH日线5因子",
-    "combo1": "combo1·ETH日线三因子",  # 旧生产保留备份
 }
 
-# Streamlit 只展示当前在用策略（ALL），旧 P5 面板不再显示
+# Streamlit 只展示当前在用策略 S0801
 ACTIVE_STRATEGY = "s0801"
 
 ASSET_LABELS = {
@@ -120,7 +119,7 @@ def fmt_price(val):
 
 
 def render_card(data):
-    """渲染单策略卡片（P5：组合权益 + 仓位槽）。"""
+    """渲染单策略卡片（S0801：组合权益 + 仓位槽）。"""
     capital = data.get("capital", 10000)
     equity = data.get("equity", capital)
     trades = data.get("trades", [])

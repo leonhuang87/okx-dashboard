@@ -2,12 +2,12 @@
   "strategy_id": "s0801",
   "capital": 10000.0,
   "equity": 10000.0,
-  "leverage": 1,
+  "leverage": 1.0,
   "demo_mode": true,
-  "updated_at": "2026-09-10 12:47:36",
-  "current_price": 2476.15,
+  "updated_at": "2026-09-10 13:02:04",
+  "current_price": 2489.29,
   "prices": {
-    "ETH-USDT-SWAP": 2476.15
+    "ETH-USDT-SWAP": 2489.29
   },
   "stats": {
     "total_return": 0.0,
