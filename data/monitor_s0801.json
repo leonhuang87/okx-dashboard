@@ -4,10 +4,10 @@
   "equity": 9928.19,
   "leverage": 2.0,
   "demo_mode": true,
-  "updated_at": "2026-09-12 21:40:06",
-  "current_price": 2557.76,
+  "updated_at": "2026-09-12 21:50:14",
+  "current_price": 2537.88,
   "prices": {
-    "ETH-USDT-SWAP": 2557.76
+    "ETH-USDT-SWAP": 2537.88
   },
   "stats": {
     "total_return": -0.0072,
