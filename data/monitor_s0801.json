@@ -1,25 +1,42 @@
 {
   "strategy_id": "s0801",
   "capital": 10000.0,
-  "equity": 9939.31,
+  "equity": 9937.04,
   "leverage": 2.0,
   "demo_mode": true,
-  "updated_at": "2026-09-15 23:57:10",
-  "current_price": 2422.12,
+  "updated_at": "2026-09-16 00:07:23",
+  "current_price": 2420.97,
   "prices": {
-    "ETH-USDT-SWAP": 2422.12
+    "ETH-USDT-SWAP": 2420.97
   },
   "stats": {
-    "total_return": -0.0061,
+    "total_return": -0.0063,
     "n_trades": 2,
     "win_rate": 0.5,
     "profit_factor": 0.16,
-    "n_open": 0,
-    "cash": 9939.31,
-    "available": 9939.31,
-    "frozen": 0
+    "n_open": 1,
+    "cash": 9938.69,
+    "available": 9938.69,
+    "frozen": 882.16
   },
-  "slots": [],
+  "slots": [
+    {
+      "slot": "C1",
+      "leg": "",
+      "inst": "ETH-USDT-SWAP",
+      "side": 1,
+      "qty": 0.72808506,
+      "entry": 2423.24,
+      "frac": 0.0888,
+      "entry_ts": 1789401600000,
+      "leverage": 2.0,
+      "exchange_leverage": 2,
+      "unrealized": -1.65,
+      "notional": 1764.32,
+      "margin": 882.16,
+      "price": 2420.97
+    }
+  ],
   "snapshot": {
     "策略": "S0801·ETH日线5因子",
     "标的": "ETH-USDT-SWAP",
@@ -41,11 +58,23 @@
       "equity": 9927.31
     },
     {
-      "time": "2026-09-15 00:00:00",
-      "equity": 9938.12
+      "time": "2026-09-15 23:55:00",
+      "equity": 9937.81
     }
   ],
   "trades": [
+    {
+      "action": "OPEN",
+      "side": "LONG",
+      "inst": "ETH-USDT-SWAP",
+      "slot": "C1",
+      "time": "2026-09-15 00:00:00",
+      "price": 2423.24,
+      "qty": 0.728085,
+      "fee": 0.6175,
+      "pnl": null,
+      "reason": "s0801 开仓 +1 frac=0.09 S=0.09"
+    },
     {
       "action": "CLOSE",
       "side": "SHORT",
