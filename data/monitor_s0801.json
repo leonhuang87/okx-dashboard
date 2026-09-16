@@ -1,16 +1,16 @@
 {
   "strategy_id": "s0801",
   "capital": 10000.0,
-  "equity": 9919.67,
+  "equity": 9911.07,
   "leverage": 2.0,
   "demo_mode": true,
-  "updated_at": "2026-09-16 22:31:18",
-  "current_price": 2397.11,
+  "updated_at": "2026-09-16 22:41:28",
+  "current_price": 2385.3,
   "prices": {
-    "ETH-USDT-SWAP": 2397.11
+    "ETH-USDT-SWAP": 2385.3
   },
   "stats": {
-    "total_return": -0.008,
+    "total_return": -0.0089,
     "n_trades": 2,
     "win_rate": 0.5,
     "profit_factor": 0.16,
@@ -31,10 +31,10 @@
       "entry_ts": 1789401600000,
       "leverage": 2.0,
       "exchange_leverage": 2,
-      "unrealized": -19.02,
+      "unrealized": -27.62,
       "notional": 1764.32,
       "margin": 882.16,
-      "price": 2397.11
+      "price": 2385.3
     }
   ],
   "snapshot": {
